@@ -1,0 +1,72 @@
+# Ignore les fichiers générés par npm
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore les fichiers générés par les outils de développement
+/dist
+/.storybook
+/.cache
+/.vscode
+/.sass-cache
+
+# Ignore les fichiers de build
+/build
+/public
+
+# Ignore les fichiers de configuration spécifiques aux utilisateurs
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Ignore les fichiers de sauvegarde
+*.backup
+*.bak
+*.orig
+*~
+
+# Ignore les fichiers de configuration de l'environnement local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore les fichiers de log
+*.log
+
+# Ignore les fichiers de données
+*.sqlite3
+*.db
+*.csv
+
+# Ignore les fichiers de cache
+*.cache
+
+# Ignore les fichiers d'archive
+*.zip
+*.rar
+
+# Ignore les fichiers de documentation
+/docs
+
+# Ignore les fichiers de sauvegarde de source
+.svn
+
+# Ignore les fichiers de dépendances spécifiques à l'utilisateur
+.pnpm-store
+.pnpm-workspace.yaml
+
+# Ignore les fichiers d'installation locale
+/.yalc
+.yarn/
+
+# Ignore les fichiers de dépendances installées par pnpm
+/node_modules/.pnpm
+/pnpm-lock.yaml
+/shrinkwrap.yaml
+
+# Ignore les fichiers de dépendances installées par yarn
+yarn.lock

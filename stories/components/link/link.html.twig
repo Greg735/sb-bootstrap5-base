@@ -1,0 +1,15 @@
+{% set target = target ? target : '_self' %}
+
+<a 
+  href="{{ link_url }}" 
+  class="
+    link 
+    {{ type ? 'link-' ~ type : 'link-primary' }}
+    {{ disabled ? 'disabled' : null }}
+  " 
+  title="{{ link_title}}"
+  target="{{ target }}"
+  {{ disabled ? 'aria-disabled="true"' : null }}
+  >
+    {{- label -}}
+</a>

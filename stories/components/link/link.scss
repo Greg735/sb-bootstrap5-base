@@ -1,0 +1,12 @@
+.link {
+
+    // It seems that Bootstrap doesn't support disabled links. Instead of trying to add a Bootstrap class, this is a class from ourself.
+    &.disabled {
+        /* Make the disabled links grayish*/
+        color: gray !important;
+        text-decoration-color: gray !important;
+        /* And disable the pointer events */
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+}

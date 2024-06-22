@@ -17,6 +17,22 @@ Twig.extendFunction('custom', customFilter);
 
 const preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Documentation',
+          ['Introduction', 'Installation', 'Theme Setup', 'Theme Usage', '*'],
+          'Foundations',
+          'Utilities',
+          'Sections',
+          ['Content'],
+          'Components',
+          ['Alert', 'Badge', 'Button', 'Link', 'Card', 'Tabs', '*'],
+          'Recipes',
+          'Examples',
+        ],
+      },
+    },
     viewport: {
       viewports: {
         ...INITIAL_VIEWPORTS,

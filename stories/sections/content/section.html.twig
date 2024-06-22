@@ -1,0 +1,9 @@
+{# section.twig #}
+<section class="{{ class }}">
+  {% if title %}
+    <h2>{{ title }}</h2>
+  {% endif %}
+  <div class="content">
+    {{ content | raw }}
+  </div>
+</section>

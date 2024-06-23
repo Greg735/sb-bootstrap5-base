@@ -8,6 +8,8 @@ const postcss = require('gulp-postcss')
 const sass = require('gulp-sass')(require('sass'))
 const replace = require('gulp-replace')
 const rename = require('gulp-rename')
+const tildeImporter = require('node-sass-tilde-importer');
+
 
 // Start configuration.
 var config = {}
@@ -30,8 +32,8 @@ config.public = {
 	img: 'public/img/*',
 }
 config.dist = {
-	all: './dist/*/',
-	css: './dist/css',
+	all: 'dist/*/',
+	css: 'dist/css',
 	js: 'dist/js',
 	twig: 'dist/twig',
 	img: 'dist/img',
@@ -48,16 +50,19 @@ const cleanDist = (done) => {
 // Compile all scss to css and minify.
 const compileStyles = (done) => {
 	src(config.stylesMain)
-		.pipe(sass())
+        .pipe(sass({
+            importer: tildeImporter
+          }).on("error", sass.logError))
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(concat('style.css'))
 		.pipe(dest(config.public.css))
-		// .pipe(dest(config.dist.css))
-		// .pipe(postcss([autoprefixer(), cssnano()]))
-		// .pipe(
-		// 	rename({
-		// 		extname: '.min.css',
-		// 	})
-		// )
-		// .pipe(dest(config.dist.css))
+		.pipe(dest(config.dist.css))
+		.pipe(
+			rename({
+				extname: '.min.css',
+			})
+		)
+		.pipe(dest(config.dist.css))
 	done()
 }
 

@@ -1,4 +1,4 @@
-import './_section.scss';
+// import './_section.scss';
 
 import sectionTemplate from './section.html.twig';
 import sectionDocs from '!!raw-loader!./section.docs.mdx';

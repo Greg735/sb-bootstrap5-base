@@ -1,5 +1,5 @@
 
-import './alert.scss';
+// import './_alert.scss';
 import alertTemplate from './alert.html.twig';
 import AlertDocs from '!!raw-loader!./alert.docs.mdx';
 import AlertSource from '!!raw-loader!./alert.html.twig';

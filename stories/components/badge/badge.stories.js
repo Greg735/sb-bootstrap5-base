@@ -1,6 +1,3 @@
-// src/components/badge/badge.stories.js
-
-import './badge.scss';
 import badgeTemplate from './badge.html.twig';
 import BadgeSource from '!!raw-loader!./badge.html.twig';
 import BadgeDocs from '!!raw-loader!./badge.docs.mdx';
@@ -23,7 +20,7 @@ export default {
     label: { control: 'text' },
     type: {
       control: { type: 'select'}, 
-      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] 
+      options: ['blue', 'gray', 'green', 'red', 'orange', 'cyan', 'light', 'dark', 'white', 'black'] 
     },
     pill: {
       control: 'boolean'
@@ -33,45 +30,45 @@ export default {
 
 const Template = (args) => badgeTemplate(args);
 
-export const Primary = Template.bind({});
-Primary.args = {
-  label: 'Primary Badge',
-  type: 'primary',
+export const Blue = Template.bind({});
+Blue.args = {
+  label: 'Blue Badge',
+  type: 'blue',
   pill: false,
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Secondary Badge',
-  type: 'secondary',
+export const Gray = Template.bind({});
+Gray.args = {
+  label: 'Gray Badge',
+  type: 'gray',
   pill: false,
 };
 
-export const Success = Template.bind({});
-Success.args = {
-  label: 'Success Badge',
-  type: 'success',
+export const Green = Template.bind({});
+Green.args = {
+  label: 'Green Badge',
+  type: 'green',
   pill: false,
 };
 
-export const Danger = Template.bind({});
-Danger.args = {
-  label: 'Danger Badge',
-  type: 'danger',
+export const Red = Template.bind({});
+Red.args = {
+  label: 'Red Badge',
+  type: 'red',
   pill: false,
 };
 
-export const Warning = Template.bind({});
-Warning.args = {
-  label: 'Warning Badge',
-  type: 'warning',
+export const Orange = Template.bind({});
+Orange.args = {
+  label: 'Orange Badge',
+  type: 'orange',
   pill: false,
 };
 
-export const Info = Template.bind({});
-Info.args = {
-  label: 'Info Badge',
-  type: 'info',
+export const Cyan = Template.bind({});
+Cyan.args = {
+  label: 'Cyan Badge',
+  type: 'cyan',
   pill: false,
 };
 

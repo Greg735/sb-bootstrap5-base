@@ -1,6 +1,3 @@
-// src/components/button/button.stories.js
-
-import './button.scss';
 import buttonTemplate from './button.html.twig';
 import ButtonSource from '!!raw-loader!./button.html.twig';
 

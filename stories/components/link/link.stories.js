@@ -1,5 +1,4 @@
 
-import './link.scss';
 import linkTemplate from './link.html.twig';
 
 export default {

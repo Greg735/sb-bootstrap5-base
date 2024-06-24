@@ -1,0 +1,14 @@
+<div class="container">
+<div class="row">
+	{% for color in colors %}
+		<div class="{{ columns }}">
+
+			<div class="shadow rounded" style="overflow:hidden;background:var(--{{ color }}); border: 1px solid #ddd;padding: 5rem 0 0 0; margin-bottom:0.5rem; position:relative;">
+                <div class="shadow" style="padding:0.1rem; background-color:var(--bs-white);font-family:sans-serif; font-size: 0.875rem; line-height: 1.2; text-align:center; margin-top: 8px;">
+                    {{ color }}
+                </div>
+            </div>
+
+		</div>
+	{% endfor %}
+</div></div>

@@ -13,14 +13,10 @@ const tildeImporter = require('node-sass-tilde-importer');
 
 // Start configuration.
 var config = {}
-// config.foundations = {
-// 	scss: 'stories/foundations/**/_*.scss',
-// 	js: 'stories/foundations/**/*.behaviors.js',
-// }
-// config.utilities = {
-// 	scss: 'stories/utilities/**/_*.scss',
-// 	js: 'stories/utilities/**/*.behaviors.js',
-// }
+config.foundations = {
+	scss: 'stories/foundations/**/_*.scss',
+	js: 'stories/foundations/**/*.behaviors.js',
+}
 config.components = {
 	scss: 'stories/components/**/_*.scss',
 	js: 'stories/components/**/*.behaviors.js',
@@ -53,9 +49,9 @@ const compileStyles = (done) => {
         .pipe(sass({
             importer: tildeImporter
           }).on("error", sass.logError))
-        .pipe(postcss([autoprefixer(), cssnano()]))
         .pipe(concat('style.css'))
 		.pipe(dest(config.public.css))
+        .pipe(postcss([autoprefixer(), cssnano()]))
 		.pipe(dest(config.dist.css))
 		.pipe(
 			rename({

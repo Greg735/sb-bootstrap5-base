@@ -52,8 +52,8 @@ const Template = (args) => sectionTemplate(args);
 export const Example = Template.bind({});
 Example.args = {
   class: "p-5 bg-light text-bg-light",
-  title: 'My section title!',
-  content: '<div class="row"><div class="col-md-6 align-self-center">   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>    </div>    <div class="col-md-6">      <img src="https://picsum.photos/seed/picsum/600/400" class="img-fluid rounded shadow" alt="Descriptive Alt Text"></div></div>',
+  title: 'My section title',
+  content: '<div class="row"><div class="col-md-6 align-self-center">   <p>Lorem ipsum dolor sit <a href="#">amet</a>, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>    </div>    <div class="col-md-6">      <img src="https://picsum.photos/seed/picsum/600/400" class="img-fluid rounded shadow" alt="Descriptive Alt Text"></div></div>',
 };
 Example.parameters = {
 	docs: {

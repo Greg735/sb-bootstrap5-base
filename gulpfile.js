@@ -68,7 +68,6 @@ const watchStyles = () => {
 		[
 			config.stylesMain,
 			config.foundations.scss,
-			config.utilities.scss,
 			config.components.scss,
 		],
 		compileStyles
@@ -117,6 +116,7 @@ exports.default = series(
 	cleanDist,
 	compileStyles,
 	//  compileJs,
-	// collectTwig,
+	collectTwig,
 	// parallel(watchStyles, watchJs, watchTwig)
+	parallel(watchStyles)
 )

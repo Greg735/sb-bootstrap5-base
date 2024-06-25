@@ -10,11 +10,16 @@ export default {
     link_title: { control: 'text' },
     type: {
       control: { type: 'select'}, 
-      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] 
+      options: ['primary', 'secondary', 'blue', 'indigo', 'purple', 'yellow', 'teal', 'pink', 'gray', 'green', 'red', 'orange', 'cyan', 'light', 'dark', 'white', 'black'] 
     },
     target: {
       control: { type: 'select' }, 
       options: ['_self', '_blank'] 
+    },
+    button: { control: 'boolean' },
+    button_size: {
+      control: { type: 'select'}, 
+      options: ['sm', 'default', 'lg'] 
     },
     disabled: { control: 'boolean' }
   },
@@ -22,15 +27,35 @@ export default {
 
 const Template = (args) => linkTemplate(args);
 
-export const Primary = Template.bind({});
-Primary.args = {
-  label: 'Primary link',
+export const Link = Template.bind({});
+Link.args = {
+  label: 'Main link color',
   link_url: 'https://example.com',
   type: 'primary',
   link_title: 'Primary link title',
   target: '_self',
   disabled: false,
+  button: false,
+  button_size: 'default',
 };
+
+export const Button = Template.bind({});
+Button.args = {
+  ...Link.args,
+  label: 'Primary link as button',
+  type: 'purple',
+  link_title: 'Link title',
+  target: '_self',
+  button: true,
+  button_size: 'default',
+};
+
+export const ButtonLG = Template.bind({});
+ButtonLG.args = {
+  ...Button.args,
+  button_size: 'lg',
+};
+
 
 // export const Secondary = Template.bind({});
 // Secondary.args = {

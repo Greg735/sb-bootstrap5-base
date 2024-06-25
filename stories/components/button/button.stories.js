@@ -15,7 +15,7 @@ export default {
     label: { control: 'text' },
     type: {
       control: { type: 'select'}, 
-      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'link'] 
+      options: ['primary', 'secondary', 'blue', 'gray', 'green', 'red', 'orange', 'cyan', 'light', 'dark', 'white', 'black'] 
     },
     size: {
       control: { type: 'select'}, 
@@ -33,6 +33,7 @@ export default {
   },
 };
 
+
 const Template = (args) => buttonTemplate(args);
 
 export const Primary = Template.bind({});
@@ -45,51 +46,80 @@ Primary.args = {
   full_width: false,
 };
 
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   label: 'Secondary button',
-//   type: 'secondary',
-//   pill: false,
-// };
+export const Secondary = Template.bind({});
+Secondary.args = {
+  ...Primary.args,
+  label: 'Secondary button',
+  type: 'secondary',
+};
 
-// export const Success = Template.bind({});
-// Success.args = {
-//   label: 'Success button',
-//   type: 'success',
-//   pill: false,
-// };
+export const Blue = Template.bind({});
+Blue.args = {
+  ...Primary.args,
+  label: 'Blue button',
+  type: 'blue',
+};
 
-// export const Danger = Template.bind({});
-// Danger.args = {
-//   label: 'Danger button',
-//   type: 'danger',
-//   pill: false,
-// };
+export const Gray = Template.bind({});
+Gray.args = {
+  ...Primary.args,
+  label: 'Gray button',
+  type: 'gray',
+};
 
-// export const Warning = Template.bind({});
-// Warning.args = {
-//   label: 'Warning button',
-//   type: 'warning',
-//   pill: false,
-// };
+export const Green = Template.bind({});
+Green.args = {
+  ...Primary.args,
+  label: 'Green button',
+  type: 'green',
+};
 
-// export const Info = Template.bind({});
-// Info.args = {
-//   label: 'Info button',
-//   type: 'info',
-//   pill: false,
-// };
+export const Red = Template.bind({});
+Red.args = {
+  ...Primary.args,
+  label: 'Red button',
+  type: 'red',
+};
 
-// export const Light = Template.bind({});
-// Light.args = {
-//   label: 'Light button',
-//   type: 'light',
-//   pill: false,
-// };
+export const Orange = Template.bind({});
+Orange.args = {
+  ...Primary.args,
+  label: 'Orange button',
+  type: 'orange',
+};
 
-// export const Dark = Template.bind({});
-// Dark.args = {
-//   label: 'Dark button',
-//   type: 'dark',
-//   pill: false,
-// };
+export const Cyan = Template.bind({});
+Cyan.args = {
+  ...Primary.args,
+  label: 'Cyan button',
+  type: 'cyan',
+};
+
+
+export const Light = Template.bind({});
+Light.args = {
+  ...Primary.args,
+  label: 'Light button',
+  type: 'light',
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+  ...Primary.args,
+  label: 'Dark button',
+  type: 'dark',
+};
+
+export const White = Template.bind({});
+White.args = {
+  ...Primary.args,
+  label: 'White button',
+  type: 'white',
+};
+
+export const Black = Template.bind({});
+Black.args = {
+  ...Primary.args,
+  label: 'Black button',
+  type: 'black',
+};

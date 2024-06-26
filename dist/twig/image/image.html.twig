@@ -1,0 +1,16 @@
+{% set thumbnail = thumbnail ? 'img-thumbnail' : '' %}
+
+{% set rounded = rounded ? 'rounded' : '' %}
+
+{% set shadow = shadow ? 'shadow' : '' %}
+
+<img 
+  src="{{ src }}"
+  alt="{{ alt }}"
+  title="{{ title }}"
+  class="
+  {{ thumbnail }}
+  {{ rounded }}
+  {{ shadow }}
+  "
+  />

@@ -13130,6 +13130,15 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.link.disabled {
+  /* Make the disabled links grayish*/
+  color: gray !important;
+  text-decoration-color: gray !important;
+  /* And disable the pointer events */
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 section h2 {
   font-size: 3em;
 }

@@ -12,10 +12,11 @@ const config = {
     // '@storybook/addon-viewport',
     // '@storybook/addon-themes',
     'storybook-source-code-addon',
+    // '@chromatic-com/storybook'
   ],
   docs: {
-    autodocs: true, // see below for alternatives
-    defaultName: "Docs", // set to change the name of generated docs entries
+    // set to change the name of generated docs entries
+    defaultName: "Docs"
   },
   framework: {
     name: "@storybook/html-webpack5",

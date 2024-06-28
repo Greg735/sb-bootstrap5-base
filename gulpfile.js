@@ -8,7 +8,8 @@ const postcss = require('gulp-postcss')
 const sass = require('gulp-sass')(require('sass'))
 const replace = require('gulp-replace')
 const rename = require('gulp-rename')
-const tildeImporter = require('node-sass-tilde-importer');
+const tildeImporter = require('node-sass-tilde-importer')
+const sassGlob = require('gulp-sass-glob')
 
 
 // Start configuration.
@@ -22,7 +23,7 @@ config.components = {
 	js: 'stories/components/**/*.behaviors.js',
 	twig: ['stories/components/**/*.twig', '!stories/components/**/*.local.twig'],
 }
-config.stylesMain = './stories/main.scss'
+config.stylesMain = 'stories/main.scss'
 config.public = {
 	css: 'public/css',
 	img: 'public/img/*',
@@ -46,7 +47,8 @@ const cleanDist = (done) => {
 // Compile all scss to css and minify.
 const compileStyles = (done) => {
 	src(config.stylesMain)
-        .pipe(sass({
+		.pipe(sassGlob())
+		.pipe(sass({
             importer: tildeImporter
           }).on("error", sass.logError))
         .pipe(concat('style.css'))

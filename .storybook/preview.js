@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Twig from 'twig';
 import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 import '../public/css/style.css'
+import sectionPrefooterStories from '../stories/components/section-prefooter/section-prefooter.stories';
 
 
 // Exemple de filtre personnalisé
@@ -26,7 +27,7 @@ const preview = {
           'Sections',
           ['Content'],
           'Components',
-          ['Alert', 'Badge', 'Button', 'Link', 'Card', 'Tabs', '*'],
+          ['Alert', 'Badge', 'Button', 'Link', 'Card', 'Tabs', 'Section', ['Section', '*'], '*'],
           'Recipes',
           'Examples',
         ],

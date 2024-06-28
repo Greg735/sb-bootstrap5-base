@@ -13139,10 +13139,10 @@ textarea.form-control-lg {
   cursor: not-allowed;
 }
 
-section h2 {
+.section--prefooter h2 {
   font-size: 3em;
 }
-section .waves {
+.section--prefooter .waves {
   position: relative;
   width: 100%;
   height: 16vh;
@@ -13151,35 +13151,35 @@ section .waves {
   max-height: 100px;
 }
 @media (max-width: 767.98px) {
-  section .waves {
+  .section--prefooter .waves {
     height: 40px;
     min-height: 40px;
   }
 }
-section .waves .moving-waves > use {
+.section--prefooter .waves .moving-waves > use {
   animation: wave 40s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
-section .waves .moving-waves > use:first-child {
+.section--prefooter .waves .moving-waves > use:first-child {
   animation-delay: -2s;
   animation-duration: 11s;
 }
-section .waves .moving-waves > use:nth-child(2) {
+.section--prefooter .waves .moving-waves > use:nth-child(2) {
   animation-delay: -4s;
   animation-duration: 13s;
 }
-section .waves .moving-waves > use:nth-child(3) {
+.section--prefooter .waves .moving-waves > use:nth-child(3) {
   animation-delay: -3s;
   animation-duration: 15s;
 }
-section .waves .moving-waves > use:nth-child(4) {
+.section--prefooter .waves .moving-waves > use:nth-child(4) {
   animation-delay: -4s;
   animation-duration: 20s;
 }
-section .waves .moving-waves > use:nth-child(5) {
+.section--prefooter .waves .moving-waves > use:nth-child(5) {
   animation-delay: -4s;
   animation-duration: 25s;
 }
-section .waves .moving-waves > use:nth-child(6) {
+.section--prefooter .waves .moving-waves > use:nth-child(6) {
   animation-delay: -3s;
   animation-duration: 30s;
 }

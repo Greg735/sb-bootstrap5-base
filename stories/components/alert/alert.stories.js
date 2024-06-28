@@ -20,7 +20,6 @@ export default {
       },
     },
 	},
-  tags: ['autodocs'],
   args: {
   },
   argTypes: {

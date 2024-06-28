@@ -100,7 +100,7 @@ highlightWarning.args = {
 };
 
 export const highlightWarningSubtle = Template.bind({});
-highlightDangerSubtle.args = {
-  ...highlightDanger.args,
+highlightWarningSubtle.args = {
+  ...highlightWarning.args,
   subtle: true,
 };

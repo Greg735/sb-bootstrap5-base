@@ -73,7 +73,7 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Image title',
   alt: 'Image alternative text',
-  src: 'https://picsum.photos/640/480',
+  src: 'https://picsum.photos/id/32/640/480',
   shadow: false,
   thumbnail: false,
   rounded: false,

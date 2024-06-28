@@ -5,9 +5,13 @@
 {% set shadow = shadow ? 'shadow' : '' %}
 
 <img 
+  {# style="  aspect-ratio: 3 / 2;"  #}
+  loading="lazy"
   src="{{ src }}"
   alt="{{ alt }}"
   title="{{ title }}"
+  {# width="640"
+  height="480" #}
   class="
   img-fluid
   {{ thumbnail }}

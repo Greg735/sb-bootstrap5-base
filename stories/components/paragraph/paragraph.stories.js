@@ -19,7 +19,6 @@ export default {
       },
     },
 	},
-  tags: ['autodocs'],
   args: {
   },
   argTypes: {
@@ -87,6 +86,20 @@ highlightDanger.args = {
 };
 
 export const highlightDangerSubtle = Template.bind({});
+highlightDangerSubtle.args = {
+  ...highlightDanger.args,
+  subtle: true,
+};
+
+export const highlightWarning = Template.bind({});
+highlightWarning.args = {
+  ...Default.args,
+  highlight: true,
+  type: 'warning',
+  subtle: false,
+};
+
+export const highlightWarningSubtle = Template.bind({});
 highlightDangerSubtle.args = {
   ...highlightDanger.args,
   subtle: true,

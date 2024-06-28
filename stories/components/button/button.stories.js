@@ -3,7 +3,7 @@ import ButtonSource from '!!raw-loader!./button.html.twig';
 
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Button/Button',
   parameters: {
     componentSource: {
       code: ButtonSource,

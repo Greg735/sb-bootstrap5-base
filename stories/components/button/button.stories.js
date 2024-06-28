@@ -13,12 +13,19 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     label: { control: 'text' },
+    type_attr: {
+      control: { type: 'radio'}, 
+      options: ['button', 'submit', 'reset'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: "button" },
+      },    },
     type: {
       control: { type: 'select'}, 
       options: ['primary', 'secondary', 'blue', 'gray', 'green', 'red', 'orange', 'cyan', 'light', 'dark', 'white', 'black'] 
     },
     size: {
-      control: { type: 'select'}, 
+      control: { type: 'radio'}, 
       options: ['sm', 'default', 'lg'] 
     },
     outlined: {
@@ -39,6 +46,7 @@ const Template = (args) => buttonTemplate(args);
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Primary button',
+  type_attr: 'button',
   type: 'primary',
   size: 'default',
   outlined: false,

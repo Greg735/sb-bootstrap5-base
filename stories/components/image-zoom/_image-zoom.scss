@@ -1,0 +1,12 @@
+.image-zoom {
+    overflow: hidden;
+    position: relative;
+
+    img {
+        @include transition(all .6s ease-in-out 0s!important);
+    
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

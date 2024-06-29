@@ -1,17 +1,18 @@
 {% set thumbnail = thumbnail ? 'img-thumbnail' : '' %}
-
 {% set rounded = rounded ? 'rounded' : '' %}
-
 {% set shadow = shadow ? 'shadow' : '' %}
 
+{% set width = width|default('1920') %}
+{% set height = height|default('1080') %}
+
+
 <img 
-  {# style="  aspect-ratio: 3 / 2;"  #}
   loading="lazy"
   src="{{ src }}"
   alt="{{ alt }}"
   title="{{ title }}"
-  {# width="640"
-  height="480" #}
+  width="{{ width }}"
+  height="{{ height }}"
   class="
   img-fluid
   {{ thumbnail }}

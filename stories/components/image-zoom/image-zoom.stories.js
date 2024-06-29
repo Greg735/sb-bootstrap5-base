@@ -1,22 +1,22 @@
 
 // import './_alert.scss';
-import ImageTemplate from './image.html.twig';
-import ImageDocs from '!!raw-loader!./image.docs.mdx';
-import ImageSource from '!!raw-loader!./image.html.twig';
+import ImageZoomTemplate from './image-zoom.html.twig';
+import ImageZoomDocs from '!!raw-loader!./image-zoom.docs.mdx';
+import ImageZoomSource from '!!raw-loader!./image-zoom.html.twig';
 
 
 export default {
-  title: 'Components/Image',
+  title: 'Components/Image/Image Zoom',
 	parameters: {
 		componentSubtitle:
      '',
     componentSource: {
-      code: ImageSource,
+      code: ImageZoomSource,
       language: 'twig',
     },
     docs: {
       description: {
-        component: ImageDocs,
+        component: ImageZoomDocs,
       },
     },
 	},
@@ -49,7 +49,7 @@ export default {
       },
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: 640 },
+        defaultValue: { summary: 1920 },
       }
     },
     height: { 
@@ -59,45 +59,21 @@ export default {
       },
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: 480 },
+        defaultValue: { summary: 1080 },
       }
     },
-    shadow: { 
-      control: 'boolean',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      }
-    },
-    thumbnail: { 
-      control: 'boolean',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      }
-     },
-     rounded: { 
-      control: 'boolean',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      }
-     }
   },
 };
 
-const Template = (args) => ImageTemplate(args);
+const Template = (args) => ImageZoomTemplate(args);
 
 
 export const Default = Template.bind({});
 Default.args = {
   title: 'Image title',
   alt: 'Image alternative text',
-  src: 'https://picsum.photos/id/32/640/480',
-  shadow: false,
-  thumbnail: false,
-  rounded: false,
-  width: 640,
-  height: 480,
+  src: 'https://picsum.photos/id/391/1920/1080',
+  width: 1920,
+  height: 1080,
 };
 

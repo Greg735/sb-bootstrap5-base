@@ -21,7 +21,7 @@ config.foundations = {
 config.components = {
 	scss: 'stories/components/**/_*.scss',
 	js: 'stories/components/**/*.behaviors.js',
-	twig: ['stories/components/**/*.twig', '!stories/components/**/*.local.twig'],
+	twig: ['stories/components/**/*.html.twig', '!stories/components/**/*.local.twig'],
 }
 config.stylesMain = 'stories/main.scss'
 config.public = {

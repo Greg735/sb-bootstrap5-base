@@ -1,5 +1,6 @@
 import buttonTemplate from './button.html.twig';
 import ButtonSource from '!!raw-loader!./button.html.twig';
+import {constants} from '../_constants';
 
 
 export default {
@@ -10,23 +11,39 @@ export default {
       language: 'twig',
     },
   },
-  tags: ['autodocs'],
   argTypes: {
     label: { control: 'text' },
     type_attr: {
       control: { type: 'radio'}, 
-      options: ['button', 'submit', 'reset'],
+      options: constants.button.type,
+      description: '**options**',
       table: {
-        type: { summary: 'string' },
+        type: { 
+          summary: constants.button.type.map(option => `'${option}'`).join('|')
+        },
         defaultValue: { summary: "button" },
-      },    },
+      },    
+    },
     type: {
       control: { type: 'select'}, 
-      options: ['primary', 'secondary', 'blue', 'gray', 'green', 'red', 'orange', 'cyan', 'light', 'dark', 'white', 'black'] 
+      options: constants.colors.theme.options,
+      description: '**options**',
+      table: {
+        type: { 
+          summary: constants.colors.theme.options.map(option => `'${option}'`).join('|')
+        },
+        defaultValue: { summary: "primary" },
+      },    
     },
     size: {
-      control: { type: 'radio'}, 
-      options: ['sm', 'default', 'lg'] 
+      description: '**options**',
+      control: { type: 'radio'},
+      options: constants.sizes.options,
+      table: {
+          type: {
+            summary: constants.sizes.options.map(option => `'${option}'`).join('|')
+          }
+      },
     },
     outlined: {
       control: { type: 'boolean' }

@@ -3,13 +3,13 @@
 import alertTemplate from './alert.html.twig';
 import AlertDocs from '!!raw-loader!./alert.docs.mdx';
 import AlertSource from '!!raw-loader!./alert.html.twig';
+import {constants} from '../_constants';
 
 
 export default {
   title: 'Components/Alert',
 	parameters: {
-		componentSubtitle:
-     'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.',
+		componentSubtitle: '',
     componentSource: {
       code: AlertSource,
       language: 'twig',
@@ -31,13 +31,20 @@ export default {
       }
     },
     type: {
-      control: { type: 'select'},
+      control: { 
+        type: 'select'
+      },
       defaultValue: "primary", 
-      options: ['success', 'danger', 'warning', 'info'],
+      options: constants.colors.actions.options,
+      description: '**Options**',
       table: {
-        require: "true",
-        type: { summary: 'string' },
-        defaultValue: { summary: "info" },
+        require: "false",
+        type: { 
+          summary: constants.colors.actions.options.map(option => `'${option}'`).join('|')
+        },
+        defaultValue: { 
+          summary: "info" 
+        },
       },
     },
     dismissible: { 
@@ -86,7 +93,6 @@ Warning.args = {
   ...Info.args,
   type: 'warning',
 };
-
 
 export const InfoDismissible = Template.bind({});
 InfoDismissible.args = {

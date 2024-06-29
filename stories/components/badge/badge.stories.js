@@ -1,6 +1,7 @@
 import badgeTemplate from './badge.html.twig';
 import BadgeSource from '!!raw-loader!./badge.html.twig';
 import BadgeDocs from '!!raw-loader!./badge.docs.mdx';
+import {constants} from '../_constants';
 
 export default {
   title: 'Components/Badge',
@@ -15,12 +16,21 @@ export default {
       },
     },
   },
-  tags: ['autodocs'],
   argTypes: {
     label: { control: 'text' },
     type: {
       control: { type: 'select'}, 
-      options: ['primary', 'secondary', 'blue', 'indigo', 'purple', 'yellow', 'teal', 'pink', 'gray', 'green', 'red', 'orange', 'cyan', 'light', 'dark', 'white', 'black'] 
+      options: constants.colors.theme.options,
+      description: '**options**',
+      table: {
+        require: "false",
+        type: { 
+          summary: constants.colors.theme.options.map(option => `'${option}'`).join('|')
+        },
+        defaultValue: { 
+          summary: "primary" 
+        },
+      },
     },
     pill: {
       control: 'boolean'

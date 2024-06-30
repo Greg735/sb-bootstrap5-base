@@ -2,7 +2,6 @@ import sectionTemplate from './sections.example.html.twig';
 import sectionsDocs from '!!raw-loader!./sections.docs.mdx';
 import sectionSource from '!!raw-loader!./sections.example.html.twig';
 
-
 export default {
   title: 'Foundations/Sections',
 	parameters: {
@@ -62,3 +61,4 @@ Example.parameters = {
     }
 	},
 }
+

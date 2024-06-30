@@ -1,36 +1,114 @@
-section {
-    &.section-photo {
+.section {
+    &--fade-photo {
         position: relative;
         width: 100%;
         height: auto;
-        background: url('https://picsum.photos/id/122/1920/1080') center/cover no-repeat;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
+        // background-position-x: center;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         overflow: hidden; 
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+            animation: fadeBackground 1s infinite alternate;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeBackground {
+            0% { background: rgba(0, 0, 0, 0.9); }
+            100% { background: rgba(0, 0, 0, 0.6); }
+        }
     }
     
-    &.section-photo::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
-        animation: fadeBackground 1s infinite alternate;
+    
+    &--linear-primary {
+        background: linear-gradient(-45deg, var(--bs-orange), var(--bs-purple), var(--bs-blue), var(--bs-green));
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
     }
     
-    @keyframes fadeBackground {
-        0% { background: rgba(0, 0, 0, 0.9); }
-        100% { background: rgba(0, 0, 0, 0.6); }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
-    
-    .container {
+
+    &--photo {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &--with-particles {
         position: relative;
-        z-index: 1;
+        overflow: hidden;
+        .container {
+            z-index: 10;
+            position: relative;
+        }
+        .particles {
+    
+            $particleSize: 20vmin;
+            $animationDuration: 10s;
+            $amount: 20;
+            
+            .particle {
+                z-index: 1;
+                width: $particleSize;
+                height: $particleSize;
+                border-radius: $particleSize;
+                backface-visibility: hidden;
+                position: absolute;
+                animation-name: move;
+                animation-duration: $animationDuration;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                $colors: (
+                    #583C87,
+                    #E45A84,
+                    #FFACAC
+                );
+                @for $i from 1 through $amount {
+                    &:nth-child(#{$i}) {
+                        color: nth($colors, random(length($colors)));
+                        top: random(100) * 1%;
+                        left: random(100) * 1%;
+                        animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+                        animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+                        transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+                        $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+                        $x: if(random() > 0.5, -1, 1);
+                        box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+                    }
+                }
+            }
+
+            @keyframes move {
+                100% {
+                    transform: translate3d(0, 0, 1px) rotate(360deg);
+                }
+            }
+        }
     }
+
 }
 
 

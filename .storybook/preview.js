@@ -4,15 +4,18 @@ import Twig from 'twig';
 import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 import '../public/css/style.css'
 
+// Configure for use with Twig.
+const { addDrupalExtensions } = require('drupal-twig-extensions/twig')
+addDrupalExtensions(Twig)
 
-// Exemple de filtre personnalisé
-const customFilter = (value) => {
-  // Transforme la valeur (par exemple, mettre en majuscules)
-  return value.toUpperCase();
-};
-// Ajout du filtre personnalisé à Twig
-Twig.extendFilter('custom', customFilter);
-Twig.extendFunction('custom', customFilter);
+// // Exemple de filtre personnalisé
+// const customFilter = (value) => {
+//   // Transforme la valeur (par exemple, mettre en majuscules)
+//   return value.toUpperCase();
+// };
+// // Ajout du filtre personnalisé à Twig
+// Twig.extendFilter('custom', customFilter);
+// Twig.extendFunction('custom', customFilter);
 
 const preview = {
   parameters: {

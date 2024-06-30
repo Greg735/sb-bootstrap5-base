@@ -1,5 +1,15 @@
 {# section.twig #}
-<section class="{{ class }}">
+
+{% set background_image = background_image ? ' style="background-image:url(\'' ~ background_image ~'\')" ' : null %}
+
+<section class="{{ class }}" {{ background_image }}>
+{% if 'section--with-particles' in class %}
+  <div class="particles">
+    {% for i in 1..20 %}
+      <span class="particle"></span>
+    {% endfor %}
+{% endif %}
+
   <div class="container">
   {% if heading %}
     <div class="row mb-3">
@@ -12,4 +22,9 @@
       {{ content }}
     </div>
   </div>
+
+{% if 'section--with-particles' in class %}
+  </div>
+{% endif %}
+
 </section>

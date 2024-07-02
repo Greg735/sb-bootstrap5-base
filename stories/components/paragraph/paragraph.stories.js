@@ -1,7 +1,7 @@
 
-import ParagraphTemplate from './paragraph.html.twig';
+import ParagraphTemplate from './paragraph.twig';
 import ParagraphDocs from '!!raw-loader!./paragraph.docs.mdx';
-import ParagraphSource from '!!raw-loader!./paragraph.html.twig';
+import ParagraphSource from '!!raw-loader!./paragraph.twig';
 
 
 export default {

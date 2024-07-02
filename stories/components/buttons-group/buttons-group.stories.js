@@ -1,5 +1,5 @@
-import buttonGroupTemplate from './button-group.html.twig';
-import ButtonGroupSource from '!!raw-loader!./button-group.html.twig';
+import buttonGroupTemplate from './buttons-group.twig';
+import ButtonGroupSource from '!!raw-loader!./buttons-group.twig';
 
 
 export default {

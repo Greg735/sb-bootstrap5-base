@@ -1,5 +1,5 @@
 
-import linkTemplate from './link.html.twig';
+import linkTemplate from './link.twig';
 
 export default {
   title: 'Components/Link',

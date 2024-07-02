@@ -1,7 +1,7 @@
 
-import BreadcrumbTemplate from './breadcrumb.html.twig';
+import BreadcrumbTemplate from './breadcrumb.twig';
 import BreadcrumbDocs from '!!raw-loader!./breadcrumb.docs.mdx';
-import BreadcrumbSource from '!!raw-loader!./breadcrumb.html.twig';
+import BreadcrumbSource from '!!raw-loader!./breadcrumb.twig';
 
 export default {
   title: 'Components/Breadcrumb',

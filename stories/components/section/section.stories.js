@@ -1,8 +1,8 @@
 // import './_section.scss';
 
-import sectionTemplate from './section.html.twig';
+import sectionTemplate from './section.twig';
 import sectionDocs from '!!raw-loader!./section.docs.mdx';
-import sectionSource from '!!raw-loader!./section.html.twig';
+import sectionSource from '!!raw-loader!./section.twig';
 
 
 export default {

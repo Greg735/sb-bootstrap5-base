@@ -1,5 +1,5 @@
-import badgeTemplate from './badge.html.twig';
-import BadgeSource from '!!raw-loader!./badge.html.twig';
+import badgeTemplate from './badge.twig';
+import BadgeSource from '!!raw-loader!./badge.twig';
 import BadgeDocs from '!!raw-loader!./badge.docs.mdx';
 import {constants} from '../_constants';
 

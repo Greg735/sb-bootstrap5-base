@@ -1,8 +1,8 @@
 
 // import './_alert.scss';
-import ImageZoomTemplate from './image-zoom.html.twig';
+import ImageZoomTemplate from './image-zoom.twig';
 import ImageZoomDocs from '!!raw-loader!./image-zoom.docs.mdx';
-import ImageZoomSource from '!!raw-loader!./image-zoom.html.twig';
+import ImageZoomSource from '!!raw-loader!./image-zoom.twig';
 
 
 export default {

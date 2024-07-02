@@ -1,8 +1,8 @@
 
 // import './_alert.scss';
-import alertTemplate from './alert.html.twig';
+import alertTemplate from './alert.twig';
 import AlertDocs from '!!raw-loader!./alert.docs.mdx';
-import AlertSource from '!!raw-loader!./alert.html.twig';
+import AlertSource from '!!raw-loader!./alert.twig';
 import {constants} from '../_constants';
 
 

@@ -1,6 +1,6 @@
-import sectionPFTemplate from './section-prefooter.html.twig';
+import sectionPFTemplate from './section-prefooter.twig';
 import sectionPFDocs from '!!raw-loader!./section-prefooter.docs.mdx';
-import sectionPFSource from '!!raw-loader!./section-prefooter.html.twig';
+import sectionPFSource from '!!raw-loader!./section-prefooter.twig';
 
 
 export default {

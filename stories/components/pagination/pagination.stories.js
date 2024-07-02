@@ -1,7 +1,7 @@
 
-import PaginationTemplate from './pagination.html.twig';
+import PaginationTemplate from './pagination.twig';
 import PaginationDocs from '!!raw-loader!./pagination.docs.mdx';
-import PaginationSource from '!!raw-loader!./pagination.html.twig';
+import PaginationSource from '!!raw-loader!./pagination.twig';
 
 
 export default {

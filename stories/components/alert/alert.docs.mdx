@@ -1,6 +1,10 @@
-<div class="mb-4 text-center">
-	<span class="badge badge-sm text-bg-blue me-2">Version: 0.1</span>
-	<span class="badge badge-sm text-bg-red me-2">Status: Not tested</span>
+<div class="mb-1">
+	<span class="badge badge-sm text-bg-blue">Version: 0.1</span>
+</div>
+<div class="mb-1">
+	<span class="badge badge-sm text-bg-red">Status: Not tested</span>
+</div>
+<div class="mb-4">
 	<span class="badge badge-sm text-bg-warning">Documentation: TODO</span>
 </div>
 
@@ -15,7 +19,7 @@ Alert messages are shown to users after an action.
 
 ## Implementation example
 ```
-{% include '@namespace/alert/alert.html.twig' with {
+{% include '@namespace/alert/alert.twig' with {
 	type: 'success',
 	text: 'This is an important text for the user to read.'
 } %}

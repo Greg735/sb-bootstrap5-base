@@ -1,5 +1,5 @@
-import buttonTemplate from './button.html.twig';
-import ButtonSource from '!!raw-loader!./button.html.twig';
+import buttonTemplate from './button.twig';
+import ButtonSource from '!!raw-loader!./button.twig';
 import {constants} from '../_constants';
 
 

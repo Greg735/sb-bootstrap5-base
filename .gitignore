@@ -31,6 +31,7 @@ storybook-static/
 
 *.zip
 *.rar
+*.code-workspace
 
 
 .pnpm-store

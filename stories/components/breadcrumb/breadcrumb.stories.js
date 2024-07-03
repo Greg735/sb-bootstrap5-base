@@ -21,12 +21,12 @@ export default {
   },
   argTypes: {
     breadcrumb: {
-        control: 'object',
-        description: 'Array of breadcrumb items with text and optional URL',
-        table: {
-          type: { summary: 'object' },
-        },
+      control: 'object',
+      description: 'Array of breadcrumb items with text and optional URL',
+      table: {
+        type: { summary: 'object' },
       },
+    },
   },
 };
 

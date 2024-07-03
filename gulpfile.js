@@ -32,7 +32,7 @@ config.dist = {
 	all: 'dist/*/',
 	css: 'dist/css',
 	js: 'dist/js',
-	twig: 'dist/twig',
+	twig: 'dist/components',
 	img: 'dist/img',
 }
 

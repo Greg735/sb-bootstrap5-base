@@ -1,11 +1,16 @@
 import TwigHeadings from './headings.twig'
 import HeadingsDocs from '!!raw-loader!./headings.docs.mdx'
+import HeadingSource from '!!raw-loader!./headings.twig';
 
 
 export default {
-	title: 'Foundations/Headings',
+	title: 'Components/Headings',
 	parameters: {
 		componentSubtitle: 'HTML heading elements (h1-h6)',
+		componentSource: {
+			code: HeadingSource,
+			language: 'twig',
+		  },
 		docs: {
 			description: {
 			  component: HeadingsDocs,
@@ -30,11 +35,20 @@ export default {
 				type: 'text',
 			},
 		},
+		heading_classes: {
+			control: 'array',
+			description: 'Array of classes',
+			table: {
+				type: { summary: 'array' },
+			},
+		},
 	},
-	args: { heading_level: 1, text: 'Sample heading text' },
+	args: { heading_level: 1, text: 'Sample heading text', heading_classes: ['text-center', 'text-italic'] },
 }
 
-const Template = ({ heading_level, text }) =>
-	TwigHeadings({ heading_level, text })
+const Template = (args) => TwigHeadings(args);
 
-export const Headings = Template.bind({})
+export const Default = Template.bind({});
+Default.args = {
+	'heading_level' : 2,
+}

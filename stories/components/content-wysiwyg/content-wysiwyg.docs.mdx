@@ -10,7 +10,7 @@
 
 ## Intro
 
-Provide a simple div around any content from wysiwyg editor.
+Provide a simple div element around any content from wysiwyg editor.
 
 ## Purpose
 
@@ -19,5 +19,6 @@ Provide a simple div around any content from wysiwyg editor.
 ```
 {% include '@namespace/content-wysiwyg/content-wysiwyg.twig' with {
 	content: '<p>MY HTML HERE</p>',
+	content_classes: 'text-center',
 } %}
 ```

@@ -62,11 +62,17 @@ export default {
         defaultValue: { summary: 1080 },
       }
     },
+    classes: {
+			control: 'array',
+			description: 'Array of classes',
+			table: {
+				type: { summary: 'array' },
+			},
+		},
   },
 };
 
 const Template = (args) => ImageZoomTemplate(args);
-
 
 export const Default = Template.bind({});
 Default.args = {
@@ -75,5 +81,6 @@ Default.args = {
   src: 'https://picsum.photos/id/391/1920/1080',
   width: 1920,
   height: 1080,
+  classes: ['rounded'],
 };
 

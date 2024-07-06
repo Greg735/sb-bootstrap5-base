@@ -1,4 +1,4 @@
-<div class="{{ classes }} image-zoom">
+<div class="{% if classes|length > 0 %} {{ classes|join(' ') }}{% endif %} image-zoom">
   {% include "../image/image.twig" with {
     src: src,
     alt: alt,

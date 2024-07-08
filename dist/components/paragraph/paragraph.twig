@@ -1,7 +1,0 @@
-{% if highlight %}
-  {% set subtle = subtle ? '-subtle' : null %}
-  {% set emphasis = subtle ? '-emphasis' : null %}
-  {% set classes = 'rounded-5 border border-' ~ type ~ subtle ~ ' p-4 bg-' ~ type ~ subtle ~ ' text-bg-' ~ type ~ emphasis ~ ' ' ~ classes %}
-{% endif %}
-
-<p {% if classes %} class="{{ classes }}"{% endif %}>{{ content }}</p>

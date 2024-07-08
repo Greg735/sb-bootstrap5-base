@@ -43,7 +43,7 @@ export const Button = Template.bind({});
 Button.args = {
   ...Link.args,
   label: 'Primary link as button',
-  type: 'purple',
+  type: 'primary',
   link_title: 'Link title',
   target: '_self',
   button: true,

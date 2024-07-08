@@ -43,7 +43,7 @@ export default {
 			},
 		},
 	},
-	args: { heading_level: 1, text: 'Sample heading text', heading_classes: ['text-center', 'text-italic'] },
+	args: { heading_level: 1, text: 'Sample heading text', heading_classes: ['text-center', 'text-uppercase'] },
 }
 
 const Template = (args) => TwigHeadings(args);

@@ -51,6 +51,7 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Secondary Badge',
   type: 'secondary',
+  pill: false,
 };
 
 export const Blue = Template.bind({});

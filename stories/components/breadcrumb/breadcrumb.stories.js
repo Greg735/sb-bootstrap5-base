@@ -34,18 +34,18 @@ const Template = (args) => BreadcrumbTemplate(args);
 
 export const Default = Template.bind({});
 Default.args = {
-    breadcrumb: [
-        { text: 'Home', url: '/' },
-        { text: 'Library', url: '/library' },
-        { text: 'Data', url: '/library/data' },
-        { text: 'Current Page' },
-    ],
+  breadcrumb: [
+    { text: 'Home', url: '/' },
+    { text: 'Library', url: '/library' },
+    { text: 'Data', url: '/library/data' },
+    { text: 'Current Page' },
+  ],
 };
 Default.parameters = {
 	docs: {
 		description: {
-            story : 'Displays a breadcrumb with multiple items, some with links and some without.',
-        }
+      story : 'Displays a breadcrumb with multiple items, some with links and some without.',
+    }
 	},
 }
   
@@ -58,8 +58,8 @@ SingleItem.args = {
 SingleItem.parameters = {
 	docs: {
 		description: {
-            story : 'Displays a breadcrumb with a single item.',
-        }
+      story : 'Displays a breadcrumb with a single item.',
+    }
 	},
 }
 

@@ -17,6 +17,7 @@ export default {
       options: ['_self', '_blank'] 
     },
     button: { control: 'boolean' },
+    outline: { control: 'boolean' },
     button_size: {
       control: { type: 'select'}, 
       options: ['sm', 'default', 'lg'] 
@@ -36,6 +37,7 @@ Link.args = {
   target: '_self',
   disabled: false,
   button: false,
+  outline: false,
   button_size: 'default',
 };
 
@@ -47,6 +49,7 @@ Button.args = {
   link_title: 'Link title',
   target: '_self',
   button: true,
+  outline: false,
   button_size: 'default',
 };
 

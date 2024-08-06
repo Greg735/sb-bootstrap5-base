@@ -1,13 +1,14 @@
 {% set target = target ? target : '_self' %}
 {% set element = button ? 'btn' : 'link' %}
 {% set button_size = (button_size == "default") ? null : button_size %}
+{% set outline = outline ? '-outline' : null %}
 
 <a
   href="{{ link_url }}" 
   class="
     {{ element }} 
     {{ button_size ? 'btn-' ~ button_size }}
-    {{ type ? element ~ '-' ~ type : element ~ '-primary' }}
+    {{ type ? element ~ outline ~ '-' ~ type : element ~ outline ~ '-primary' }}
     {{ disabled ? 'disabled' : null }}
   " 
   title="{{ link_title}}"

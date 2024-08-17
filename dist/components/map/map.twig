@@ -1,1 +1,6 @@
-<div id="{{ map_id }}" class="map" style="width: 100%; height: 400px;"></div>
+{% set zoom = zoom|default(13) %}
+{% set z_index = map_z_index|default(1)%}
+
+<div id="{{ "map-" ~ random() }}" data-map-id="map" data-long="{{ long }}" data-lat="{{ lat }}" data-zoom="{{ zoom }}"
+  data-marker-descr="{{ marker_text }}" data-marker-open="{{ popup_open }}" class="map" style="{% if height != '' %}height:{{ height }}px;{% endif %} z-index:{{ z_index }}">
+</div>

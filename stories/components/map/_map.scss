@@ -1,4 +1,6 @@
+@import "node_modules/leaflet/dist/leaflet";
+
 .map {
+    min-height: 210px;
     height: 100%;
-    width: 100%;
 }

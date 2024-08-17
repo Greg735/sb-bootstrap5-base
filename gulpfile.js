@@ -27,7 +27,7 @@ config.stylesMain = 'stories/main.scss'
 config.public = {
 	css: 'public/css',
 	js: 'public/js',
-	img: 'public/img/*',
+	img: 'public/img/**/*',
 }
 config.dist = {
 	all: 'dist/*/',
@@ -53,12 +53,15 @@ const cleanDist = (done) => {
 
 // Compile all scss to css and minify.
 const compileStyles = (done) => {
-	src(config.stylesMain)
+	src([config.stylesMain])
 		.pipe(sassGlob())
 		.pipe(sass({
             importer: tildeImporter
           }).on("error", sass.logError))
         .pipe(concat('style.css'))
+		.pipe(replace('url(images/marker-icon.png);', 'url(../img/leaflet/marker-icon.png);')) // Leaflet
+		.pipe(replace('url(images/layers.png);', 'url(../img/leaflet/layers.png);')) // Leaflet
+		.pipe(replace('url(images/layers-2x.png);', 'url(../img/leaflet/layers-2x.png);')) // Leaflet
 		.pipe(dest(config.public.css))
         .pipe(postcss([autoprefixer(), cssnano()]))
 		.pipe(dest(config.dist.css))
@@ -87,7 +90,7 @@ const watchStyles = () => {
 const compileJs = (done) => {
 	src([
 		config.jsMain.bootstrap,
-		// config.jsMain.leaflet,
+		config.jsMain.leaflet,
 		config.foundations.js, 
 		// config.utilities.js, 
 		config.components.js
@@ -128,6 +131,13 @@ const collectTwig = (done) => {
 	done()
 }
 
+// Collect Images files for dist.
+const collectImages = (done) => {
+	src(config.public.img)
+		.pipe(dest(config.dist.img))
+	done()
+}
+
 // Watch for Twig changes + re-collect.
 const watchTwig = () => {
 	watch(config.components.twig, collectTwig)
@@ -138,7 +148,6 @@ exports.default = series(
 	compileStyles,
 	compileJs,
 	collectTwig,
-	// parallel(watchStyles, watchJs, watchTwig)
-	parallel(watchJs),
-	parallel(watchStyles)
+	collectImages,
+	parallel(watchStyles, watchJs, watchTwig),
 )

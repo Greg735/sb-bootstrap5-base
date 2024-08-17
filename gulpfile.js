@@ -26,6 +26,7 @@ config.components = {
 config.stylesMain = 'stories/main.scss'
 config.public = {
 	css: 'public/css',
+	js: 'public/js',
 	img: 'public/img/*',
 }
 config.dist = {
@@ -34,6 +35,12 @@ config.dist = {
 	js: 'dist/js',
 	twig: 'dist/components',
 	img: 'dist/img',
+}
+
+// Javascript
+config.jsMain = {
+	bootstrap: 'node_modules/bootstrap/dist/js/bootstrap.js',
+	leaflet: 'node_modules/leaflet/dist/leaflet.js',
 }
 
 // Start tasks.
@@ -78,8 +85,15 @@ const watchStyles = () => {
 
 // Compile js to a single file and minify.
 const compileJs = (done) => {
-	src([config.foundations.js, config.utilities.js, config.components.js])
+	src([
+		config.jsMain.bootstrap,
+		// config.jsMain.leaflet,
+		config.foundations.js, 
+		// config.utilities.js, 
+		config.components.js
+		])
 		.pipe(concat('sb-main.js'))
+		.pipe(dest(config.public.js))
 		.pipe(dest(config.dist.js))
 		.pipe(
 			minify({
@@ -88,6 +102,7 @@ const compileJs = (done) => {
 				},
 			})
 		)
+		.pipe(dest(config.public.js))
 		.pipe(dest(config.dist.js))
 	done()
 }
@@ -95,7 +110,11 @@ const compileJs = (done) => {
 // Watch for js changes + recompile.
 const watchJs = () => {
 	watch(
-		[config.foundations.js, config.utilities.js, config.components.js],
+		[
+			config.foundations.js, 
+			// config.utilities.js, 
+			config.components.js
+		],
 		compileJs
 	)
 }
@@ -117,8 +136,9 @@ const watchTwig = () => {
 exports.default = series(
 	cleanDist,
 	compileStyles,
-	//  compileJs,
+	compileJs,
 	collectTwig,
 	// parallel(watchStyles, watchJs, watchTwig)
+	parallel(watchJs),
 	parallel(watchStyles)
 )

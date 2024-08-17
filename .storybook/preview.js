@@ -1,5 +1,6 @@
 /** @type { import('@storybook/html').Preview } */
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../public/js/sb-main.js';
 import Twig from 'twig';
 import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 import '../public/css/style.css'

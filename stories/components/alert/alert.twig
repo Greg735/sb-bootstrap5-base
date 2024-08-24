@@ -29,7 +29,7 @@ d-flex align-items-top
 role="alert">
 
   {% if hide_icon is empty %}
-    {{ icons[icon_name] }}
+    {{ icons[icon_name]|raw }}
   {% endif %}
 
   <div class="w-100">{{- text -}}</div>

@@ -2,5 +2,5 @@
 {% set z_index = map_z_index|default(1)%}
 
 <div id="{{ "map-" ~ random() }}" data-map-id="map" data-long="{{ long }}" data-lat="{{ lat }}" data-zoom="{{ zoom }}"
-  data-marker-descr="{{ marker_text }}" data-marker-open="{{ popup_open }}" class="map" style="{% if height != '' %}height:{{ height }}px;{% endif %} z-index:{{ z_index }}">
+  data-marker-descr="{{ marker_text }}" data-marker-open="{{ popup_open }}" class="map{% if classes|length > 0 %} {{ classes|join(' ') }}{% endif %}" style="{% if height != '' %}height:{{ height }}px;{% endif %} z-index:{{ z_index }}">
 </div>

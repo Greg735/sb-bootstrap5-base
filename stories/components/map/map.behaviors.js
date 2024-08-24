@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function() {
           var marker = L.marker([ lat ,  long ], {'alt': popup}).addTo(map);
 
         if (popup && popup.length > 0) {
-            themark.bindPopup(popup);
+            marker.bindPopup(popup);
             if (popup_open == 1) {
-                themark.bindPopup(popup).openPopup();
+                marker.bindPopup(popup).openPopup();
             }
         }
     });

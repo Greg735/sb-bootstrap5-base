@@ -4539,7 +4539,14 @@ document.addEventListener("DOMContentLoaded", function() {
       
         //   var marker = L.marker([ lat ,  long ], { icon: icon }).addTo(map);
 
-          var marker = L.marker([ lat ,  long ], {'alt': popup}).addTo(map);
+          var marker = L.marker(
+                [ lat ,  long ],
+                {
+                    //'icon': icon,
+                    'alt': popup
+                }
+            )
+            .addTo(map);
 
         if (popup && popup.length > 0) {
             marker.bindPopup(popup);

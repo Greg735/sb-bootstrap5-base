@@ -133,7 +133,7 @@ const collectTwig = (done) => {
 
 // Collect Images files for dist.
 const collectImages = (done) => {
-	src(config.public.img)
+	src(config.public.img, {encoding: false})
 		.pipe(dest(config.dist.img))
 	done()
 }

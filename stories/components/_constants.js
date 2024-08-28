@@ -41,5 +41,13 @@ export const constants = {
             'default',
             'lg',
         ]
+    },
+    icons_home: {
+        options: [
+            'house',
+            'house-fill',
+            'house-door',
+            'house-door-fill',
+        ]
     }
 }

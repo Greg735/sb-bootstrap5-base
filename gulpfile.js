@@ -28,6 +28,7 @@ config.public = {
 	css: 'public/css',
 	js: 'public/js',
 	img: 'public/img/**/*',
+	bsIcons: 'public/css/fonts',
 }
 config.dist = {
 	all: 'dist/*/',
@@ -35,12 +36,18 @@ config.dist = {
 	js: 'dist/js',
 	twig: 'dist/components',
 	img: 'dist/img',
+	bsIcons: 'dist/css/fonts'
 }
 
 // Javascript
 config.jsMain = {
 	bootstrap: 'node_modules/bootstrap/dist/js/bootstrap.js',
 	leaflet: 'node_modules/leaflet/dist/leaflet.js',
+}
+
+// Bootstrap icons
+config.bsIcons = {
+	icons: 'node_modules/bootstrap-icons/font/fonts/*',
 }
 
 // Start tasks.
@@ -138,6 +145,15 @@ const collectImages = (done) => {
 	done()
 }
 
+// Collect Bootstrap icons folder.
+const collectBsIcons = (done) => {
+	src(config.bsIcons.icons, {encoding: false})
+		.pipe(dest(config.public.bsIcons))	
+		.pipe(dest(config.dist.bsIcons))	
+	done()
+}
+
+
 // Watch for Twig changes + re-collect.
 const watchTwig = () => {
 	watch(config.components.twig, collectTwig)
@@ -145,6 +161,7 @@ const watchTwig = () => {
 
 exports.default = series(
 	cleanDist,
+	collectBsIcons,
 	compileStyles,
 	compileJs,
 	collectTwig,

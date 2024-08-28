@@ -1,9 +1,13 @@
 {% if breadcrumb %}
   <nav aria-label="breadcrumb">
+
     <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
     <ol class="breadcrumb">
     {% for item in breadcrumb %}
       <li class="breadcrumb-item">
+        {% if loop.first and icon_name %}  
+          <i class="bi bi-{{ icon_name }}"></i> // Todo 
+        {% endif %}
         {% if item.url %}
           <a href="{{ item.url }}">{{ item.text }}</a>
         {% else %}

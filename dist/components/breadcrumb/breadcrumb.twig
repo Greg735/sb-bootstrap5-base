@@ -5,8 +5,11 @@
     <ol class="breadcrumb">
     {% for item in breadcrumb %}
       <li class="breadcrumb-item">
-        {% if loop.first and icon_name %}  
-          <i class="bi bi-{{ icon_name }}"></i> // Todo 
+        {% if loop.first and icon_name %}
+          {% include '../icon/icon.twig' with {
+              icon_name: icon_name,
+              size: 'medium'
+          } %}  
         {% endif %}
         {% if item.url %}
           <a href="{{ item.url }}">{{ item.text }}</a>

@@ -37,7 +37,6 @@ export default {
           summary: "" 
         },
       },
-
     },
     breadcrumb: {
       control: 'object',

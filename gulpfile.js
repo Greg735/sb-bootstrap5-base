@@ -133,7 +133,9 @@ const watchJs = () => {
 const collectTwig = (done) => {
 	src(config.components.twig)
 		.pipe(replace('"../../', '"@components/'))
+		.pipe(replace('\'../../', '"@components/'))
 		.pipe(replace('"../', '"@components/'))
+		.pipe(replace('\'../', '"@components/'))
 		.pipe(dest(config.dist.twig))
 	done()
 }

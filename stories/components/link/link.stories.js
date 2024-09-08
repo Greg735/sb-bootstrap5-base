@@ -22,7 +22,14 @@ export default {
       control: { type: 'select'}, 
       options: ['sm', 'default', 'lg'] 
     },
-    disabled: { control: 'boolean' }
+    disabled: { control: 'boolean' },
+    link_classes: {
+			control: 'array',
+			description: 'Array of classes',
+			table: {
+				type: { summary: 'array' },
+			},
+		},
   },
 };
 
@@ -39,6 +46,7 @@ Link.args = {
   button: false,
   outline: false,
   button_size: 'default',
+  link_classes:  ['']
 };
 
 export const Button = Template.bind({});

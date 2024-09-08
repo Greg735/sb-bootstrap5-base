@@ -11,6 +11,7 @@
     {{ button_size ? 'btn-' ~ button_size }}
     {{ type ? element ~ outline ~ '-' ~ type : element ~ outline ~ '-primary' }}
     {{ disabled ? 'disabled' : null }}
+    {% if link_classes|length > 0 %} {{ link_classes|join(' ') }}{% endif %}
   " 
   title="{{ link_title}}"
   target="{{ target }}"

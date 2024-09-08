@@ -136,6 +136,7 @@ const collectTwig = (done) => {
 		.pipe(replace('\'../../', '"@components/'))
 		.pipe(replace('"../', '"@components/'))
 		.pipe(replace('\'../', '"@components/'))
+		.pipe(replace('.twig\'', '.twig"'))
 		.pipe(dest(config.dist.twig))
 	done()
 }

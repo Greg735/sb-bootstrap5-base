@@ -18,6 +18,9 @@ config.foundations = {
 	scss: 'stories/foundations/**/_*.scss',
 	js: 'stories/foundations/**/*.behaviors.js',
 }
+config.utilities = {
+	js: 'stories/utilities/**/*.behaviors.js',
+}
 config.components = {
 	scss: 'stories/components/**/_*.scss',
 	js: 'stories/components/**/*.behaviors.js',
@@ -43,6 +46,7 @@ config.dist = {
 config.jsMain = {
 	bootstrap: 'node_modules/bootstrap/dist/js/bootstrap.js',
 	leaflet: 'node_modules/leaflet/dist/leaflet.js',
+	scrollcue: 'node_modules/scrollcue/scrollCue.js',
 }
 
 // Bootstrap icons
@@ -98,8 +102,9 @@ const compileJs = (done) => {
 	src([
 		config.jsMain.bootstrap,
 		config.jsMain.leaflet,
+		config.jsMain.scrollcue,
 		config.foundations.js, 
-		// config.utilities.js, 
+		config.utilities.js, 
 		config.components.js
 		])
 		.pipe(concat('sb-main.js'))

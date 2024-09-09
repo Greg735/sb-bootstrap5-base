@@ -8,13 +8,13 @@ import sectionSource from '!!raw-loader!./section.twig';
 export default {
   title: 'Components/Section/Section',
 	parameters: {
-		componentSubtitle:
-     'Section is just a <section> with some parameters for design (class and background). Title is optional (h2 element) and the content is to be define.',
     componentSource: {
       code: sectionSource,
       language: 'twig',
     },
     docs: {
+      subtitle: 
+      'Section is just a <section> with some parameters for design (class and background). Title is optional (h2 element) and the content is to be define.',
       description: {
         component: sectionDocs,
       },

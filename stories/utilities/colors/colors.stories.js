@@ -39,7 +39,7 @@ export const MainColors = Template.bind({})
 
 export const ThemeColors = Template.bind({})
 ThemeColors.args = {
-    columns: 'col-12 col-md-3',
+    columns: 'col-md-3',
 	colors: [
         'bs-blue',
         'bs-green',
@@ -83,7 +83,7 @@ NeutralColors.args = {
 
 export const FunctionalColors = Template.bind({})
 FunctionalColors.args = {
-    columns: 'col-12 col-sm-4',
+    columns: 'col-sm-4',
 	colors: [
         'bs-blue',
         'bs-indigo',

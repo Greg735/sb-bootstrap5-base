@@ -44,9 +44,11 @@ config.dist = {
 
 // Javascript
 config.jsMain = {
-	bootstrap: 'node_modules/bootstrap/dist/js/bootstrap.js',
+	bootstrap: 'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
 	leaflet: 'node_modules/leaflet/dist/leaflet.js',
 	scrollcue: 'node_modules/scrollcue/scrollCue.js',
+	//masonry: 'node_modules/masonry-layout/dist/masonry.pkgd.js'
+	//masonry: 'node_modules/masonry-layout/masonry.js'
 }
 
 // Bootstrap icons
@@ -103,6 +105,7 @@ const compileJs = (done) => {
 		config.jsMain.bootstrap,
 		config.jsMain.leaflet,
 		config.jsMain.scrollcue,
+		//config.jsMain.masonry,
 		config.foundations.js, 
 		config.utilities.js, 
 		config.components.js
@@ -127,7 +130,7 @@ const watchJs = () => {
 	watch(
 		[
 			config.foundations.js, 
-			// config.utilities.js, 
+			config.utilities.js, 
 			config.components.js
 		],
 		compileJs

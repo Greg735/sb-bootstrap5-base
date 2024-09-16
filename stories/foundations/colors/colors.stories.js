@@ -2,7 +2,7 @@ import TwigColors from './colors.local.twig'
 import ColorsDocs from '!!raw-loader!./colors.docs.mdx'
 
 export default {
-	title: 'Utilities/Colors',
+	title: 'Foundations/Colors',
 	parameters: {
 		componentSubtitle: 'System-wide color variables',
 		docs: {

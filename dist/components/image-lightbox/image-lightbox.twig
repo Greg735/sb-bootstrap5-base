@@ -1,0 +1,10 @@
+<a href="{{ lightbox_dest_image_src }}" data-toggle="lightbox" data-caption="{{ lightbox_caption }}" {% if lightbox_gallery %}data-gallery="{{ lightbox_gallery }}"{% endif %}>
+  {% include "@components/image/image.twig" with {
+    src: src,
+    alt: alt,
+    title: title,
+    width: width,
+    height: height,
+    image_attributes: image_attributes
+  } %}
+</a>

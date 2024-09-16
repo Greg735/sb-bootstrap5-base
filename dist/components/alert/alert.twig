@@ -1,3 +1,5 @@
+{% set drupal = drupal|default(false) %}
+
 {% set type = type|default('info') %}
 
 {% set hide_icon = hide_icon|default(false) %}
@@ -23,11 +25,12 @@
 
 {% set icon_name = types_icons[type] %}
 
+{% if not drupal %}
+
 <div class="alert alert-{{ type }}
 d-flex align-items-top
 {{ dismissible ? 'alert-dismissible fade show' : '' }}"
 role="alert">
-
   {% if hide_icon is empty %}
     {{ icons[icon_name]|raw }}
   {% endif %}
@@ -38,3 +41,47 @@ role="alert">
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 {% endif %}
 </div>
+
+{% else %}
+
+  {% set dismissible = true %}
+
+  {% for type, messages in message_list %}
+
+    {% set type = type|default('info') %}
+
+    {% if type == 'status' %}
+      {% set type = 'success' %}
+    {% elseif type == 'error' %}
+      {% set type = 'danger' %}
+    {% endif %}
+    
+    {% set icon_name = types_icons[type] %}
+    
+    <div aria-label="{{ type }} message" class="alert alert-{{ type }}
+    d-flex align-items-top
+    {{ dismissible ? 'alert-dismissible fade show' : '' }}"
+    role="alert">
+
+      {% if hide_icon is empty %}
+        {{ icons[icon_name]|raw }}
+      {% endif %}
+
+      {% if messages|length > 1 %}
+        <ul class="w-100 list-unstyled">
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class="w-100">{{ messages|first }}</div>
+      {% endif %}
+
+      {% if dismissible %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      {% endif %}
+    </div>
+
+  {% endfor %}
+
+{% endif %}

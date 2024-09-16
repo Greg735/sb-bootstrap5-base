@@ -30,7 +30,7 @@ const preview = {
           'Sections',
           ['Content'],
           'Components',
-          ['Alert', 'Badge', 'Button', 'Link', 'Card', 'Tabs', 'Section', ['Section', '*'], '*'],
+          // ['Alert', 'Badge', 'Button', 'Link', 'Card', 'Tabs', 'Section', ['Section', '*'], '*'],
           'Recipes',
           'Examples',
         ],

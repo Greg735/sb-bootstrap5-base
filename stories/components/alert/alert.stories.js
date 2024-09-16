@@ -7,7 +7,7 @@ import {constants} from '../_constants';
 
 
 export default {
-  title: 'Components/Alert',
+  title: 'Components/Alert/Alert',
 	parameters: {
 		componentSubtitle: '',
     componentSource: {
@@ -60,7 +60,7 @@ export default {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
       }
-     }
+    }
   },
 };
 
@@ -120,4 +120,4 @@ SuccessBigMessage.parameters = {
       story : 'Example with full html tags in text and no icon.',
     }
 	},
-}
+};

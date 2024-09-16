@@ -5,7 +5,6 @@
 {% set width = width|default('1920') %}
 {% set height = height|default('1080') %}
 
-
 <img 
   loading="lazy"
   src="{{ src }}"
@@ -15,8 +14,12 @@
   height="{{ height }}"
   class="
   img-fluid
+  {% if image_classes|length > 0 %} {{ image_classes|join(' ') }}{% endif %}
   {{ thumbnail }}
   {{ rounded }}
   {{ shadow }}
   "
+  {% for attribute, value in image_attributes %}
+    {{ attribute }}="{{ value }}"
+  {% endfor %}
   />

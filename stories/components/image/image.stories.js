@@ -82,7 +82,14 @@ export default {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
       }
-     }
+     },
+     image_classes: {
+      control: 'array',
+      description: 'Array of classes',
+      table: {
+        type: { summary: 'array' },
+      },
+		},
   },
 };
 
@@ -99,5 +106,6 @@ Default.args = {
   rounded: false,
   width: 640,
   height: 480,
+  image_classes: [''],
 };
 

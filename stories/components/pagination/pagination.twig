@@ -21,8 +21,10 @@
   pagination_other_classes,
 ] | sort | join(' ') | trim %} #}
 
+{% set size = (size == "default") ? null : size %}
+
 <nav aria-label="{{ pagination_title }}">
-  <ul class="{{ pagination_classes }}">
+  <ul class="{{ pagination_classes }} pagination-{{ size }}">
 
     <li class="page-item">
       <a class="page-link" href="#" aria-label="{{ 'Previous'|t }}">

@@ -2,6 +2,7 @@
 import PaginationTemplate from './pagination.twig';
 import PaginationDocs from '!!raw-loader!./pagination.docs.mdx';
 import PaginationSource from '!!raw-loader!./pagination.twig';
+import {constants} from '../_constants';
 
 
 export default {
@@ -27,6 +28,16 @@ export default {
       type: {
         required: true,
       }
+    },
+    size: {
+      description: '**options**',
+      control: { type: 'radio'},
+      options: constants.sizes.options,
+      table: {
+          type: {
+            summary: constants.sizes.options.map(option => `'${option}'`).join('|')
+          }
+      },
     },
     // highlight: { 
     //   control: 'boolean',
@@ -71,6 +82,7 @@ const Template = (args) => PaginationTemplate(args);
 export const Simple = Template.bind({});
 Simple.args = {
   pagination_title: 'Search results pages',
+  size: 'default',
   // highlight: false,
   // type: null,
   // subtle: false,

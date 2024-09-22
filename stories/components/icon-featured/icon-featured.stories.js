@@ -80,3 +80,8 @@ const Template = ({ icon_name, color_theme, icon_size_name, icon_featured_classe
 
 export const Icon = Template.bind({})
 
+export const HoverAnimation = Template.bind({});
+HoverAnimation.args = {
+  ...Icon.args,
+  icon_featured_classes: ['icon-featured-hover']
+};

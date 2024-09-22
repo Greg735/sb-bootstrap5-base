@@ -5,11 +5,25 @@
 	height: 3rem;
 	width: 3rem;
 	font-size: 1.5em;
+
+	&-hover {
+		transition: transform 0.3s ease; /* Transition douce de 0.3 secondes */
+
+		&:hover{
+			transform: scale(1.1); /* L'icône grandit de 10% au survol */
+		}
+	}
+
+
 	
+	&.icon-featured-icon {
+		&#{&}--small {
+			font-size: 1rem;
+		}	
+	}
+
     // &#{&}--small {
-	// 	width: 0.8rem;
-	// 	height: 0.8rem;
-    //     font-size: 0.8rem;
+    //     font-size: 1rem;
 	// }
 
 	// &#{&}--large {

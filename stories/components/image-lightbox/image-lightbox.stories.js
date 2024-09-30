@@ -3,7 +3,7 @@
 import ImageLightboxTemplate from './image-lightbox.twig';
 import ImageLightboxDocs from '!!raw-loader!./image-lightbox.docs.mdx';
 import ImageLightboxSource from '!!raw-loader!./image-lightbox.twig';
-
+import GLightbox from 'glightbox';
 
 export default {
   title: 'Components/Image/Image Lightbox',
@@ -90,7 +90,7 @@ Default.args = {
   width: 400,
   height: 400,
   lightbox_dest_image_src: 'https://picsum.photos/id/555/1920/1080',
-  lightbox_caption: 'Image title',
+  lightbox_caption: 'Title: Image title',
   lightbox_gallery: '',
 };
 

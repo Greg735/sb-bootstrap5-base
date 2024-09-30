@@ -1,52 +1,92 @@
+{% set size = (size == "default") ? 'md' : size %}
+
+{% set first_title = first_title|default('Go to first page') %}
+{% set first_page_short_title = first_page_short_title|default('« First') %}
+{% set first_page_long_title = first_page_long_title|default('First page') %}
+
+{% set previous_title = previous_title|default('Go to previous page') %}
+{% set previous_page_short_title = previous_page_short_title|default('‹ Previous') %}
+{% set previous_page_long_title = previous_page_long_title|default('Previous page') %}
+
+{% set next_title = next_title|default('Go to next page') %}
+{% set next_page_long_title = next_page_long_title|default('Next page') %}
+{% set next_page_short_title = next_page_short_title|default('Next ›') %}
+
+{% set last_title = last_title|default('Go to last page') %}
+{% set last_page_long_title = last_page_long_title|default('Last page') %}
+{% set last_page_short_title = last_page_short_title|default('Last »') %}
+
+{% set go_to_page_title = go_to_page_title|default('Go to page') %}
+{% set current_page_title = current_page_title|default('Current page') %}
+{% set page_title = page_title|default('Page') %}
 
 
-<nav aria-label="{{ pagination_title }}">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
-
-
-{# {% set pagination_classes = [
-  'pagination',
-  pagination_size ? 'pagination-' ~ pagination_size,
-  pagination_other_classes,
-] | sort | join(' ') | trim %} #}
-
-{% set size = (size == "default") ? null : size %}
-
-<nav aria-label="{{ pagination_title }}">
-  <ul class="{{ pagination_classes }} pagination-{{ size }}">
-
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="{{ 'Previous'|t }}">
-        {% if page_icon %}
-          <span aria-hidden="true">&laquo;</span>
+<nav class="pager" role="navigation" aria-labelledby="{{ heading_id }}" aria-label="{{ pagination_title }}">
+  <h4 id="{{ heading_id }}" class="visually-hidden">{{ pagination_title }}</h4>
+  <ul class="pagination pagination-{{ size }} {% if pagination_classes|length > 0 %} {{ pagination_classes|join(' ') }}{% endif %} js-pager__items">
+    {# Print first item if we are not on the first page. #}
+    {% if items.first %}
+      <li class="page-item pager__item--first">
+        <a href="{{ items.first.href }}" title="{{ first_title }}" class="page-link">
+          <span class="visually-hidden">{{ first_page_long_title }}</span>
+          <span aria-hidden="true">{{ items.first.text|default(first_page_short_title)}}</span>
+        </a>
+      </li>
+    {% endif %}
+    {# Print previous item if we are not on the first page. #}
+    {% if items.previous %}
+      <li class="page-item pager__item--previous">
+        <a href="{{ items.previous.href }}" title="{{ previous_title }}" rel="prev" class="page-link">
+          <span class="visually-hidden">{{ previous_page_long_title }}</span>
+          <span aria-hidden="true">{{ items.previous.text|default(previous_page_short_title) }}</span>
+        </a>
+      </li>
+    {% endif %}
+    {# Add an ellipsis if there are further previous pages. #}
+    {% if ellipses.previous %}
+      <li class="page-item disabled">
+        <span class="page-link">&hellip;</span>
+      </li>
+    {% endif %}
+    {# Now generate the actual pager piece. #}
+    {% for key, item in items.pages %}
+      <li class="page-item{{ current == key ? ' is-active active' : '' }}"{{ current == key ? ' aria-current="page"' : '' }}>
+        {% if current == key %}
+          {% set title = current_page_title %}
+        {% else %}
+          {% set title = go_to_page_title ~' '~ key %}
         {% endif %}
-        <span {{ (page_icon) ? 'class="sr-only"' }}>{{ 'Previous'|t }}</span>
-      </a>
-    </li>
-
-    {% for item in page_items %}
-      <li class="page-item"><a class="page-link" href="{{ item.link }}">{{ item.title }}</a></li>
+        <a href="{{ item.href }}" title="{{ title }}" class="page-link">
+          <span class="visually-hidden">
+            {{ current == key ? current_page_title : page_title }}
+          </span>
+          {{- key -}}
+        </a>
+      </li>
     {% endfor %}
-
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="{{ 'Next'|t }}">
-        {% if page_icon %}
-          <span aria-hidden="true">&raquo;</span>
-        {% endif %}
-        <span {{ (page_icon) ? 'class="sr-only"' }}>{{ 'Next'|t }}</span>
-      </a>
-    </li>
-
+    {# Add an ellipsis if there are further next pages. #}
+    {% if ellipses.next %}
+      <li class="page-item disabled">
+        <span class="page-link">&hellip;</span>
+      </li>
+    {% endif %}
+    {# Print next item if we are not on the last page. #}
+    {% if items.next %}
+      <li class="page-item pager__item--next">
+        <a href="{{ items.next.href }}" title="{{ next_title }}" rel="next" class="page-link">
+          <span class="visually-hidden">{{ next_page_long_title }}</span>
+          <span aria-hidden="true">{{ items.next.text|default('Next ›'|t) }}</span>
+        </a>
+      </li>
+    {% endif %}
+    {# Print last item if we are not on the last page. #}
+    {% if items.last %}
+      <li class="page-item pager__item--last">
+        <a href="{{ items.last.href }}" title="{{ last_title }}" class="page-link">
+          <span class="visually-hidden">{{ last_page_long_title }}</span>
+          <span aria-hidden="true">{{ items.last.text|default(last_page_short_title) }}</span>
+        </a>
+      </li>
+    {% endif %}
   </ul>
 </nav>

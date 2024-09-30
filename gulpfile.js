@@ -47,7 +47,8 @@ config.jsMain = {
 	bootstrap: 'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
 	leaflet: 'node_modules/leaflet/dist/leaflet.js',
 	scrollcue: 'node_modules/scrollcue/scrollCue.js',
-	bs5Lightbox: 'node_modules/bs5-lightbox/dist/index.js',
+	gLightbox: 'node_modules/glightbox/dist/js/glightbox.js',
+//	bs5Lightbox: 'node_modules/bs5-lightbox/dist/index.js',
 	//masonry: 'node_modules/masonry-layout/dist/masonry.pkgd.js'
 	//masonry: 'node_modules/masonry-layout/masonry.js'
 }
@@ -106,7 +107,7 @@ const compileJs = (done) => {
 		config.jsMain.bootstrap,
 		config.jsMain.leaflet,
 		config.jsMain.scrollcue,
-		config.jsMain.bs5Lightbox,
+		config.jsMain.gLightbox,
 		//config.jsMain.masonry,
 		config.foundations.js, 
 		config.utilities.js, 

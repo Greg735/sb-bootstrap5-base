@@ -39,41 +39,13 @@ export default {
           }
       },
     },
-    // highlight: { 
-    //   control: 'boolean',
-    //   table: {
-    //     type: { summary: 'boolean' },
-    //     defaultValue: { summary: false },
-    //   }
-    // },
-    // type: {
-    //   control: { type: 'select'},
-    //   defaultValue: "primary", 
-    //   options: ['success', 'danger', 'warning', 'info'],
-    //   table: {
-    //     require: "true",
-    //     type: { summary: 'string' },
-    //   },
-    //   if: { 
-    //     arg: 'highlight' 
-    //   },
-    // },
-    // subtle: {
-    //   control: 'boolean',
-    //   table: {
-    //     type: { summary: 'boolean' },
-    //     defaultValue: { summary: false },
-    //   },
-    //   if: { 
-    //     arg: 'highlight' 
-    //   },
-    // },
-    // content: { 
-    //   control: 'text', 
-    //   type: {
-    //     required: true,
-    //   }
-    // },
+    pagination_classes: {
+			control: 'array',
+			description: 'Array of classes',
+			table: {
+				type: { summary: 'array' },
+			},
+		},
   },
 };
 
@@ -83,8 +55,54 @@ export const Simple = Template.bind({});
 Simple.args = {
   pagination_title: 'Search results pages',
   size: 'default',
-  // highlight: false,
-  // type: null,
-  // subtle: false,
-  // content: 'Integer risus velit, imperdiet eu gravida vel, vestibulum et eros. Donec mollis est nulla, eget tincidunt quam lobortis non. Phasellus pellentesque eget lorem in fringilla. Cras eget risus elit. Curabitur mollis eget risus eu tempus. Pellentesque id eleifend enim. Quisque facilisis molestie tellus. Suspendisse nec vehicula velit, eu pellentesque elit. Curabitur a egestas leo. Praesent sed augue tortor. In ac ex ut nibh sollicitudin faucibus non ac nibh. Quisque augue arcu, volutpat ut justo bibendum, dictum blandit purus. Nulla ornare nibh a pellentesque auctor. Suspendisse porta turpis non mauris tristique, id commodo tortor tincidunt. Vestibulum ut dui et enim lacinia condimentum.',
+  current: 2,
+  items: {
+    previous: {
+      'href' : '#',
+      'text' : '‹ Previous'
+    },
+    pages: {
+      1: {'href' : '#'},
+      2: {'href' : '#'},
+      3: {'href' : '#'},
+    },
+    next: {
+      'href' : '#',
+      'text' : 'Next ›'
+    },
+  },
+  pagination_classes: ['justify-content-center', 'mt-5'],
 };
+
+export const Full = Template.bind({});
+Full.args = {
+  pagination_title: 'Search results pages',
+  size: 'default',
+  current: 3,
+  items: {
+    first: {
+      'href' : '#',
+      'text' : '« First'
+    },
+    previous: {
+      'href' : '#',
+      'text' : '‹ Previous'
+    },
+    pages: {
+      1: {'href' : '#'},
+      2: {'href' : '#'},
+      3: {'href' : '#'},
+      4: {'href' : '#'},
+      5: {'href' : '#'},
+    },
+    next: {
+      'href' : '#',
+      'text' : 'Next ›'
+    },
+    last: {
+      'href' : '#',
+      'text' : 'Last »'
+    },
+  },
+  pagination_classes: ['justify-content-center', 'mt-5'],
+}

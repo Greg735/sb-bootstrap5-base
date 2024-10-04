@@ -109,7 +109,7 @@ This project relies on the following core dependencies:
 - **Gulp**: A task runner used for automating asset compilation and minification.
 - **Sass**: A CSS preprocessor used for styling.
 - **Leaflet**: A library used for interactive maps.
-- **Concurrently**: A tool used to run multiple tasks (e.g., Gulp and Storybook) in parallel.
+- ...
 
 ### Dev Dependencies
 

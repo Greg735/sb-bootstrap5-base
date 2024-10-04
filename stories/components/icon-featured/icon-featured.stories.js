@@ -85,3 +85,11 @@ HoverAnimation.args = {
   ...Icon.args,
   icon_featured_classes: ['icon-featured-hover']
 };
+
+export const Exemple1 = Template.bind({});
+Exemple1.args = {
+  ...Icon.args,
+  icon_name: 'facebook',
+  color_theme: 'white',
+  icon_featured_classes: ['border', 'text-blue']
+};

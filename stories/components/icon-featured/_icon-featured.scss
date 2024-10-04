@@ -7,12 +7,14 @@
 	font-size: 1.5em;
 
 	&-hover {
-		transition: transform 0.3s ease; /* Transition douce de 0.3 secondes */
+		transition: transform 0.3s ease;
 
 		&:hover{
-			transform: scale(1.1); /* L'icône grandit de 10% au survol */
+			transform: scale(1.1);
 		}
 	}
+
+	// hover transition only font-size: TODO
 
 
 	

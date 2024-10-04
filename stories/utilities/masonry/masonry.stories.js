@@ -1,4 +1,5 @@
 import masonryDocs from '!!raw-loader!./masonry.docs.mdx';
+var Masonry = require('masonry-layout');
 
 export default {
   title: 'Utilities/Masonry',

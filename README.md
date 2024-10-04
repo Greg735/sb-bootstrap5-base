@@ -65,7 +65,7 @@ To start the development environment with **Storybook** and **Gulp**, follow the
    The development environment watches for changes in the following directories:
 
    - `stories/*/**/*.scss` for **Sass** styles.
-   - `stories/*/**/*.behavior.js/` for **JavaScript** files.
+   - `stories/*/**/*.behavior.js` for **JavaScript** files.
    - `stories/*/**/*.twig` for **Twig** templates.
 
    When a change is detected, Storybook will automatically reload, and Gulp will recompile the assets if necessary.

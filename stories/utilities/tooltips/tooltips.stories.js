@@ -1,6 +1,5 @@
 import tooltipsTemplate from './tooltips.local.twig';
 import tooltipsDocs from '!!raw-loader!./tooltips.docs.mdx';
-import tooltipsSource from '!!raw-loader!./tooltips.local.twig';
 
 export default {
   title: 'Utilities/Tooltips',
@@ -14,6 +13,6 @@ export default {
   tags: ['autodocs'],
   args: {
   },
-};
+};  
 
 export const HTMLExample = (args) => tooltipsTemplate(args);

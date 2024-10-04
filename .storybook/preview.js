@@ -24,7 +24,7 @@ const preview = {
       storySort: {
         order: [
           'Documentation',
-          ['Introduction', 'Installation', 'Theme Setup', 'Theme Usage', '*'],
+          // ['Introduction', 'Installation', 'Theme Setup', 'Theme Usage', '*'],
           'Foundations',
           'Utilities',
           'Sections',

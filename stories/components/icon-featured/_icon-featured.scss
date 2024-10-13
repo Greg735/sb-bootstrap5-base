@@ -2,9 +2,9 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	height: 3rem;
-	width: 3rem;
-	font-size: 1.5em;
+	height: 2rem;
+	width: 2rem;
+	font-size: 1em; 
 
 	&-hover {
 		transition: transform 0.3s ease;
@@ -16,6 +16,17 @@
 
 	// hover transition only font-size: TODO
 
+	&--sm {
+		height: 1.5rem;
+		width: 1.5rem;
+		font-size: 0.75em;
+	}
+
+	&--lg {
+		height: 3rem;
+		width: 3rem;
+		font-size: 1.5em;
+	}
 
 	
 	&.icon-featured-icon {

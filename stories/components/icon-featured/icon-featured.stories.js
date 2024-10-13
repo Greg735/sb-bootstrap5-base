@@ -65,18 +65,27 @@ export default {
 			},
       options: ['small', 'medium', 'large', 'x-large'],
 		},
+    icon_featured_size: {
+			description: 'Size of the icon block',
+			table: { defaultValue: { summary: 'md' } },
+			control: {
+				type: 'select',
+			},
+      options: ['sm', 'md', 'lg'],
+		},
   },
   args: {
 		icon_name: 'bootstrap',
 		icon_size_name: 'medium',
+    icon_featured_size: 'md',
     icon_featured_classes: [''],
     color_theme: 'primary',
 	},
 };
 
 
-const Template = ({ icon_name, color_theme, icon_size_name, icon_featured_classes }) =>
-	IconFeaturedTemplate({ icon_name, color_theme, icon_size_name, icon_featured_classes })
+const Template = ({ icon_name, color_theme, icon_size_name, icon_featured_size, icon_featured_classes }) =>
+	IconFeaturedTemplate({ icon_name, color_theme, icon_size_name, icon_featured_size, icon_featured_classes })
 
 export const Icon = Template.bind({})
 

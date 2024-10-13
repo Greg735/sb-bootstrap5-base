@@ -8,7 +8,7 @@
   {% set font_size = "2.5em" %}
 {% endif %}
 
-<div class="icon-featured rounded bg-{{ color_theme }} text-bg-{{ color_theme }} mb-3{% if icon_featured_classes|length > 0 %} {{ icon_featured_classes|join(' ') }}{% endif %}" style="
+<div class="icon-featured icon-featured--{{ icon_featured_size }} rounded bg-{{ color_theme }} text-bg-{{ color_theme }} mb-3{% if icon_featured_classes|length > 0 %} {{ icon_featured_classes|join(' ') }}{% endif %}" style="
     font-size: {{ font_size }};
 ">
     {% include "../icon/icon.twig" with {

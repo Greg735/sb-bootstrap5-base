@@ -9,17 +9,26 @@
   
   <div class="carousel-inner">
     {% for item in items %}
-      <div class="carousel-item {{ loop.first ? 'active' : '' }}">
-        <img src="{{ item.image }}" class="d-block w-100" alt="{{ item.alt }}">
-        {% if item.caption or item.subcaption %}
+      {% set html_content = item.html_content %}
+      <div class="carousel-item {{ loop.first ? 'active' : '' }}" {% if carousel_height %}style="height:{{ carousel_height }}px"{% endif %}>
+        <img src="{{ item.image }}" class="d-block w-100{% if carousel_height %} object-fit-cover h-100{% endif %}" alt="{{ item.alt }}">
+        {% if item.caption or item.subcaption or html_content %}
+
           <div class="carousel-caption d-none d-md-block">
+
+            {% block html_content %}
+              {{ html_content }}
+            {% endblock %}
+
             {% if item.caption %}
               <h5 data-cue="slideInUp" data-duration="1800">{{ item.caption }}</h5>
             {% endif %}
             {% if item.subcaption %}
               <p data-cue="slideInUp" data-duration="1800">{{ item.subcaption }}</p>
             {% endif %}
+
           </div>
+
         {% endif %}
       </div>
     {% endfor %}

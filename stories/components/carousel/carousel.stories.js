@@ -25,6 +25,7 @@ export default {
   argTypes: {
     indicators: { control: 'boolean', defaultValue: true },
     controls: { control: 'boolean', defaultValue: true },
+    carousel_height: { control: 'number', defaultValue: null },
     carousel_id: { control: 'text', defaultValue: 'carouselExample' },
     classes: { control: 'text', defaultValue: '' },
     items: {
@@ -33,8 +34,7 @@ export default {
         {
           image: 'https://picsum.photos/id/555/800/600',
           alt: 'First slide',
-          caption: 'First Slide Label',
-          subcaption: 'Some representative placeholder content for the first slide.'
+          html_content: '<h1 class="mt-5">First Slide</h1>'
         },
         {
           image: 'https://picsum.photos/id/554/800/600',
@@ -59,14 +59,14 @@ export const Default = Template.bind({});
 Default.args = {
   indicators: true,
   controls: true,
+  keep_ratio: true,
   carousel_id: 'carouselExample',
   classes: '',
   items: [
     {
       image: 'https://picsum.photos/id/555/800/600',
       alt: 'First slide',
-      caption: 'First Slide Label',
-      subcaption: 'Some representative placeholder content for the first slide.'
+      html_content: '<h1 class="mt-5">First Slide</h1>'
     },
     {
       image: 'https://picsum.photos/id/554/800/600',
@@ -79,4 +79,11 @@ Default.args = {
       alt: 'Third slide',
     }
   ]
+};
+
+export const FixedHeight = Template.bind({});
+FixedHeight.args = {
+  ...Default.args,
+  carousel_height: 450,
+  carousel_id: 'carouselExample2',
 };

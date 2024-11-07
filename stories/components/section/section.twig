@@ -2,7 +2,7 @@
 
 {% set background_image = background_image ? ' style="background-image:url(\'' ~ background_image ~'\')" ' : null %}
 
-<section class="{{ class }}" {{ background_image }}>
+<section class="{{ class }}" {{ background_image }}{% for attribute, value in attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
 {% if 'section--with-particles' in class %}
   <div class="particles">
     {% for i in 1..20 %}

@@ -10,4 +10,5 @@
     {{ full_width }}
   "
   {{ disabled ? 'disabled' }}
+  {% for attribute, value in attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
   >{{- label -}}</button>

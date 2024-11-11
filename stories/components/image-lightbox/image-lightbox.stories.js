@@ -30,12 +30,6 @@ export default {
         required: true,
       }
     },
-    title: { 
-      control: 'text', 
-      type: {
-        required: true,
-      }
-    },
     src: { 
       control: 'text', 
       type: {
@@ -84,7 +78,6 @@ const Template = (args) => ImageLightboxTemplate(args);
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Image title',
   alt: 'Image alternative text',
   src: 'https://picsum.photos/id/666/400/400',
   width: 400,

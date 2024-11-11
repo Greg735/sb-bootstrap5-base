@@ -30,12 +30,7 @@ export default {
         required: true,
       }
     },
-    title: { 
-      control: 'text', 
-      type: {
-        required: true,
-      }
-    },
+
     src: { 
       control: 'text', 
       type: {
@@ -76,7 +71,6 @@ const Template = (args) => ImageZoomTemplate(args);
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Image title',
   alt: 'Image alternative text',
   src: 'https://picsum.photos/id/391/1920/1080',
   width: 1920,

@@ -30,12 +30,6 @@ export default {
         required: true,
       }
     },
-    title: { 
-      control: 'text', 
-      type: {
-        required: true,
-      }
-    },
     src: { 
       control: 'text', 
       type: {
@@ -98,7 +92,6 @@ const Template = (args) => ImageTemplate(args);
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Image title',
   alt: 'Image alternative text',
   src: 'https://picsum.photos/id/32/640/480',
   shadow: false,

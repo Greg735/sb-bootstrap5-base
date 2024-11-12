@@ -1,0 +1,30 @@
+{% set gallery_spacing = gallery_spacing|default(1) %}
+{% set gallery_grid = gallery_grid|default('col-6 col-sm-4 col-md-3') %}
+{% set use_lightbox = use_lightbox|default(false) %}
+
+<div class="gallery-grid row g-{{ gallery_spacing }}{% if gallery_classes|length > 0 %} {{ gallery_classes|join(' ') }}{% endif %}"{% for attribute, value in gallery_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+  {% for item in items %}
+  <div class="{{ gallery_grid }}">
+  {% if use_lightbox %}
+    {% include "../image-lightbox/image-lightbox.twig" with {
+      alt: item.alt,
+      src: item.src,
+      width: item.width,
+      height: item.height,
+      image_attributes: item.image_attributes,
+      lightbox_dest_image_src: item.lightbox_dest_image_src,
+      lightbox_caption: item.lightbox_caption,
+      lightbox_gallery: item.lightbox_gallery,
+    } %}
+  {% else %}
+      {% include "../image/image.twig" with {
+      alt: item.alt,
+      src: item.src,
+      width: item.width,
+      height: item.height,
+      image_attributes: item.image_attributes,
+    } %}
+  {% endif %}  
+  </div>
+  {% endfor %}
+</div>

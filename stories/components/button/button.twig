@@ -2,12 +2,14 @@
 {% set size = (size == "default") ? null : size %}
 {% set outline = outlined ? 'outline-' : '' %}
 {% set full_width = full_width ? 'w-100' : '' %}
+{% set rounded_pill = rounded_pill ? 'rounded-pill' : '' %}
 
 <button type="{{ type_attr }}" 
   class="btn 
     {{ type ? 'btn-' ~ outline ~ type : 'btn-'~ outline ~ 'primary' }}
     {{ size ? 'btn-' ~ size }}
     {{ full_width }}
+    {{ rounded_pill }}
   "
   {{ disabled ? 'disabled' }}
   {% for attribute, value in attributes %} {{ attribute }}="{{ value }}"{% endfor %}>

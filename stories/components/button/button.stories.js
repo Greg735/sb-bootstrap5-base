@@ -1,6 +1,7 @@
 import buttonTemplate from './button.twig';
 import ButtonSource from '!!raw-loader!./button.twig';
 import {constants} from '../_constants';
+import { control } from 'leaflet';
 
 
 export default {
@@ -54,6 +55,9 @@ export default {
     full_width: {
       control: { type: 'boolean' }
     },
+    rounded_pill: {
+      control: { type: 'boolean' }
+    },
   },
 };
 
@@ -69,6 +73,7 @@ Primary.args = {
   outlined: false,
   disabled: false,
   full_width: false,
+  rounded_pill: false,
 };
 
 export const Secondary = Template.bind({});

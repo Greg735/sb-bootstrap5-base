@@ -1,4 +1,5 @@
 import TwigColors from './colors.local.twig'
+import TwigAlertsColors from './colors.alerts.local.twig'
 import ColorsDocs from '!!raw-loader!./colors.docs.mdx'
 
 export default {
@@ -25,17 +26,35 @@ export default {
 		},
 	},
 	args: {
-        columns: 'col',
+        columns: 'col-6',
 		colors: [
 			'bs-primary',
 			'bs-secondary',
+			'bs-info',
+			'bs-info-bg-subtle',
+			'bs-success',
+			'bs-success-bg-subtle',
+			'bs-warning',
+			'bs-warning-bg-subtle',
+			'bs-danger',
+			'bs-danger-bg-subtle',
+			'bs-body',
+			'bs-body-color',
 		],
 	},
 }
 
 const Template = ({ columns, colors }) => TwigColors({ columns, colors })
-
 export const MainColors = Template.bind({})
+
+// const TemplateAlerts = ({ columns, colors }) => TwigAlertsColors({ columns, colors })
+
+// TemplateAlerts.args = {
+// 	columns: 'col-12',
+// 	colors: [
+// 		'bs-primary-bg-subtle',
+// 	],
+// }
 
 export const ThemeColors = Template.bind({})
 ThemeColors.args = {

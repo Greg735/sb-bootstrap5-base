@@ -10,6 +10,7 @@
     {{ size ? 'btn-' ~ size }}
     {{ full_width }}
     {{ rounded_pill }}
+    {% if button_classes|length > 0 %} {{ button_classes|join(' ') }}{% endif %}
   "
   {{ disabled ? 'disabled' }}
   {% for attribute, value in attributes %} {{ attribute }}="{{ value }}"{% endfor %}>

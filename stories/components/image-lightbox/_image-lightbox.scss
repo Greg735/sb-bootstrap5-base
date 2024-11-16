@@ -1,1 +1,5 @@
 @import "node_modules/glightbox/dist/css/glightbox";
+// Fix bug when html { height: 100%} => https://github.com/biati-digital/glightbox/issues/22
+.glightbox-open {
+    height: auto !important;
+}

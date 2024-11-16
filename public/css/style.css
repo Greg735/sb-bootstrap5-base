@@ -25136,6 +25136,10 @@ iframe.wait-autoplay {
     background: #000;
   }
 }
+.glightbox-open {
+  height: auto !important;
+}
+
 .image-zoom {
   overflow: hidden;
   position: relative;
@@ -25959,11 +25963,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
     background-position: 0% 50%;
   }
 }
-.section--photo {
-  background-attachment: fixed;
+.section--photo, .section--photo__fixed {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.section--photo__fixed {
+  background-attachment: fixed;
 }
 .section--with-particles {
   position: relative;
@@ -25986,184 +25992,184 @@ svg.leaflet-image-layer.leaflet-interactive path {
   animation-iteration-count: infinite;
 }
 .section--with-particles .particles .particle:nth-child(1) {
-  color: #583C87;
-  top: 49%;
-  left: 50%;
-  animation-duration: 15.2s;
-  animation-delay: -3.3s;
-  transform-origin: 22vw -6vh;
-  box-shadow: -40vmin 0 9.5127010302vmin currentColor;
+  color: #E45A84;
+  top: 32%;
+  left: 90%;
+  animation-duration: 15.5s;
+  animation-delay: -8.9s;
+  transform-origin: -7vw 3vh;
+  box-shadow: 40vmin 0 8.4503549875vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(2) {
-  color: #FFACAC;
-  top: 88%;
-  left: 92%;
-  animation-duration: 12.2s;
-  animation-delay: -6.3s;
-  transform-origin: -24vw 20vh;
-  box-shadow: 40vmin 0 9.9935658045vmin currentColor;
+  color: #583C87;
+  top: 76%;
+  left: 54%;
+  animation-duration: 10.5s;
+  animation-delay: -2.4s;
+  transform-origin: 9vw -7vh;
+  box-shadow: -40vmin 0 7.3068258488vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(3) {
-  color: #E45A84;
-  top: 94%;
+  color: #FFACAC;
+  top: 1%;
   left: 64%;
-  animation-duration: 18.5s;
-  animation-delay: -8.8s;
-  transform-origin: 9vw -5vh;
-  box-shadow: -40vmin 0 14.1580762107vmin currentColor;
+  animation-duration: 15.3s;
+  animation-delay: -19.8s;
+  transform-origin: -1vw 2vh;
+  box-shadow: -40vmin 0 12.3818651429vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(4) {
-  color: #583C87;
-  top: 83%;
-  left: 36%;
-  animation-duration: 15.9s;
-  animation-delay: -8.3s;
-  transform-origin: -22vw 12vh;
-  box-shadow: 40vmin 0 12.7216594916vmin currentColor;
+  color: #FFACAC;
+  top: 90%;
+  left: 74%;
+  animation-duration: 15.2s;
+  animation-delay: -9s;
+  transform-origin: 6vw 22vh;
+  box-shadow: 40vmin 0 8.5189857175vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(5) {
-  color: #583C87;
-  top: 79%;
-  left: 4%;
-  animation-duration: 14.3s;
-  animation-delay: -19s;
-  transform-origin: -21vw -6vh;
-  box-shadow: 40vmin 0 7.135192733vmin currentColor;
+  color: #FFACAC;
+  top: 62%;
+  left: 52%;
+  animation-duration: 19.5s;
+  animation-delay: -19.5s;
+  transform-origin: 14vw -21vh;
+  box-shadow: -40vmin 0 11.9010632087vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(6) {
-  color: #E45A84;
-  top: 100%;
-  left: 40%;
-  animation-duration: 13.4s;
-  animation-delay: -3.1s;
-  transform-origin: -13vw 7vh;
-  box-shadow: -40vmin 0 10.4379786032vmin currentColor;
+  color: #583C87;
+  top: 1%;
+  left: 38%;
+  animation-duration: 15.6s;
+  animation-delay: -18.8s;
+  transform-origin: 25vw 14vh;
+  box-shadow: 40vmin 0 14.7818824819vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(7) {
-  color: #E45A84;
-  top: 57%;
-  left: 66%;
-  animation-duration: 18.1s;
-  animation-delay: -5.3s;
-  transform-origin: -23vw 20vh;
-  box-shadow: 40vmin 0 8.2070227772vmin currentColor;
+  color: #583C87;
+  top: 59%;
+  left: 62%;
+  animation-duration: 14.9s;
+  animation-delay: -10.9s;
+  transform-origin: 15vw 0vh;
+  box-shadow: -40vmin 0 8.7031423034vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(8) {
-  color: #FFACAC;
-  top: 42%;
-  left: 70%;
-  animation-duration: 12.9s;
-  animation-delay: -18.4s;
-  transform-origin: 19vw 9vh;
-  box-shadow: 40vmin 0 12.9006022516vmin currentColor;
+  color: #E45A84;
+  top: 90%;
+  left: 25%;
+  animation-duration: 18.1s;
+  animation-delay: -15.1s;
+  transform-origin: 20vw 21vh;
+  box-shadow: 40vmin 0 5.323104912vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(9) {
-  color: #583C87;
-  top: 73%;
-  left: 99%;
-  animation-duration: 16.3s;
-  animation-delay: -1.9s;
-  transform-origin: -6vw -21vh;
-  box-shadow: 40vmin 0 8.9021863719vmin currentColor;
+  color: #E45A84;
+  top: 39%;
+  left: 48%;
+  animation-duration: 14.7s;
+  animation-delay: -14.1s;
+  transform-origin: 19vw -17vh;
+  box-shadow: 40vmin 0 6.2101088666vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(10) {
-  color: #583C87;
-  top: 23%;
-  left: 59%;
-  animation-duration: 12.9s;
-  animation-delay: -9.2s;
-  transform-origin: -13vw -2vh;
-  box-shadow: -40vmin 0 6.5069775768vmin currentColor;
+  color: #E45A84;
+  top: 66%;
+  left: 25%;
+  animation-duration: 19.9s;
+  animation-delay: -10.8s;
+  transform-origin: -8vw 9vh;
+  box-shadow: 40vmin 0 5.6119680001vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(11) {
-  color: #E45A84;
-  top: 61%;
-  left: 53%;
-  animation-duration: 18.9s;
-  animation-delay: -10.6s;
-  transform-origin: 11vw -5vh;
-  box-shadow: 40vmin 0 13.01321042vmin currentColor;
+  color: #FFACAC;
+  top: 19%;
+  left: 67%;
+  animation-duration: 15.7s;
+  animation-delay: -18.9s;
+  transform-origin: -13vw -15vh;
+  box-shadow: -40vmin 0 12.993393953vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(12) {
   color: #E45A84;
-  top: 43%;
-  left: 26%;
-  animation-duration: 11s;
-  animation-delay: -19.8s;
-  transform-origin: -1vw -3vh;
-  box-shadow: -40vmin 0 11.9222315263vmin currentColor;
+  top: 50%;
+  left: 10%;
+  animation-duration: 19.9s;
+  animation-delay: -2.2s;
+  transform-origin: 4vw -11vh;
+  box-shadow: -40vmin 0 11.4285235746vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(13) {
   color: #583C87;
-  top: 64%;
-  left: 1%;
-  animation-duration: 14.1s;
-  animation-delay: -17.3s;
-  transform-origin: -24vw -17vh;
-  box-shadow: -40vmin 0 12.1045048444vmin currentColor;
+  top: 24%;
+  left: 80%;
+  animation-duration: 13.2s;
+  animation-delay: -3.6s;
+  transform-origin: 6vw 2vh;
+  box-shadow: 40vmin 0 9.8388032868vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(14) {
   color: #E45A84;
-  top: 20%;
-  left: 93%;
-  animation-duration: 18.2s;
-  animation-delay: -13.5s;
-  transform-origin: 4vw 16vh;
-  box-shadow: 40vmin 0 14.9641117403vmin currentColor;
+  top: 39%;
+  left: 16%;
+  animation-duration: 19.6s;
+  animation-delay: -12s;
+  transform-origin: -9vw -4vh;
+  box-shadow: -40vmin 0 6.3047004863vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(15) {
   color: #E45A84;
-  top: 2%;
-  left: 40%;
-  animation-duration: 11.4s;
-  animation-delay: -6.3s;
-  transform-origin: 6vw 0vh;
-  box-shadow: 40vmin 0 14.9362887101vmin currentColor;
+  top: 89%;
+  left: 95%;
+  animation-duration: 13.6s;
+  animation-delay: -7.5s;
+  transform-origin: -22vw 20vh;
+  box-shadow: 40vmin 0 7.1055780001vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(16) {
-  color: #E45A84;
-  top: 56%;
-  left: 49%;
-  animation-duration: 11.2s;
-  animation-delay: -19.5s;
-  transform-origin: 0vw 1vh;
-  box-shadow: 40vmin 0 12.7169265972vmin currentColor;
+  color: #FFACAC;
+  top: 96%;
+  left: 16%;
+  animation-duration: 13.4s;
+  animation-delay: -3.1s;
+  transform-origin: 20vw -9vh;
+  box-shadow: 40vmin 0 13.9634427681vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(17) {
-  color: #583C87;
-  top: 87%;
-  left: 23%;
-  animation-duration: 16.8s;
-  animation-delay: -3.5s;
-  transform-origin: 7vw 17vh;
-  box-shadow: -40vmin 0 9.3817141514vmin currentColor;
+  color: #E45A84;
+  top: 31%;
+  left: 21%;
+  animation-duration: 17.8s;
+  animation-delay: -6.8s;
+  transform-origin: -2vw 9vh;
+  box-shadow: 40vmin 0 13.8971140829vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(18) {
-  color: #E45A84;
-  top: 19%;
-  left: 6%;
-  animation-duration: 17.4s;
-  animation-delay: -12.3s;
-  transform-origin: 8vw 23vh;
-  box-shadow: -40vmin 0 9.0317550199vmin currentColor;
+  color: #FFACAC;
+  top: 23%;
+  left: 77%;
+  animation-duration: 17.8s;
+  animation-delay: -13.5s;
+  transform-origin: 6vw 2vh;
+  box-shadow: 40vmin 0 5.3369499305vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(19) {
   color: #E45A84;
-  top: 78%;
-  left: 24%;
-  animation-duration: 15.3s;
-  animation-delay: -17.6s;
-  transform-origin: -24vw -20vh;
-  box-shadow: 40vmin 0 10.4895730238vmin currentColor;
+  top: 30%;
+  left: 14%;
+  animation-duration: 16s;
+  animation-delay: -20s;
+  transform-origin: 22vw -7vh;
+  box-shadow: 40vmin 0 13.088913537vmin currentColor;
 }
 .section--with-particles .particles .particle:nth-child(20) {
-  color: #E45A84;
-  top: 24%;
-  left: 1%;
-  animation-duration: 15.1s;
-  animation-delay: -13.8s;
-  transform-origin: 1vw 20vh;
-  box-shadow: -40vmin 0 8.5394528366vmin currentColor;
+  color: #583C87;
+  top: 45%;
+  left: 53%;
+  animation-duration: 12.7s;
+  animation-delay: -5.4s;
+  transform-origin: -24vw 14vh;
+  box-shadow: -40vmin 0 6.8935668037vmin currentColor;
 }
 @keyframes move {
   100% {

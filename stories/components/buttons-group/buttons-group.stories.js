@@ -28,7 +28,7 @@ Default.args = {
   content: '<button type="button" class="btn btn-outline-primary">First action</button><button type="button" class="btn btn-outline-primary">Second action</button>'
 }
 
-export const DefaultTree = Template.bind({});
-DefaultTree.args = {
+export const DefaultThree = Template.bind({});
+DefaultThree.args = {
   content: '<button type="button" class="btn btn-primary">First action</button><button type="button" class="btn btn-secondary">Second action</button><button type="button" class="btn btn-danger">Third action</button>'
 }

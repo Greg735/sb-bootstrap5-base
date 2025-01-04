@@ -1,5 +1,4 @@
 
-// import './_alert.scss';
 import ImageTemplate from './image.twig';
 import ImageDocs from '!!raw-loader!./image.docs.mdx';
 import ImageSource from '!!raw-loader!./image.twig';

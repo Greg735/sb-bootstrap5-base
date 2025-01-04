@@ -21,7 +21,7 @@
 {% set page_title = page_title|default('Page') %}
 
 
-<nav class="pager" role="navigation" aria-labelledby="{{ heading_id }}" aria-label="{{ pagination_title }}">
+<nav class="pager" aria-labelledby="{{ heading_id }}" aria-label="{{ pagination_title }}">
   <h4 id="{{ heading_id }}" class="visually-hidden">{{ pagination_title }}</h4>
   <ul class="pagination pagination-{{ size }} {% if pagination_classes|length > 0 %} {{ pagination_classes|join(' ') }}{% endif %} js-pager__items">
     {# Print first item if we are not on the first page. #}

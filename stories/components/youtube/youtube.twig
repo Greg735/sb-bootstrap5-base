@@ -1,5 +1,5 @@
 <div class="ratio ratio-16x9 mb-3{% if classes|length > 0 %} {{ classes|join(' ') }}{% endif %}"
-  {% for attribute, value in attributes %}
+  {% for attribute, value in youtube_attributes %}
     {{ attribute }}="{{ value }}"
   {% endfor %}
 >

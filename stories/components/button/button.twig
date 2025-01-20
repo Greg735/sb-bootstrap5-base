@@ -13,5 +13,5 @@
     {% if button_classes|length > 0 %} {{ button_classes|join(' ') }}{% endif %}
   "
   {{ disabled ? 'disabled' }}
-  {% for attribute, value in attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+  {% for attribute, value in button_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
   {{- label -}}</button>

@@ -16,7 +16,7 @@
   title="{{ link_title}}"
   target="{{ target }}"
   {{ disabled ? 'aria-disabled="true"' : null }}
-  {% for attribute, value in attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+  {% for attribute, value in link_attributes %} {{ attribute }}="{{ value }}"{% endfor %}
   >
     {{- label -}}
 </a>

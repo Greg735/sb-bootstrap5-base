@@ -1,4 +1,4 @@
-<div id="{{ carousel_id }}" class="carousel slide {{ classes }}" data-bs-ride="carousel"{% for attribute, value in attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+<div id="{{ carousel_id }}" class="carousel slide {{ classes }}" data-bs-ride="carousel"{% for attribute, value in carousel_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
   {% if indicators %}
     <ol class="carousel-indicators">
       {% for i in 0..items|length - 1 %}

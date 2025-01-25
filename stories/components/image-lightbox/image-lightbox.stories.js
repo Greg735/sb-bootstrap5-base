@@ -1,9 +1,7 @@
 
-// import './_alert.scss';
 import ImageLightboxTemplate from './image-lightbox.twig';
 import ImageLightboxDocs from '!!raw-loader!./image-lightbox.docs.mdx';
 import ImageLightboxSource from '!!raw-loader!./image-lightbox.twig';
-import GLightbox from 'glightbox';
 
 export default {
   title: 'Components/Image/Image Lightbox',
@@ -56,6 +54,13 @@ export default {
         defaultValue: { summary: 1080 },
       }
     },
+    image_classes: {
+      control: 'array',
+      description: 'Array of classes',
+      table: {
+        type: { summary: 'array' },
+      },
+    },
     lightbox_dest_image_src: { 
       control: 'text', 
       type: {
@@ -71,6 +76,13 @@ export default {
     lightbox_gallery: { 
       control: 'text',
     },
+    lightbox_classes: {
+      control: 'array',
+      description: 'Array of classes',
+      table: {
+        type: { summary: 'array' },
+      },
+    },
   },
 };
 
@@ -82,8 +94,10 @@ Default.args = {
   src: 'https://picsum.photos/id/666/400/400',
   width: 400,
   height: 400,
+  image_classes: [''],
   lightbox_dest_image_src: 'https://picsum.photos/id/555/1920/1080',
   lightbox_caption: 'Title: Image title',
   lightbox_gallery: '',
+  lightbox_classes: ['mb-5']
 };
 

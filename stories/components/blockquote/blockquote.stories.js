@@ -52,10 +52,3 @@ export default {
 const Template = (args) => TwigBlockquote(args);
 
 export const Default = Template.bind({});
-
-export const Quotted = Template.bind({});
-Quotted.args = {
-	blockquote_content: '<p>Nullam at felis ac lacus hendrerit ultricies.</p>',
-	blockquote_footer: '',
-	blockquote_classes: ['blockquote--quotted'],
-};

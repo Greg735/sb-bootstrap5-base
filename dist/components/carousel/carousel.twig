@@ -1,4 +1,6 @@
-<div id="{{ carousel_id }}" class="carousel slide {{ classes }}" data-bs-ride="carousel"{% for attribute, value in carousel_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+{% set autoplay = autoplay|default(true) %}
+
+<div id="{{ carousel_id }}" class="carousel slide{% if carousel_classes|length > 0 %} {{ carousel_classes|join(' ') }}{% endif %}" {% if autoplay %}data-bs-ride="carousel"{% endif %}{% for attribute, value in carousel_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
   {% if indicators %}
     <ol class="carousel-indicators">
       {% for i in 0..items|length - 1 %}
@@ -6,12 +8,15 @@
       {% endfor %}
     </ol>
   {% endif %}
-  
+
   <div class="carousel-inner">
     {% for item in items %}
       {% set html_content = item.html_content %}
       <div class="carousel-item {{ loop.first ? 'active' : '' }}" {% if carousel_height %}style="height:{{ carousel_height }}px"{% endif %}>
-        <img src="{{ item.image }}" class="d-block w-100{% if carousel_height %} object-fit-cover h-100{% endif %}" alt="{{ item.alt }}">
+        {% if item.lightbox_img %}
+        <a href="{{ item.lightbox_img }}" class="glightbox">
+        {% endif %}
+        <img src="{{ item.src }}" class="d-block w-100{% if carousel_height %} object-fit-cover h-100{% endif %}" alt="{{ item.alt }}">
         {% if item.caption or item.subcaption or html_content %}
 
           <div class="carousel-caption d-none d-md-block">
@@ -29,6 +34,9 @@
 
           </div>
 
+        {% endif %}
+        {% if item.lightbox_img %}
+        </a>
         {% endif %}
       </div>
     {% endfor %}

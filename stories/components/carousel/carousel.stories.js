@@ -6,9 +6,9 @@ import CarouselSource from '!!raw-loader!./carousel.twig';
 
 export default {
   title: 'Components/Carousel',
-	parameters: {
-		componentSubtitle:
-     '',
+  parameters: {
+    componentSubtitle:
+        '',
     componentSource: {
       code: CarouselSource,
       language: 'twig',
@@ -18,16 +18,22 @@ export default {
         component: CarouselDocs,
       },
     },
-	},
+  },
   tags: ['autodocs'],
   args: {
   },
   argTypes: {
     indicators: { control: 'boolean', defaultValue: true },
     controls: { control: 'boolean', defaultValue: true },
+    autoplay: { control: 'boolean', defaultValue: true },
     carousel_height: { control: 'number', defaultValue: null },
     carousel_id: { control: 'text', defaultValue: 'carouselExample' },
-    classes: { control: 'text', defaultValue: '' },
+    carousel_classes: { control: 'array',
+      description: 'Array of classes',
+      table: {
+        type: { summary: 'array' },
+      },
+    },
     items: {
       control: 'object',
       defaultValue: [
@@ -59,9 +65,9 @@ export const Default = Template.bind({});
 Default.args = {
   indicators: true,
   controls: true,
-  keep_ratio: true,
+  autoplay: true,
   carousel_id: 'carouselExample',
-  classes: '',
+  carousel_classes: '',
   items: [
     {
       image: 'https://picsum.photos/id/555/800/600',
@@ -86,4 +92,29 @@ FixedHeight.args = {
   ...Default.args,
   carousel_height: 450,
   carousel_id: 'carouselExample2',
+};
+
+export const WithLightbox = Template.bind({});
+WithLightbox.args = {
+  ...Default.args,
+  indicators: false,
+  autoplay: false,
+  carousel_id: 'carouselExample3',
+  items: [
+    {
+      src: 'https://picsum.photos/id/555/800/600',
+      lightbox_img: 'https://picsum.photos/id/555/3440/1440',
+      alt: 'First slide',
+    },
+    {
+      src: 'https://picsum.photos/id/554/800/600',
+      lightbox_img: 'https://picsum.photos/id/554/3440/1440',
+      alt: 'Second slide',
+    },
+    {
+      src: 'https://picsum.photos/id/553/800/600',
+      lightbox_img: 'https://picsum.photos/id/553/3440/1440',
+      alt: 'Third slide',
+    }
+  ]
 };

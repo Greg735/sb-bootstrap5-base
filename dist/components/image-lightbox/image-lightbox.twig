@@ -1,9 +1,10 @@
-<a href="{{ lightbox_dest_image_src }}" class="glightbox"  data-glightbox="{{ lightbox_caption }}"{% for attribute, value in image_lightbox_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+<a href="{{ lightbox_dest_image_src }}" class="d-inline-block glightbox{% if lightbox_classes|length > 0 %} {{ lightbox_classes|join(' ') }}{% endif %}" data-glightbox="{{ lightbox_caption }}"{% for attribute, value in image_lightbox_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
   {% include "@components/image/image.twig" with {
     src: src,
     alt: alt,
     width: width,
     height: height,
-    image_attributes: image_attributes
+    image_classes: image_classes,
+    image_attributes: image_attributes,
   } %}
 </a>

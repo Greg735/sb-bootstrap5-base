@@ -26,6 +26,7 @@ const preview = {
           'Documentation',
           // ['Introduction', 'Installation', 'Theme Setup', 'Theme Usage', '*'],
           'Foundations',
+          ['headings', '*'],
           'Utilities',
           'Sections',
           ['Content'],

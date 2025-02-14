@@ -10,7 +10,7 @@ export default {
 			description: {
 			  component: HeadingsDocs,
 			},
-		  },
+		},
 	},
 }
 

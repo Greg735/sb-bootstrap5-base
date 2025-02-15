@@ -38,18 +38,18 @@ export default {
       control: 'object',
       defaultValue: [
         {
-          image: 'https://picsum.photos/id/555/800/600',
+          src: 'https://picsum.photos/id/555/800/600',
           alt: 'First slide',
           html_content: '<h1 class="mt-5">First Slide</h1>'
         },
         {
-          image: 'https://picsum.photos/id/554/800/600',
+          src: 'https://picsum.photos/id/554/800/600',
           alt: 'Second slide',
           caption: 'Second Slide Label',
           subcaption: 'Some representative placeholder content for the second slide.'
         },
         {
-          image: 'https://picsum.photos/id/553/800/600',
+          src: 'https://picsum.photos/id/553/800/600',
           alt: 'Third slide',
           caption: 'Third Slide Label',
           subcaption: 'Some representative placeholder content for the third slide.'
@@ -70,18 +70,18 @@ Default.args = {
   carousel_classes: '',
   items: [
     {
-      image: 'https://picsum.photos/id/555/800/600',
+      src: 'https://picsum.photos/id/555/800/600',
       alt: 'First slide',
       html_content: '<h1 class="mt-5">First Slide</h1>'
     },
     {
-      image: 'https://picsum.photos/id/554/800/600',
+      src: 'https://picsum.photos/id/554/800/600',
       alt: 'Second slide',
       caption: 'Second Slide Label',
       subcaption: 'Some representative placeholder content for the second slide.'
     },
     {
-      image: 'https://picsum.photos/id/553/800/600',
+      src: 'https://picsum.photos/id/553/800/600',
       alt: 'Third slide',
     }
   ]

@@ -1,8 +1,9 @@
-
 @import "~bootstrap/scss/mixins/banner";
 
 @include bsBanner("");
 
+// Custom typography
+@import "typography/typography";
 
 // scss-docs-start import-stack
 // Configuration

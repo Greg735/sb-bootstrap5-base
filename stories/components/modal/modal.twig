@@ -1,0 +1,15 @@
+{% set modal_size = modal_size|default("") %}
+{% set modal_classes = modal_classes|default([]) %}
+{% set modal_id = modal_id|default('modalExemple') %}
+{% set modal_close_button_label = modal_close_button_label|default("") %}
+
+<div class="modal fade{% if modal_classes|length > 0 %}{{ modal_classes|join(' ') }}{% endif %}" id="{{ modal_id }}" tabindex="-1" aria-labelledby="{{ modal_id }}Label" aria-hidden="true">
+  <div class="modal-dialog{% if modal_size != "" %} {{ modal_size }}{% endif%} modal-fullscreen-md-down position-relative modal-dialog-centered">
+    <div class="modal-content shadow">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">{{ modal_close_button_label }}</button>
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>

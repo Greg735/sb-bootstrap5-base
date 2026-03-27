@@ -1,0 +1,36 @@
+<div class="card bg-white rounded-4 overflow-hidden shadow-lg
+{% if card_classes|length > 0 %}{{ card_classes|join(' ') }}"{% endif %}
+{% for attribute, value in card_attributes %} {{ attribute }}="{{ value }}"{% endfor %}">
+    {% if card_image.src %}
+        {% include "@components/image/image.twig" with {
+            alt: card_image.alt,
+            src: card_image.src,
+            width: card_image.width,
+            height: card_image.height,
+            image_classes: ['rounded-4'],
+            image_attributes: card_image.image_attributes,
+        } %}
+    {% endif %}
+    {% if heading %}
+        <div class="card__heading p-3">
+            {{ heading }}
+        </div>
+    {% endif %}
+    <div class="card__content p-5">
+        {{ content }}
+        {% if card_button %}
+            <div class="position-absolute bottom-0 end-0 py-4 px-5 text-align-right">
+                {% include "@components/link/link.twig" with {
+                    link_url:     card_button_link_uri|default(""),
+                    link_title:   card_button_link_title|default(""),
+                    label:        card_button_link_label|default(""),
+                    button:       'btn',
+                    button_size:  'sm',
+                    type:         'light',
+                    link_classes: ['mb-0'],
+                    with_icon: true,
+                } %}
+            </div>
+        {% endif %}
+    </div>
+</div>

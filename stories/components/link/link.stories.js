@@ -1,35 +1,40 @@
-
 import linkTemplate from './link.twig';
+import linkSource from '!!raw-loader!./link.twig';
 
 export default {
   title: 'Components/Link',
+  parameters: {
+    storySource: {
+      source: linkSource,
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text' },
-    link_url: { control: 'text' },
-    link_title: { control: 'text' },
+    label: {control: 'text'},
+    link_url: {control: 'text'},
+    link_title: {control: 'text'},
     type: {
-      control: { type: 'select'}, 
-      options: ['primary', 'secondary', 'blue', 'indigo', 'purple', 'yellow', 'teal', 'pink', 'gray', 'green', 'red', 'orange', 'cyan', 'light', 'dark', 'white', 'black'] 
+      control: {type: 'select'},
+      options: ['primary', 'secondary', 'blue', 'indigo', 'purple', 'yellow', 'teal', 'pink', 'gray', 'green', 'red', 'orange', 'cyan', 'light', 'dark', 'white', 'black']
     },
     target: {
-      control: { type: 'select' }, 
-      options: ['_self', '_blank'] 
+      control: {type: 'select'},
+      options: ['_self', '_blank']
     },
     button: { control: 'boolean' },
     outline: { control: 'boolean' },
     button_size: {
-      control: { type: 'select'}, 
-      options: ['sm', 'default', 'lg'] 
+      control: {type: 'select'},
+      options: ['sm', 'default', 'lg']
     },
     disabled: { control: 'boolean' },
     link_classes: {
-			control: 'array',
-			description: 'Array of classes',
-			table: {
-				type: { summary: 'array' },
-			},
-		},
+      control: 'array',
+      description: 'Array of classes',
+      table: {
+        type: {summary: 'array'},
+      },
+    },
   },
 };
 
@@ -46,7 +51,7 @@ Link.args = {
   button: false,
   outline: false,
   button_size: 'default',
-  link_classes:  ['']
+  link_classes: ['']
 };
 
 export const Button = Template.bind({});
@@ -59,6 +64,7 @@ Button.args = {
   button: true,
   outline: false,
   button_size: 'default',
+  full_width: true,
 };
 
 export const ButtonLG = Template.bind({});

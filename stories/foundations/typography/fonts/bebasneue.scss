@@ -1,0 +1,17 @@
+$path: "fonts/BebasNeue";
+$fontName: "BebasNeue";
+$fontType: (
+  400: 'Regular',
+);
+
+@each $weight, $type in $fontType {
+  @font-face {
+    font-family: $fontName;
+    src: url('#{$path}/#{$fontName}-#{$type}.ttf');
+    url('#{$path}/#{$fontName}-#{$type}.woff2') format('woff2'),
+    url('#{$path}/#{$fontName}-#{$type}.svg#OpenSans-#{$type}') format('svg');
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}

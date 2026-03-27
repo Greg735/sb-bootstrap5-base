@@ -1,0 +1,26 @@
+.modal {
+  .modal-dialog {
+    .btn-close {
+      top: 0;
+      right: 0;
+      display: flex;
+      width: initial;
+      height: initial;
+      text-align: left;
+      font-size: 0.9rem;
+      position: absolute;
+      padding-right: 1.3rem;
+      background-size: 0.7rem;
+      background-position: right;
+      transform: translateY(-35px) !important;
+
+      @include media-breakpoint-down(md) {
+        right: 1rem;
+        fill: $black;
+        color: $black;
+        transform: translateY(10px) !important;
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$black}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>");
+      }
+    }
+  }
+}

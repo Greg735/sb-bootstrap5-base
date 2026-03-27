@@ -1,0 +1,39 @@
+$path: "fonts/SourceSans3";
+$fontName: "SourceSans3";
+$fontType: (
+  900: 'Black',
+  800: 'ExtraBold',
+  700: 'Bold',
+  600: 'SemiBold',
+  500: 'Medium',
+  400: 'Regular',
+  300: 'Light',
+  200: 'ExtraLight',
+  100: 'Thin',
+);
+
+@each $weight, $type in $fontType {
+  @font-face {
+    font-family: $fontName;
+    src: url('#{$path}/#{$fontName}-#{$type}.ttf');
+    url('#{$path}/#{$fontName}-#{$type}.woff2') format('woff2'),
+    url('#{$path}/#{$fontName}-#{$type}.woff') format('woff'),
+    url('#{$path}/#{$fontName}-#{$type}.svg##{$fontName}-#{$type}') format('svg');
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@each $weight, $type in $fontType {
+  @font-face {
+    font-family: $fontName;
+    src: url('#{$path}/#{$fontName}-#{$type}Italic.ttf');
+    url('#{$path}/#{$fontName}-#{$type}Italic.woff2') format('woff2'),
+    url('#{$path}/#{$fontName}-#{$type}Italic.woff') format('woff'),
+    url('#{$path}/#{$fontName}-#{$type}Italic.svg##{$fontName}-#{$type}') format('svg');
+    font-weight: $weight;
+    font-style: italic;
+    font-display: swap;
+  }
+}

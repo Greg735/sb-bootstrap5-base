@@ -1,56 +1,61 @@
 import buttonTemplate from './button.twig';
 import ButtonSource from '!!raw-loader!./button.twig';
 import {constants} from '../_constants';
-import { control } from 'leaflet';
+import {control} from 'leaflet';
 
 
 export default {
   title: 'Components/Button/Button',
   parameters: {
-    componentSource: {
-      code: ButtonSource,
-      language: 'twig',
-    },
+    storySource: {
+      source: ButtonSource,
+    }
   },
   argTypes: {
-    label: { control: 'text' },
+    label: {
+      control: 'text',
+      type: {
+        required: true,
+      }
+    },
     type_attr: {
-      control: { type: 'radio'}, 
+      control: {type: 'radio'},
       options: constants.button.type,
       description: '**options**',
       table: {
-        type: { 
+        required: true,
+        type: {
           summary: constants.button.type.map(option => `'${option}'`).join('|')
         },
-        defaultValue: { summary: "button" },
-      },    
+        defaultValue: {summary: "button"},
+      },
     },
     type: {
-      control: { type: 'select'}, 
-      options: constants.colors.theme.options,
+      control: {type: 'select'},
+      options: constants.button.theme.options,
       description: '**options**',
       table: {
-        type: { 
-          summary: constants.colors.theme.options.map(option => `'${option}'`).join('|')
+        type: {
+          summary: constants.button.theme.options.map(option => `'${option}'`).join('|')
         },
-        defaultValue: { summary: "primary" },
-      },    
+        defaultValue: {summary: "primary"},
+      },
     },
     size: {
       description: '**options**',
-      control: { type: 'radio'},
+      control: {type: 'radio'},
       options: constants.sizes.options,
       table: {
-          type: {
-            summary: constants.sizes.options.map(option => `'${option}'`).join('|')
-          }
+        type: {
+          summary: constants.sizes.options.map(option => `'${option}'`).join('|')
+        }
       },
     },
-    outlined: {
-      control: { type: 'boolean' }
+    with_icon: {
+      control: {type: 'boolean'}
     },
     disabled: {
-      control: { type: 'boolean' }
+      control: {type: 'boolean'}
     },
     full_width: {
       control: { type: 'boolean' }
@@ -74,6 +79,7 @@ Primary.args = {
   disabled: false,
   full_width: false,
   rounded_pill: false,
+  with_icon: true,
 };
 
 export const Secondary = Template.bind({});

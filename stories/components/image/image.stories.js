@@ -1,4 +1,3 @@
-
 import ImageTemplate from './image.twig';
 import ImageDocs from '!!raw-loader!./image.docs.mdx';
 import ImageSource from '!!raw-loader!./image.twig';
@@ -6,83 +5,81 @@ import ImageSource from '!!raw-loader!./image.twig';
 
 export default {
   title: 'Components/Image',
-	parameters: {
-		componentSubtitle:
-     '',
-    componentSource: {
-      code: ImageSource,
-      language: 'twig',
+  parameters: {
+    componentSubtitle:
+      '',
+    storySource: {
+      source: ImageSource,
     },
     docs: {
       description: {
         component: ImageDocs,
       },
     },
-	},
-  tags: ['autodocs'],
-  args: {
   },
+  tags: ['autodocs'],
+  args: {},
   argTypes: {
-    alt: { 
-      control: 'text', 
+    alt: {
+      control: 'text',
       type: {
         required: true,
       }
     },
-    src: { 
-      control: 'text', 
+    src: {
+      control: 'text',
       type: {
         required: true,
       }
     },
-    width: { 
-      control: 'number', 
+    width: {
+      control: 'number',
       type: {
         required: false,
       },
       table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: 640 },
+        type: {summary: 'number'},
+        defaultValue: {summary: 640},
       }
     },
-    height: { 
-      control: 'number', 
+    height: {
+      control: 'number',
       type: {
         required: false,
       },
       table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: 480 },
+        type: {summary: 'number'},
+        defaultValue: {summary: 480},
       }
     },
-    shadow: { 
+    shadow: {
       control: 'boolean',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        type: {summary: 'boolean'},
+        defaultValue: {summary: false},
       }
     },
-    thumbnail: { 
+    thumbnail: {
       control: 'boolean',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        type: {summary: 'boolean'},
+        defaultValue: {summary: false},
       }
-     },
-     rounded: { 
+    },
+    rounded: {
       control: 'boolean',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        type: {summary: 'boolean'},
+        defaultValue: {summary: false},
       }
-     },
-     image_classes: {
+    },
+    image_classes: {
       control: 'array',
       description: 'Array of classes',
       table: {
-        type: { summary: 'array' },
+        type: {summary: 'array'},
       },
-		},
+    },
   },
 };
 
@@ -100,4 +97,3 @@ Default.args = {
   height: 480,
   image_classes: [''],
 };
-

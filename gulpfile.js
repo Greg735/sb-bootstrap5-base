@@ -3,7 +3,7 @@ const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const concat = require('gulp-concat')
 const del = require('del')
-const minify = require('gulp-minify')
+const terser = require('gulp-terser')
 const postcss = require('gulp-postcss')
 const sass = require('gulp-sass')(require('sass'))
 const replace = require('gulp-replace')
@@ -32,6 +32,7 @@ config.public = {
 	js: 'public/js',
 	img: 'public/img/**/*',
 	bsIcons: 'public/css/fonts',
+	fonts: 'public/css/fonts/*/*',
 }
 config.dist = {
 	all: 'dist/*/',
@@ -39,7 +40,8 @@ config.dist = {
 	js: 'dist/js',
 	twig: 'dist/components',
 	img: 'dist/img',
-	bsIcons: 'dist/css/fonts'
+	bsIcons: 'dist/css/fonts',
+	fonts: 'dist/css/fonts',
 }
 
 // Javascript
@@ -116,11 +118,10 @@ const compileJs = (done) => {
 		.pipe(concat('sb-main.js'))
 		.pipe(dest(config.public.js))
 		.pipe(dest(config.dist.js))
+		.pipe(terser())
 		.pipe(
-			minify({
-				ext: {
-					min: '.min.js',
-				},
+			rename({
+				extname: '.min.js',
 			})
 		)
 		.pipe(dest(config.public.js))
@@ -167,6 +168,14 @@ const collectBsIcons = (done) => {
 	done()
 }
 
+// Collect Bootstrap icons folder.
+const collectFonts = (done) => {
+	src(config.public.fonts, {encoding: false, allowEmpty: true})
+		.pipe(dest(config.dist.fonts))
+	done()
+}
+
+
 
 // Watch for Twig changes + re-collect.
 const watchTwig = () => {
@@ -176,6 +185,7 @@ const watchTwig = () => {
 exports.default = series(
 	cleanDist,
 	collectBsIcons,
+	collectFonts,
 	compileStyles,
 	compileJs,
 	collectTwig,

@@ -4,7 +4,9 @@ docroot: storybook-static
 php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames: []
+additional_hostnames: [
+    "https://sb-bootstrap5-base.ddev.site"
+]
 additional_fqdns: []
 database:
     type: mariadb
@@ -19,6 +21,7 @@ web_extra_exposed_ports:
       container_port: 6006
       http_port: 6005
       https_port: 6006
+
 
 # Key features of DDEV's config.yaml:
 

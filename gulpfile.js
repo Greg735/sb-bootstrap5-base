@@ -3,12 +3,11 @@ const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const concat = require('gulp-concat')
 const del = require('del')
-const minify = require('gulp-minify')
+const terser = require('gulp-terser')
 const postcss = require('gulp-postcss')
 const sass = require('gulp-sass')(require('sass'))
 const replace = require('gulp-replace')
 const rename = require('gulp-rename')
-const tildeImporter = require('node-sass-tilde-importer')
 const sassGlob = require('gulp-sass-glob')
 
 
@@ -70,9 +69,7 @@ const cleanDist = (done) => {
 const compileStyles = (done) => {
 	src([config.stylesMain])
 		.pipe(sassGlob())
-		.pipe(sass({
-            importer: tildeImporter
-          }).on("error", sass.logError))
+		.pipe(sass({}).on("error", sass.logError))
         .pipe(concat('style.css'))
 		.pipe(replace('url(images/marker-icon.png);', 'url(../img/leaflet/marker-icon.png);')) // Leaflet
 		.pipe(replace('url(images/layers.png);', 'url(../img/leaflet/layers.png);')) // Leaflet
@@ -116,11 +113,10 @@ const compileJs = (done) => {
 		.pipe(concat('sb-main.js'))
 		.pipe(dest(config.public.js))
 		.pipe(dest(config.dist.js))
+		.pipe(terser())
 		.pipe(
-			minify({
-				ext: {
-					min: '.min.js',
-				},
+			rename({
+				extname: '.min.js',
 			})
 		)
 		.pipe(dest(config.public.js))

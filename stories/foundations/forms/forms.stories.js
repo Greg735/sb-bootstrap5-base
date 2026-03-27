@@ -9,6 +9,9 @@ export default {
 				component: FormsDocs,
 			},
 		},
+		storySource: {
+			source: 'N/A',
+		},
 		controls: { disable: true },
 	},
 	argTypes: {

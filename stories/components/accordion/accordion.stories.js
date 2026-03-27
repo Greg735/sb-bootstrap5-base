@@ -7,9 +7,8 @@ export default {
   title: 'Components/Accordion',
 	parameters: {
 		componentSubtitle: '',
-    componentSource: {
-      code: AccordionSource,
-      language: 'twig',
+    storySource: {
+      source: AccordionSource,
     },
     docs: {
       description: {

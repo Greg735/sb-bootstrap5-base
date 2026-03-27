@@ -1,3 +1,5 @@
+import GLightbox from 'glightbox';
+
 document.addEventListener("DOMContentLoaded", function() {
     var lightbox = GLightbox();
 

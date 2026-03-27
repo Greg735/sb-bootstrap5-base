@@ -10,6 +10,9 @@ export default {
 				component: IconsDocs,
 			},
 		},
+		storySource: {
+			source: 'N/A',
+		},
 		controls: { disable: true },
 	},
 	argTypes: {

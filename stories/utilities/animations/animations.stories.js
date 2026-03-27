@@ -8,6 +8,9 @@ export default {
         component: animationsDocs,
       },
     },
+    storySource: {
+			source: 'N/A',
+		},
   },
   tags: ['autodocs'],
   argTypes: {

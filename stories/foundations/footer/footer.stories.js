@@ -12,7 +12,10 @@ export default {
 			description: {
 			  component: FooterDocs,
 			},
-		  },
+		},
+		storySource: {
+			source: 'N/A',
+		},
 	},
 }
 

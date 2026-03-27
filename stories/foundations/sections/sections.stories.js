@@ -7,10 +7,9 @@ export default {
 	parameters: {
 		componentSubtitle:
      'Section is just a <section> with some parameters for design (class and background). Title is optional (h2 element) and the content is to be define.',
-    componentSource: {
-      code: sectionSource,
-      language: 'twig',
-    },
+		storySource: {
+			source: 'N/A',
+		},
     docs: {
       description: {
         component: sectionsDocs,

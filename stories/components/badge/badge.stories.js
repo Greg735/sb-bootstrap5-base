@@ -6,14 +6,13 @@ import {constants} from '../_constants';
 export default {
   title: 'Components/Badge',
   parameters: {
-    componentSource: {
-      code: BadgeSource,
-      language: 'twig',
-    },
     docs: {
       description: {
         component: BadgeDocs,
       },
+    },
+    storySource: {
+      source: BadgeSource,
     },
   },
   argTypes: {

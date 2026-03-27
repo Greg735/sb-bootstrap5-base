@@ -1,5 +1,5 @@
+import Masonry from 'masonry-layout';
 import masonryDocs from '!!raw-loader!./masonry.docs.mdx';
-var Masonry = require('masonry-layout');
 
 export default {
   title: 'Utilities/Masonry',
@@ -9,6 +9,9 @@ export default {
         component: masonryDocs,
       },
     },
+    storySource: {
+			source: 'N/A',
+		},
   },
   tags: ['autodocs'],
   argTypes: {
@@ -48,3 +51,10 @@ const Template = (args) => {
 };
 
 export const Default = Template.bind({});
+Default.play = async ({ canvasElement }) => {
+  const grid = canvasElement.querySelector('.grid[data-masonry]');
+  if (grid) {
+    const options = JSON.parse(grid.getAttribute('data-masonry') || '{}');
+    new Masonry(grid, options);
+  }
+};

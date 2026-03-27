@@ -11,6 +11,9 @@ export default {
 			  component: HeadingsDocs,
 			},
 		},
+		storySource: {
+			source: 'N/A',
+		},
 	},
 }
 

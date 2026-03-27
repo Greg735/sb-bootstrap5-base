@@ -11,6 +11,9 @@ export default {
 			  component: DisplayHeadingsDocs,
 			},
 	    },
+		storySource: {
+			source: 'N/A',
+		},
 	},
 }
 

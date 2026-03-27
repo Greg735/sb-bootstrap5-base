@@ -11,6 +11,10 @@ export default {
 				component: ColorsDocs,
 			},
 		},
+		storySource: {
+			source: 'N/A',
+		},
+
 		controls: { disable: true },
 	},
 	argTypes: {

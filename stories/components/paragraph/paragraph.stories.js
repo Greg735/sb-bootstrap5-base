@@ -1,4 +1,3 @@
-
 import ParagraphTemplate from './paragraph.twig';
 import ParagraphDocs from '!!raw-loader!./paragraph.docs.mdx';
 import ParagraphSource from '!!raw-loader!./paragraph.twig';
@@ -6,59 +5,57 @@ import ParagraphSource from '!!raw-loader!./paragraph.twig';
 
 export default {
   title: 'Components/Paragraph',
-	parameters: {
-		componentSubtitle:
-     '',
-    componentSource: {
-      code: ParagraphSource,
-      language: 'twig',
+  parameters: {
+    componentSubtitle:
+      '',
+    storySource: {
+      source: ParagraphSource,
     },
     docs: {
       description: {
         component: ParagraphDocs,
       },
     },
-	},
-  args: {
   },
+  args: {},
   argTypes: {
-    classes: { 
-      control: 'text', 
+    classes: {
+      control: 'text',
       type: {
         required: false,
       }
     },
-    highlight: { 
+    highlight: {
       control: 'boolean',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        type: {summary: 'boolean'},
+        defaultValue: {summary: false},
       }
     },
     type: {
-      control: { type: 'select'},
-      defaultValue: "primary", 
+      control: {type: 'select'},
+      defaultValue: "primary",
       options: ['success', 'danger', 'warning', 'info'],
       table: {
         require: "true",
-        type: { summary: 'string' },
+        type: {summary: 'string'},
       },
-      if: { 
-        arg: 'highlight' 
+      if: {
+        arg: 'highlight'
       },
     },
     subtle: {
       control: 'boolean',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        type: {summary: 'boolean'},
+        defaultValue: {summary: false},
       },
-      if: { 
-        arg: 'highlight' 
+      if: {
+        arg: 'highlight'
       },
     },
-    content: { 
-      control: 'text', 
+    content: {
+      control: 'text',
       type: {
         required: true,
       }

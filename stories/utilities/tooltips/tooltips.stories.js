@@ -3,16 +3,18 @@ import tooltipsDocs from '!!raw-loader!./tooltips.docs.mdx';
 
 export default {
   title: 'Utilities/Tooltips',
-	parameters: {
+  parameters: {
     docs: {
       description: {
         component: tooltipsDocs,
       },
     },
-	},
-  tags: ['autodocs'],
-  args: {
+    storySource: {
+      source: 'No source code available',
+    },
   },
-};  
+  tags: ['autodocs'],
+  args: {},
+};
 
 export const HTMLExample = (args) => tooltipsTemplate(args);

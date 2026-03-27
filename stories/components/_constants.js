@@ -33,7 +33,15 @@ export const constants = {
             'button',
             'submit',
             'reset',
-        ]
+        ],
+        theme : {
+            options: [
+                'primary',
+                'secondary',
+                'light',
+                'outline-danger',
+            ]
+        }
     },
     sizes: {
         options: [

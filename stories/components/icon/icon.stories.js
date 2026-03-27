@@ -1,4 +1,3 @@
-
 // import './_alert.scss';
 import IconTemplate from './icon.twig';
 import IconDocs from '!!raw-loader!./icon.docs.mdx';
@@ -8,55 +7,51 @@ import {constants} from '../_constants';
 
 export default {
   title: 'Components/Icon',
-	parameters: {
-		componentSubtitle: 'An element used to display an icon',
-    componentSource: {
-      code: IconSource,
-      language: 'twig',
+  parameters: {
+    componentSubtitle: 'An element used to display an icon',
+    storySource: {
+      source: IconSource,
     },
     docs: {
       description: {
         component: IconDocs,
       },
     },
-	},
-  args: {
   },
   argTypes: {
-    icon_name : {
-      control: { 
+    icon_name: {
+      control: {
         type: 'select'
       },
-      defaultValue: "vignette", 
+      defaultValue: "vignette",
       options: constants.icons_all.options,
       description: '**Options**',
       table: {
         require: "false",
-        type: { 
+        type: {
           summary: constants.icons_all.options.map(option => `'${option}'`).join('|')
         },
-        defaultValue: { summary: "vignette" },
+        defaultValue: {summary: "vignette"},
 
       },
     },
     size: {
-			description: 'Size of the icon',
-			table: { defaultValue: { summary: 'medium' } },
-			control: {
-				type: 'select',
-			},
+      description: 'Size of the icon',
+      table: {defaultValue: {summary: 'medium'}},
+      control: {
+        type: 'select',
+      },
       options: ['small', 'medium', 'large', 'x-large'],
-		},
+    },
   },
   args: {
-		icon_name: 'bootstrap',
-		size: 'medium',
-	},
+    icon_name: 'bootstrap',
+    size: 'medium',
+  },
 };
 
 
-const Template = ({ icon_name, size, cssClass }) =>
-	IconTemplate({ icon_name, size, cssClass })
+const Template = ({icon_name, size, cssClass}) =>
+  IconTemplate({icon_name, size, cssClass})
 
 export const Icon = Template.bind({})
-

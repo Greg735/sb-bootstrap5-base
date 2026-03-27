@@ -8,18 +8,17 @@ import {constants} from '../_constants';
 
 export default {
   title: 'Components/Alert/Alert',
-	parameters: {
-		componentSubtitle: '',
-    componentSource: {
-      code: AlertSource,
-      language: 'twig',
-    },
+  parameters: {
+    componentSubtitle: '',
     docs: {
       description: {
         component: AlertDocs,
       },
     },
-	},
+    storySource: {
+      source: AlertSource,
+    },
+  },
   args: {
   },
   argTypes: {

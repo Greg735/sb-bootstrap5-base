@@ -1,31 +1,28 @@
-
 import YoutubeTemplate from './youtube.twig';
 import YoutubeDocs from '!!raw-loader!./youtube.docs.mdx';
 import YoutubeSource from '!!raw-loader!./youtube.twig';
 
 export default {
   title: 'Components/Youtube',
-	parameters: {
-		componentSubtitle: '',
-    componentSource: {
-      code: YoutubeSource,
-      language: 'twig',
+  parameters: {
+    componentSubtitle: '',
+    storySource: {
+      source: YoutubeSource,
     },
     docs: {
       description: {
         component: YoutubeDocs,
       },
     },
-	},
-  args: {
   },
+  args: {},
   argTypes: {
     title: {
-			name: 'Video title',
-			description: 'The video title',
-			control: {
-				type: 'text',
-			},
+      name: 'Video title',
+      description: 'The video title',
+      control: {
+        type: 'text',
+      },
     },
     video_id: {
       name: 'Video title',
@@ -38,9 +35,9 @@ export default {
       control: 'array',
       description: 'Array of classes',
       table: {
-        type: { summary: 'array' },
+        type: {summary: 'array'},
       },
-		},
+    },
   },
 };
 
@@ -53,18 +50,18 @@ Default.args = {
   video_id: 'CLwX9EWlWJM',
   classes: ['']
 };
-  
+
 
 export const Example1 = Template.bind({});
 Example1.args = {
   ...Default.args,
-  classes: ['border', 'rounded-5', 'overflow-hidden', 'shadow-lg'],
+  classes: ['border', 'rounded-4', 'overflow-hidden', 'shadow-lg'],
 };
-  
+
 Example1.parameters = {
-	docs: {
-		description: {
-      story : 'Example of a rounded (5) youtube video with big shadow.',
+  docs: {
+    description: {
+      story: 'Example of a rounded (4) youtube video with big shadow.',
     }
-	},
+  },
 }

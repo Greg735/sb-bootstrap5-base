@@ -17,7 +17,7 @@ To install the project dependencies, follow these steps:
 2. Install the necessary Node.js packages:
 
    ```bash
-   npm install
+   ddev npm install
    ```
 
 ## Development
@@ -29,7 +29,7 @@ To start the development environment with **Storybook** and **Gulp**, follow the
    You can run both **Gulp** (for processing CSS/JS tasks) and **Storybook** (for previewing components) concurrently by running the following command:
 
    ```bash
-   npm run develop
+   ddev npm run develop
    ```
 
    This will:
@@ -43,7 +43,7 @@ To start the development environment with **Storybook** and **Gulp**, follow the
    If you prefer to run Storybook alone without Gulp tasks, use:
 
    ```bash
-   npm run storybook
+   ddev npm run storybook
    ```
 
 3. **Gulp tasks**:
@@ -51,7 +51,7 @@ To start the development environment with **Storybook** and **Gulp**, follow the
    Gulp is used to automate CSS/JavaScript processing tasks. You can run Gulp tasks separately using:
 
    ```bash
-   npm run gulp
+   ddev npm run gulp
    ```
 
    The Gulp tasks will handle:
@@ -79,7 +79,7 @@ To start the development environment with **Storybook** and **Gulp**, follow the
 To build Storybook for production, run the following command:
 
 ```bash
-npm run build-storybook
+ddev npm run build-storybook
 ```
 
 This will generate a static version of your Storybook, which you can deploy to any static hosting service or integrate into your project.
@@ -113,7 +113,7 @@ This project relies on the following core dependencies:
 
 ### Dev Dependencies
 
-The dev dependencies are managed in the `package.json` file. You can install them using the `npm install` command.
+The dev dependencies are managed in the `package.json` file. You can install them using the `ddev npm install` command.
 
 ## License
 

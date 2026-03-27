@@ -1,58 +1,55 @@
-
 import MapTemplate from './map.twig';
 import MapDocs from '!!raw-loader!./map.docs.mdx';
 import MapSource from '!!raw-loader!./map.twig';
 
 export default {
   title: 'Components/Map',
-	parameters: {
-		componentSubtitle: '',
-    componentSource: {
-      code: MapSource,
-      language: 'twig',
+  parameters: {
+    componentSubtitle: '',
+    storySource: {
+      source: MapSource,
     },
     docs: {
       description: {
         component: MapDocs,
       },
     },
-	},
-  args: {
   },
+  args: {},
   argTypes: {
     lat: {
       control: 'number',
       description: 'Latitude for the map center and marker',
       table: {
-        type: { summary: 'number' },
+        type: {summary: 'number'},
       },
     },
     long: {
       control: 'number',
       description: 'Longitude for the map center and marker',
       table: {
-        type: { summary: 'number' },
+        type: {summary: 'number'},
       },
     },
     zoom: {
       control: 'number',
       description: 'Zoom level of the map',
       table: {
-        type: { summary: 'number' },
+        type: {summary: 'number'},
       },
     },
     marker_text: {
       control: 'text',
       description: 'Text to display in the marker popup',
       table: {
-        type: { summary: 'string' },
+        type: {summary: 'string'},
       },
     },
     icon: {
       control: 'text',
       description: 'URL of the custom marker icon (SVG or other image format)',
       table: {
-        type: { summary: 'string' },
+        type: {summary: 'string'},
       },
     },
   },
@@ -68,7 +65,7 @@ Default.args = {
   marker_text: 'Here is Paris!',
   icon: 'https://leafletjs.com/examples/custom-icons/leaf-green.png', // Exemple: Icône Leaflet par défaut
 };
-  
+
 export const SecondMap = Template.bind({});
 SecondMap.args = {
   lat: 40.7128,    // Ex: Latitude pour New York

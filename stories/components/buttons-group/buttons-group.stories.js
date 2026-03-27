@@ -5,17 +5,16 @@ import ButtonGroupSource from '!!raw-loader!./buttons-group.twig';
 export default {
   title: 'Components/Button/Group',
   parameters: {
-    componentSource: {
-      code: ButtonGroupSource,
-      language: 'twig',
+    storySource: {
+      source: ButtonGroupSource,
     },
-    controls: { disable: true },
+    controls: {disable: true},
   },
   argTypes: {
     content: {
-        table: {
-            disable: true,
-        }
+      table: {
+        disable: true,
+      }
     },
   },
 };

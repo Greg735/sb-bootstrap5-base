@@ -8,32 +8,35 @@ export default {
         component: animationsDocs,
       },
     },
+    storySource: {
+      source: 'No source code available',
+    },
   },
   tags: ['autodocs'],
   argTypes: {
     offset: {
-      control: { type: 'number' },
+      control: {type: 'number'},
       description: 'Offset to trigger animation (default: 100)',
       table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: 100 },
+        type: {summary: 'number'},
+        defaultValue: {summary: 100},
       },
     },
     duration: {
-      control: { type: 'number' },
+      control: {type: 'number'},
       description: 'Duration of the animation in milliseconds (default: 400)',
       table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: 800 },
+        type: {summary: 'number'},
+        defaultValue: {summary: 800},
       },
     },
     animation: {
-      control: { type: 'select' },
+      control: {type: 'select'},
       options: ['fadeIn', 'slideInLeft', 'slideInRight', 'slideInDown', 'slideInUp', 'zoomIn', 'zoomOut', 'rotateIn', 'bounceIn', 'bounceInLeft', 'bounceInRight', 'bounceInDown', 'bounceInUp', 'flipInX', 'flipInY'],
       description: 'The type of animation',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'fadeIn' },
+        type: {summary: 'string'},
+        defaultValue: {summary: 'fadeIn'},
       },
     },
   },
@@ -42,7 +45,7 @@ export default {
 const Template = (args) => {
   return `
     <div class="py-9 px-5 bg-primary text-bg-primary" >
-      <h1 data-cue="${args.animation}" data-duration="${args.duration}">Animated Content <br>${args.animation}<br>${args.duration} ms</h1
+      <h1 data-cue="${args.animation}" data-duration="${args.duration}">Animated Content <br>${args.animation}<br>${args.duration} ms</h1>
     </div>
   `;
 };

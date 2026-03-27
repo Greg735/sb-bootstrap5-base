@@ -1,4 +1,5 @@
 import masonryDocs from '!!raw-loader!./masonry.docs.mdx';
+
 var Masonry = require('masonry-layout');
 
 export default {
@@ -9,10 +10,12 @@ export default {
         component: masonryDocs,
       },
     },
+    storySource: {
+      source: 'No source code available',
+    },
   },
   tags: ['autodocs'],
-  argTypes: {
-  },
+  argTypes: {},
 };
 
 const Template = (args) => {

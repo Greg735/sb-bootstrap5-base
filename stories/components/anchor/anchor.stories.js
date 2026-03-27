@@ -5,18 +5,18 @@ import AnchorDocs from '!!raw-loader!./anchor.docs.mdx';
 export default {
   title: 'Components/Anchor',
   parameters: {
-    componentSource: {
-      code: AnchorSource,
-      language: 'twig',
-    },
+    componentSubtitle: '',
     docs: {
       description: {
         component: AnchorDocs,
       },
     },
+    storySource: {
+      source: AnchorSource,
+    },
   },
   argTypes: {
-    id: { control: 'text' },
+    id: {control: 'text'},
   },
 };
 

@@ -6,35 +6,42 @@ import {constants} from '../_constants';
 export default {
   title: 'Components/Badge',
   parameters: {
-    componentSource: {
-      code: BadgeSource,
-      language: 'twig',
-    },
+    componentSubtitle: '',
     docs: {
       description: {
         component: BadgeDocs,
       },
     },
+    storySource: {
+      source: BadgeSource,
+    }
   },
   argTypes: {
-    label: { control: 'text' },
+    label: {control: 'text'},
     type: {
-      control: { type: 'select'}, 
+      control: {type: 'select'},
       options: constants.colors.theme.options,
       description: '**options**',
       table: {
         require: "false",
-        type: { 
+        type: {
           summary: constants.colors.theme.options.map(option => `'${option}'`).join('|')
         },
-        defaultValue: { 
-          summary: "primary" 
+        defaultValue: {
+          summary: "primary"
         },
       },
     },
     pill: {
       control: 'boolean'
-    }
+    },
+    badge_classes: {
+      control: 'array',
+      description: 'Array of classes',
+      table: {
+        type: {summary: 'array'},
+      },
+    },
   },
 };
 

@@ -4,6 +4,10 @@ const path = require('path');
 
 const config = {
   stories: ['../stories/**/*.@(stories.@(js|jsx|ts|tsx))'],
+  staticDirs: [{
+    from: '../stories/assets',
+    to: '/assets'
+  }],
   addons: [
     "@storybook/addon-links",
 		{
@@ -12,11 +16,10 @@ const config = {
 				actions: false,
 			},
 		},
-    // "@storybook/addon-storysource",
     '@storybook/addon-a11y',
+    '@storybook/addon-storysource',
     // '@storybook/addon-viewport',
     // '@storybook/addon-themes',
-    'storybook-source-code-addon',
     // '@chromatic-com/storybook'
   ],
   docs: {

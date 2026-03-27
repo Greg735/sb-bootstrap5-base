@@ -9,7 +9,10 @@ import '../public/css/style.css'
 const { addDrupalExtensions } = require('drupal-twig-extensions/twig')
 addDrupalExtensions(Twig)
 
-// // Exemple de filtre personnalisé
+// Twig.extend({ base: 'https://theme-base-storybook.ddev.site:6006/' });
+
+/**
+// Exemple de filtre personnalisé
 // const customFilter = (value) => {
 //   // Transforme la valeur (par exemple, mettre en majuscules)
 //   return value.toUpperCase();
@@ -17,7 +20,7 @@ addDrupalExtensions(Twig)
 // // Ajout du filtre personnalisé à Twig
 // Twig.extendFilter('custom', customFilter);
 // Twig.extendFunction('custom', customFilter);
-
+*/
 const preview = {
   parameters: {
     options: {

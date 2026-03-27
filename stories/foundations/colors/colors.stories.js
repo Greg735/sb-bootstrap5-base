@@ -1,6 +1,7 @@
 import TwigColors from './colors.local.twig'
 import TwigAlertsColors from './colors.alerts.local.twig'
 import ColorsDocs from '!!raw-loader!./colors.docs.mdx'
+import AccordionSource from "../../components/accordion/accordion.twig";
 
 export default {
 	title: 'Foundations/Colors',
@@ -11,14 +12,17 @@ export default {
 				component: ColorsDocs,
 			},
 		},
+		storySource: {
+			source: 'No source code available',
+		},
 		controls: { disable: true },
 	},
 	argTypes: {
-        columns: {
-            table: {
-                disable: true,
-            }
-        },
+		columns: {
+			table: {
+				disable: true,
+			}
+		},
 		colors: {
 			table: {
 				disable: true,
@@ -26,7 +30,7 @@ export default {
 		},
 	},
 	args: {
-        columns: 'col-6',
+		columns: 'col-6',
 		colors: [
 			'bs-primary',
 			'bs-secondary',

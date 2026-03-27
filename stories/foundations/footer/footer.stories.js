@@ -5,15 +5,18 @@ import FooterDocs from '!!raw-loader!./footer.docs.mdx'
 
 
 export default {
-	title: 'Foundations/Footer',
-	parameters: {
-		componentSubtitle: 'HTML footer',
-		docs: {
-			description: {
-			  component: FooterDocs,
-			},
-		  },
-	},
+  title: 'Foundations/Footer',
+  parameters: {
+    componentSubtitle: 'HTML footer',
+    docs: {
+      description: {
+        component: FooterDocs,
+      },
+    },
+    storySource: {
+      source: 'No source code available',
+    },
+  },
 }
 
 export const Example = (args) => TwigFooter(args);

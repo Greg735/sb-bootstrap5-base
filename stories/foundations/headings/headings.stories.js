@@ -3,15 +3,18 @@ import HeadingsDocs from '!!raw-loader!./headings.docs.mdx'
 
 
 export default {
-	title: 'Foundations/Headings',
-	parameters: {
-		componentSubtitle: 'HTML heading elements (h1-h6)',
-		docs: {
-			description: {
-			  component: HeadingsDocs,
-			},
-		},
-	},
+  title: 'Foundations/Headings',
+  parameters: {
+    componentSubtitle: 'HTML heading elements (h1-h6)',
+    docs: {
+      description: {
+        component: HeadingsDocs,
+      },
+    },
+    storySource: {
+      source: 'No source code available',
+    },
+  },
 }
 
 export const Example = (args) => TwigHeadings(args);

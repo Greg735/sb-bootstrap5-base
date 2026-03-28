@@ -4,7 +4,54 @@
  * Copyright 2011-2025 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import 'https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap';
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans/OpenSans-ExtraBold.ttf");
+  src: url("fonts/OpenSans/OpenSans-ExtraBold.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans/OpenSans-ExtraBold.woff2") format("woff2"), url("fonts/OpenSans/OpenSans-ExtraBold.woff") format("woff"), url("fonts/OpenSans/OpenSans-ExtraBold.svg#OpenSans-ExtraBold") format("svg");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans/OpenSans-Bold.ttf");
+  src: url("fonts/OpenSans/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans/OpenSans-Bold.woff2") format("woff2"), url("fonts/OpenSans/OpenSans-Bold.woff") format("woff"), url("fonts/OpenSans/OpenSans-Bold.svg#OpenSans-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans/OpenSans-SemiBold.ttf");
+  src: url("fonts/OpenSans/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("fonts/OpenSans/OpenSans-SemiBold.svg#OpenSans-SemiBold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans/OpenSans-Medium.ttf");
+  src: url("fonts/OpenSans/OpenSans-Medium.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans/OpenSans-Medium.woff2") format("woff2"), url("fonts/OpenSans/OpenSans-Medium.woff") format("woff"), url("fonts/OpenSans/OpenSans-Medium.svg#OpenSans-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans/OpenSans-Regular.ttf");
+  src: url("fonts/OpenSans/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("fonts/OpenSans/OpenSans-Regular.svg#OpenSans-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans/OpenSans-Light.ttf");
+  src: url("fonts/OpenSans/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans/OpenSans-Light.woff2") format("woff2"), url("fonts/OpenSans/OpenSans-Light.woff") format("woff"), url("fonts/OpenSans/OpenSans-Light.svg#OpenSans-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 .navbar-toggler {
   border: none !important;
 }
@@ -129,7 +176,7 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-sans-serif: OpenSans, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -27106,28 +27153,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 .section--photo__fixed {
   background-attachment: fixed;
-}
-
-.language-switcher .lang-switcher-mobile .lang-list {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  justify-content: center;
-}
-.language-switcher .lang-switcher-mobile .lang-list li {
-  color: #000;
-  font-weight: 600;
-  padding: 0 0.5rem;
-  text-transform: uppercase;
-  border-right: 1px solid #ced4da;
-}
-.language-switcher .lang-switcher-mobile .lang-list li:last-child {
-  border-right: none;
-}
-.language-switcher .lang-switcher-mobile .lang-list li a {
-  color: #000;
-  font-weight: 300;
-  text-decoration: none;
 }
 
 .section--prefooter h2, .section--prefooter .h2 {

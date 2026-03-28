@@ -7,11 +7,9 @@ import ImagesGallerySource from '!!raw-loader!./images-gallery.twig';
 export default {
   title: 'Components/Images Gallery',
 	parameters: {
-		componentSubtitle:
-     '',
-    componentSource: {
-      code: ImagesGallerySource,
-      language: 'twig',
+		componentSubtitle: '',
+    storySource: {
+      source: ImagesGallerySource,
     },
     docs: {
       description: {

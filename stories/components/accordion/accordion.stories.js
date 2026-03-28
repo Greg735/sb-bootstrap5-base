@@ -46,7 +46,7 @@ Default.args = {
     {title: 'Accordion Item #2', content: 'This is the content of the second accordion item.', open: false},
     {title: 'Accordion Item #3', content: 'This is the content of the third accordion item.', open: false},
   ],
-  independent: true,
+  independent: false,
 };
 
 export const SingleItem = Template.bind({});

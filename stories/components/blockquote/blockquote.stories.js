@@ -6,10 +6,9 @@ import BlockquoteSource from '!!raw-loader!./blockquote.twig';
 export default {
 	title: 'Components/Blockquote',
 	parameters: {
-		componentSource: {
-			code: BlockquoteSource,
-			language: 'twig',
-		  },
+		storySource: {
+			source: BlockquoteSource,
+		},
 		docs: {
 			description: {
 			  component: BlockquoteDocs,

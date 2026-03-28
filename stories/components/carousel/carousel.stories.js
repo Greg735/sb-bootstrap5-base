@@ -7,11 +7,9 @@ import CarouselSource from '!!raw-loader!./carousel.twig';
 export default {
   title: 'Components/Carousel',
   parameters: {
-    componentSubtitle:
-        '',
-    componentSource: {
-      code: CarouselSource,
-      language: 'twig',
+    componentSubtitle: '',
+    storySource: {
+      source: CarouselSource,
     },
     docs: {
       description: {

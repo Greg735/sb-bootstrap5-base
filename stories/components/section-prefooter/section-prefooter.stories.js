@@ -9,9 +9,8 @@ export default {
 	parameters: {
 		componentSubtitle:
      'This is the pre-footer section.',
-    componentSource: {
-      code: sectionPFSource,
-      language: 'twig',
+    storySource: {
+      source: sectionPFSource,
     },
     docs: {
       // description: {

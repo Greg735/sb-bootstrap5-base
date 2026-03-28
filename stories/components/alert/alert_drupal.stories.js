@@ -8,9 +8,8 @@ export default {
   title: 'Components/Alert/Alert Drupal',
 	parameters: {
 		componentSubtitle: '',
-    componentSource: {
-      code: AlertSource,
-      language: 'twig',
+    storySource: {
+      source: AlertSource,
     },
     docs: {
       description: {

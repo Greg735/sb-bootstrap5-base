@@ -10,9 +10,8 @@ export default {
   title: 'Components/Icon Featured',
 	parameters: {
 		componentSubtitle: 'An element used to display an icon inside a div with background.',
-    componentSource: {
-      code: IconFeaturedSource,
-      language: 'twig',
+    storySource: {
+      source: IconFeaturedSource,
     },
     docs: {
       description: {

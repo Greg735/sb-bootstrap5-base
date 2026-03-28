@@ -6,11 +6,9 @@ import ImageLightboxSource from '!!raw-loader!./image-lightbox.twig';
 export default {
   title: 'Components/Image/Image Lightbox',
 	parameters: {
-		componentSubtitle:
-     '',
-    componentSource: {
-      code: ImageLightboxSource,
-      language: 'twig',
+		componentSubtitle: '',
+    storySource: {
+      source: ImageLightboxSource,
     },
     docs: {
       description: {

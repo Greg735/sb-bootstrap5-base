@@ -8,11 +8,9 @@ import ImageZoomSource from '!!raw-loader!./image-zoom.twig';
 export default {
   title: 'Components/Image/Image Zoom',
 	parameters: {
-		componentSubtitle:
-     '',
-    componentSource: {
-      code: ImageZoomSource,
-      language: 'twig',
+		componentSubtitle:'',
+    storySource: {
+      source: ImageZoomSource,
     },
     docs: {
       description: {

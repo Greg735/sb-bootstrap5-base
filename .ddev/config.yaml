@@ -4,9 +4,7 @@ docroot: storybook-static
 php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames: [
-    "https://sb-bootstrap5-base.ddev.site"
-]
+additional_hostnames: []
 additional_fqdns: []
 database:
     type: mariadb

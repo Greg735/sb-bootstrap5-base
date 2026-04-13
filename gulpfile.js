@@ -80,8 +80,9 @@ const compileStyles = (done) => {
 		.pipe(replace('url(images/layers.png);', 'url(../img/leaflet/layers.png);')) // Leaflet
 		.pipe(replace('url(images/layers-2x.png);', 'url(../img/leaflet/layers-2x.png);')) // Leaflet
 		.pipe(dest(config.public.css))
-        .pipe(postcss([autoprefixer(), cssnano()]))
+		.pipe(postcss([autoprefixer()]))
 		.pipe(dest(config.dist.css))
+		.pipe(postcss([cssnano()]))
 		.pipe(
 			rename({
 				extname: '.min.css',

@@ -1,6 +1,6 @@
 import badgeTemplate from './badge.twig';
-import BadgeSource from '!!raw-loader!./badge.twig';
-import BadgeDocs from '!!raw-loader!./badge.docs.mdx';
+import BadgeSource from './badge.twig?raw';
+import BadgeDocs from './badge.docs.md?raw';
 import {constants} from '../_constants';
 
 export default {
@@ -12,8 +12,9 @@ export default {
         component: BadgeDocs,
       },
     },
-    storySource: {
-      source: BadgeSource,
+    componentSource: {
+      code: BadgeSource,
+      language: 'twig',
     }
   },
   argTypes: {

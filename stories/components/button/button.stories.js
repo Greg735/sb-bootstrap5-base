@@ -1,5 +1,5 @@
 import buttonTemplate from './button.twig';
-import ButtonSource from '!!raw-loader!./button.twig';
+import ButtonSource from './button.twig?raw';
 import {constants} from '../_constants';
 import {control} from 'leaflet';
 
@@ -7,8 +7,9 @@ import {control} from 'leaflet';
 export default {
   title: 'Components/Button/Button',
   parameters: {
-    storySource: {
-      source: ButtonSource,
+    componentSource: {
+      code: ButtonSource,
+      language: 'twig',
     }
   },
   argTypes: {

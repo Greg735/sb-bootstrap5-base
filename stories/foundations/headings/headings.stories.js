@@ -1,5 +1,5 @@
 import TwigHeadings from './headings.local.twig'
-import HeadingsDocs from '!!raw-loader!./headings.docs.mdx'
+import HeadingsDocs from './headings.docs.md?raw'
 
 
 export default {
@@ -10,9 +10,6 @@ export default {
       description: {
         component: HeadingsDocs,
       },
-    },
-    storySource: {
-      source: 'No source code available',
     },
   },
 }

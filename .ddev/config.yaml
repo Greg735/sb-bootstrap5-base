@@ -12,6 +12,7 @@ database:
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
+nodejs_version: "22"
 corepack_enable: false
 omit_containers: [db]
 web_extra_exposed_ports:
@@ -19,7 +20,9 @@ web_extra_exposed_ports:
       container_port: 6006
       http_port: 6005
       https_port: 6006
-
+hooks:
+    post-start:
+        - exec: "[ -d node_modules/playwright ] && npx playwright install chromium || true"
 
 # Key features of DDEV's config.yaml:
 
@@ -183,7 +186,8 @@ web_extra_exposed_ports:
 # The mailpit port is not normally bound on the host at all, instead being routed
 # through ddev-router, but it can be bound directly to localhost if specified here.
 
-# webimage_extra_packages: [php7.4-tidy, php-bcmath]
+webimage_extra_packages: [at-spi2-common, fonts-freefont-ttf, fonts-ipafont-gothic, fonts-liberation, fonts-noto-color-emoji, fonts-tlwg-loma-otf, fonts-unifont, fonts-wqy-zenhei, libasound2-data, libasound2t64, libatk-bridge2.0-0t64, libatk1.0-0t64, libatspi2.0-0t64, libdrm-amdgpu1, libdrm-common, libdrm-intel1, libdrm2, libfreetype6, libgbm1, libgl1, libgl1-mesa-dri, libglib2.0-0t64, libglvnd0, libglx-mesa0, libglx0, libllvm19, libnspr4, libnss3, libpciaccess0, libsensors-config, libsensors5, libunwind8, libvulkan1, libwayland-server0, libx11-xcb1, libxcb-dri3-0, libxcb-glx0, libxcb-present0, libxcb-randr0, libxcb-sync1, libxcb-xfixes0, libxcomposite1, libxdamage1, libxfixes3, libxfont2, libxi6, libxkbcommon0, libxkbfile1, libxrandr2, libxshmfence1, libxxf86vm1, libz3-4, mesa-libgallium, x11-xkb-utils, xfonts-scalable, xkb-data, xserver-common, xvfb]
+# (Playwright/Chromium runtime deps for @storybook/addon-vitest browser testing)
 # Extra Debian packages that are needed in the webimage can be added here
 
 # dbimage_extra_packages: [telnet,netcat]

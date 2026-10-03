@@ -1,13 +1,14 @@
 import sectionTemplate from './section.twig';
-import sectionDocs from '!!raw-loader!./section.docs.mdx';
-import sectionSource from '!!raw-loader!./section.twig';
+import sectionDocs from './section.docs.md?raw';
+import sectionSource from './section.twig?raw';
 
 
 export default {
   title: 'Components/Section/Section',
   parameters: {
-    storySource: {
-      source: sectionSource,
+    componentSource: {
+      code: sectionSource,
+      language: 'twig',
     },
     docs: {
       subtitle:

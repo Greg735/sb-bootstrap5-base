@@ -1,14 +1,15 @@
 
 import ImageLightboxTemplate from './image-lightbox.twig';
-import ImageLightboxDocs from '!!raw-loader!./image-lightbox.docs.mdx';
-import ImageLightboxSource from '!!raw-loader!./image-lightbox.twig';
+import ImageLightboxDocs from './image-lightbox.docs.md?raw';
+import ImageLightboxSource from './image-lightbox.twig?raw';
 
 export default {
   title: 'Components/Image/Image Lightbox',
 	parameters: {
 		componentSubtitle: '',
-    storySource: {
-      source: ImageLightboxSource,
+    componentSource: {
+      code: ImageLightboxSource,
+      language: 'twig',
     },
     docs: {
       description: {

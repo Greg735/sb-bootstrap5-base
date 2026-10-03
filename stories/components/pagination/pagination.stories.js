@@ -1,6 +1,6 @@
 import PaginationTemplate from './pagination.twig';
-import PaginationDocs from '!!raw-loader!./pagination.docs.mdx';
-import PaginationSource from '!!raw-loader!./pagination.twig';
+import PaginationDocs from './pagination.docs.md?raw';
+import PaginationSource from './pagination.twig?raw';
 import {constants} from '../_constants';
 
 
@@ -9,8 +9,9 @@ export default {
   parameters: {
     componentSubtitle:
       '',
-    storySource: {
-      source: PaginationSource,
+    componentSource: {
+      code: PaginationSource,
+      language: 'twig',
     },
     docs: {
       description: {

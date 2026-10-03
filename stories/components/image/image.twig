@@ -14,6 +14,6 @@
   class="img-fluid{% if image_classes|length > 0 %} {{ image_classes|join(' ') }}{% endif %} {{ thumbnail }} {{ rounded }} {{ shadow }}
   "
   {% for attribute, value in image_attributes %}
-    {{ attribute }}="{{ value }}"
+    {{ attribute }}="{{ value|e }}"
   {% endfor %}
   >

@@ -1,6 +1,6 @@
 import sectionPFTemplate from './section-prefooter.twig';
-import sectionPFDocs from '!!raw-loader!./section-prefooter.docs.mdx';
-import sectionPFSource from '!!raw-loader!./section-prefooter.twig';
+import sectionPFDocs from './section-prefooter.docs.md?raw';
+import sectionPFSource from './section-prefooter.twig?raw';
 
 
 export default {
@@ -9,8 +9,9 @@ export default {
 	parameters: {
 		componentSubtitle:
      'This is the pre-footer section.',
-    storySource: {
-      source: sectionPFSource,
+    componentSource: {
+      code: sectionPFSource,
+      language: 'twig',
     },
     docs: {
       // description: {

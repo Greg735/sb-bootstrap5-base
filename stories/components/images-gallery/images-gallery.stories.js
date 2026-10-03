@@ -1,15 +1,16 @@
 
 // import './_alert.scss';
 import ImagesGalleryTemplate from './images-gallery.twig';
-import ImagesGalleryDocs from '!!raw-loader!./images-gallery.docs.mdx';
-import ImagesGallerySource from '!!raw-loader!./images-gallery.twig';
+import ImagesGalleryDocs from './images-gallery.docs.md?raw';
+import ImagesGallerySource from './images-gallery.twig?raw';
+import { expect, userEvent, waitFor } from 'storybook/test';
 
 export default {
   title: 'Components/Images Gallery',
 	parameters: {
-		componentSubtitle: '',
-    storySource: {
-      source: ImagesGallerySource,
+    componentSource: {
+      code: ImagesGallerySource,
+      language: 'twig',
     },
     docs: {
       description: {
@@ -71,7 +72,7 @@ Default.args = {
   gallery_spacing: 2,
   gallery_grid: 'col-6 col-sm-4 col-md-3',
   gallery_attributes: {
-     'data-masonry' : "{'percentPosition': true }" 
+     'data-masonry': '{"percentPosition": true }' 
   },
   items: [
     {   
@@ -151,10 +152,28 @@ Default.args = {
 
 };
 
+// Masonry positions the items absolutely once the behavior has run.
+Default.play = async ({ canvasElement }) => {
+  const grid = canvasElement.querySelector('.gallery-grid');
+  await waitFor(() => expect(grid.firstElementChild.style.position).toBe('absolute'));
+};
+
 export const WithLightbox = Template.bind({});
 WithLightbox.args = {
   ...Default.args,
   use_lightbox: true,
+};
+
+WithLightbox.play = async ({ canvasElement }) => {
+  await userEvent.click(canvasElement.querySelector('a.glightbox'));
+  // A single lightbox opens, even after other stories have been rendered.
+  await waitFor(() => expect(document.querySelectorAll('.glightbox-container')).toHaveLength(1));
+  await expect(document.activeElement).toHaveClass('gclose');
+
+  await userEvent.click(document.activeElement);
+  await waitFor(() => expect(document.documentElement).not.toHaveClass('glightbox-open'), { timeout: 3000 });
+  // Focus goes back to the link that opened the lightbox.
+  await expect(document.activeElement).toBe(canvasElement.querySelector('a.glightbox'));
 };
 
 export const WithAnimations = Template.bind({});

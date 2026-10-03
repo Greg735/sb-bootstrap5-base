@@ -1,16 +1,17 @@
 
 // import './_alert.scss';
 import ImageZoomTemplate from './image-zoom.twig';
-import ImageZoomDocs from '!!raw-loader!./image-zoom.docs.mdx';
-import ImageZoomSource from '!!raw-loader!./image-zoom.twig';
+import ImageZoomDocs from './image-zoom.docs.md?raw';
+import ImageZoomSource from './image-zoom.twig?raw';
 
 
 export default {
   title: 'Components/Image/Image Zoom',
 	parameters: {
 		componentSubtitle:'',
-    storySource: {
-      source: ImageZoomSource,
+    componentSource: {
+      code: ImageZoomSource,
+      language: 'twig',
     },
     docs: {
       description: {

@@ -1,14 +1,15 @@
 import TwigDisplayHeading from './display-heading.twig'
-import DisplayHeadingDocs from '!!raw-loader!./display-heading.docs.mdx'
-import DisplayHeadingSource from '!!raw-loader!./display-heading.twig';
+import DisplayHeadingDocs from './display-heading.docs.md?raw'
+import DisplayHeadingSource from './display-heading.twig?raw';
 
 
 export default {
   title: 'Components/Headings/Display',
   parameters: {
     componentSubtitle: 'Display headings 1-6',
-    storySource: {
-      source: DisplayHeadingSource,
+    componentSource: {
+      code: DisplayHeadingSource,
+      language: 'twig',
     },
     docs: {
       description: {

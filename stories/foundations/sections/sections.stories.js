@@ -1,6 +1,6 @@
 import sectionTemplate from './sections.local.twig';
-import sectionsDocs from '!!raw-loader!./sections.docs.mdx';
-import sectionSource from '!!raw-loader!./sections.local.twig';
+import sectionsDocs from './sections.docs.md?raw';
+import sectionSource from './sections.local.twig?raw';
 
 export default {
   title: 'Foundations/Sections',
@@ -12,8 +12,9 @@ export default {
         component: sectionsDocs,
       },
     },
-    storySource: {
-      source: sectionSource,
+    componentSource: {
+      code: sectionSource,
+      language: 'twig',
     },
   },
   tags: ['autodocs'],

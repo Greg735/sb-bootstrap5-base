@@ -1,15 +1,16 @@
 
 import carouselTwig from './carousel.twig';
-import CarouselDocs from '!!raw-loader!./carousel.docs.mdx';
-import CarouselSource from '!!raw-loader!./carousel.twig';
+import CarouselDocs from './carousel.docs.md?raw';
+import CarouselSource from './carousel.twig?raw';
 
 
 export default {
   title: 'Components/Carousel',
   parameters: {
     componentSubtitle: '',
-    storySource: {
-      source: CarouselSource,
+    componentSource: {
+      code: CarouselSource,
+      language: 'twig',
     },
     docs: {
       description: {

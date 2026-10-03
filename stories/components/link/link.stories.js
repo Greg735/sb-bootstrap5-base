@@ -1,11 +1,12 @@
 import linkTemplate from './link.twig';
-import linkSource from '!!raw-loader!./link.twig';
+import linkSource from './link.twig?raw';
 
 export default {
   title: 'Components/Link',
   parameters: {
-    storySource: {
-      source: linkSource,
+    componentSource: {
+      code: linkSource,
+      language: 'twig',
     },
   },
   tags: ['autodocs'],

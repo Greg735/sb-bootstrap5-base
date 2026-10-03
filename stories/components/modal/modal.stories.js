@@ -1,11 +1,12 @@
 import modalTemplate from './modal.twig';
-import modalSource from '!!raw-loader!!./modal.twig';
+import modalSource from './modal.twig?raw';
 
 export default {
   title: 'Components/Modal',
   parameters: {
-    storySource: {
-      source: modalSource,
+    componentSource: {
+      code: modalSource,
+      language: 'twig',
     },
   },
   tags: ['autodocs'],

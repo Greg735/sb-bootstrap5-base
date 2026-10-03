@@ -1,14 +1,15 @@
 import TwigHeadings from './headings.twig'
-import HeadingsDocs from '!!raw-loader!./headings.docs.mdx'
-import HeadingSource from '!!raw-loader!./headings.twig';
+import HeadingsDocs from './headings.docs.md?raw'
+import HeadingSource from './headings.twig?raw';
 
 
 export default {
   title: 'Components/Headings',
   parameters: {
     componentSubtitle: 'HTML heading elements (h1-h6)',
-    storySource: {
-      source: HeadingSource,
+    componentSource: {
+      code: HeadingSource,
+      language: 'twig',
     },
     docs: {
       description: {

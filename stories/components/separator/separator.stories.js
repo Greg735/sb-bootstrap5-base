@@ -1,12 +1,14 @@
-import SeparatorDocs from '!!raw-loader!./separator.docs.mdx';
-import SeparatorSource from '!!raw-loader!./separator.twig';
+import separatorTemplate from './separator.twig';
+import SeparatorDocs from './separator.docs.md?raw';
+import SeparatorSource from './separator.twig?raw';
 
 
 export default {
   title: 'Components/Separator',
   parameters: {
-    storySource: {
-      source: SeparatorSource,
+    componentSource: {
+      code: SeparatorSource,
+      language: 'twig',
     },
   },
   argTypes: {
@@ -22,11 +24,7 @@ export default {
   },
 };
 
-const Template = (args) => {
-  // Import the Twig template and pass in the args
-  const template = require('./separator.twig');
-  return template(args);
-};
+const Template = (args) => separatorTemplate(args);
 
 export const Default = Template.bind({});
 Default.args = {

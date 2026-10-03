@@ -1,7 +1,7 @@
 import TwigFooter from './footer.local.twig'
 import TwigFooter2 from './footer2.local.twig'
 import TwigFooter3 from './footer3.local.twig'
-import FooterDocs from '!!raw-loader!./footer.docs.mdx'
+import FooterDocs from './footer.docs.md?raw'
 
 
 export default {
@@ -12,9 +12,6 @@ export default {
       description: {
         component: FooterDocs,
       },
-    },
-    storySource: {
-      source: 'No source code available',
     },
   },
 }

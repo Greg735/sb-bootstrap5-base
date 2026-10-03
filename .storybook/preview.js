@@ -1,26 +1,9 @@
-/** @type { import('@storybook/html').Preview } */
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import '../public/js/sb-main.js';
-import Twig from 'twig';
-import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
-import '../public/css/style.css'
+/** @type { import('@storybook/html-vite').Preview } */
 
-// Configure for use with Twig.
-const { addDrupalExtensions } = require('drupal-twig-extensions/twig')
-addDrupalExtensions(Twig)
+// Styles and the Gulp JS bundle are loaded via preview-head.html to avoid
+// MIME-type conflicts with Vite's module system.
+import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from 'storybook/viewport';
 
-// Twig.extend({ base: 'https://theme-base-storybook.ddev.site:6006/' });
-
-/**
-// Exemple de filtre personnalisé
-// const customFilter = (value) => {
-//   // Transforme la valeur (par exemple, mettre en majuscules)
-//   return value.toUpperCase();
-// };
-// // Ajout du filtre personnalisé à Twig
-// Twig.extendFilter('custom', customFilter);
-// Twig.extendFunction('custom', customFilter);
-*/
 const preview = {
   parameters: {
     options: {
@@ -35,33 +18,47 @@ const preview = {
           ['Content'],
           'Components',
           // ['Alert', 'Badge', 'Button', 'Link', 'Card', 'Tabs', 'Section', ['Section', '*'], '*'],
+          'Pages',
           'Recipes',
           'Examples',
         ],
       },
     },
+
     viewport: {
-      viewports: {
+      options: {
         ...INITIAL_VIEWPORTS,
         ...MINIMAL_VIEWPORTS,
       },
-      // defaultViewport: 'iphone14promax',
     },
+
     backgrounds: {
-      values: [
-        { name: 'light', value: '#fff' },
-        { name: 'dark', value: '#000' },
-      ],
+      options: {
+        light: { name: 'light', value: '#fff' },
+        dark: { name: 'dark', value: '#000' }
+      },
     },
+
     viewMode: 'docs',
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
     },
+
+    a11y: {
+      // 'todo' - show a11y violations in the test UI only
+      // 'error' - fail CI on a11y violations
+      // 'off' - skip a11y checks entirely
+      test: 'todo'
+    }
   },
-  tags: ['autodocs']
+  initialGlobals: {
+    backgrounds: { value: 'light' },
+  },
+  tags: ['autodocs'],
 };
 
 export default preview;

@@ -1,15 +1,16 @@
 
 // import './_alert.scss';
 import alertTemplate from './alert.twig';
-import AlertDocs from '!!raw-loader!./alert_drupal.docs.mdx';
-import AlertSource from '!!raw-loader!./alert.twig';
+import AlertDocs from './alert_drupal.docs.md?raw';
+import AlertSource from './alert.twig?raw';
 
 export default {
   title: 'Components/Alert/Alert Drupal',
 	parameters: {
 		componentSubtitle: '',
-    storySource: {
-      source: AlertSource,
+    componentSource: {
+      code: AlertSource,
+      language: 'twig',
     },
     docs: {
       description: {

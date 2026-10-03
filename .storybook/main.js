@@ -1,53 +1,54 @@
-/** @type { import('@storybook/html-webpack5').StorybookConfig } */
-
-const path = require('path');
+/** @type { import('@storybook/html-vite').StorybookConfig } */
 
 const config = {
   stories: ['../stories/**/*.@(stories.@(js|jsx|ts|tsx))'],
-  staticDirs: [{
-    from: '../stories/assets',
-    to: '/assets'
-  }],
+  staticDirs: ['../public', { from: '../stories/assets', to: '/assets' }],
   addons: [
-    "@storybook/addon-links",
-		{
-			name: '@storybook/addon-essentials',
-			options: {
-				actions: false,
-			},
-		},
-    '@storybook/addon-a11y',
-    '@storybook/addon-storysource',
-    // '@storybook/addon-viewport',
+    '@storybook/addon-docs',
+    '@storybook/addon-links',
     // '@storybook/addon-themes',
     // '@chromatic-com/storybook'
+    '@storybook/addon-a11y',
+    '@storybook/addon-vitest'
   ],
   docs: {
     // set to change the name of generated docs entries
-    defaultName: "Docs"
+    defaultName: 'Docs',
   },
   framework: {
-    name: "@storybook/html-webpack5",
-    options: {}
+    name: '@storybook/html-vite',
+    options: {},
   },
-  webpackFinal: async (config) => {
-    config.module.rules.push(
-      {
-        test: /\.twig$/,
-        use: [
-          {
-            loader: 'twig-loader',
-          }
-        ]
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    );
+  core: {
+    allowedHosts: ['sb-bootstrap5-base.ddev.site'],
+  },
+  async viteFinal(config) {
+    const { mergeConfig } = await import('vite');
+    const { default: twigDrupal } = await import('vite-plugin-twig-drupal');
 
-    
-    return config;
-  }
+    return mergeConfig(config, {
+      plugins: [
+        twigDrupal({
+          // Exclude ?raw imports so Vite's built-in raw handling takes over
+          pattern: /\.twig$/,
+        }),
+        {
+          name: 'storybook:gulp-css-reload',
+          configureServer(server) {
+            server.watcher.add('./public/css/style.css');
+            server.watcher.on('change', (file) => {
+              if (file.includes('style.css')) {
+                server.ws.send({ type: 'full-reload' });
+              }
+            });
+          },
+        },
+      ],
+      server: {
+        allowedHosts: ['sb-bootstrap5-base.ddev.site'],
+      },
+    });
+  },
 };
+
 export default config;

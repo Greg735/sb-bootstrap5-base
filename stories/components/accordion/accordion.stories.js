@@ -1,13 +1,14 @@
 import AccordionTemplate from './accordion.twig';
-import AccordionDocs from '!!raw-loader!./accordion.docs.mdx';
-import AccordionSource from '!!raw-loader!./accordion.twig';
+import AccordionDocs from './accordion.docs.md?raw';
+import AccordionSource from './accordion.twig?raw';
 
 export default {
   title: 'Components/Accordion',
   parameters: {
     componentSubtitle: '',
-    storySource: {
-      source: AccordionSource,
+    componentSource: {
+      code: AccordionSource,
+      language: 'twig',
     },
     docs: {
       description: {

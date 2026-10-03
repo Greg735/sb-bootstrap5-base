@@ -1,6 +1,6 @@
 import ParagraphTemplate from './paragraph.twig';
-import ParagraphDocs from '!!raw-loader!./paragraph.docs.mdx';
-import ParagraphSource from '!!raw-loader!./paragraph.twig';
+import ParagraphDocs from './paragraph.docs.md?raw';
+import ParagraphSource from './paragraph.twig?raw';
 
 
 export default {
@@ -8,8 +8,9 @@ export default {
   parameters: {
     componentSubtitle:
       '',
-    storySource: {
-      source: ParagraphSource,
+    componentSource: {
+      code: ParagraphSource,
+      language: 'twig',
     },
     docs: {
       description: {

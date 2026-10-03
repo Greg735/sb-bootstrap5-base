@@ -1,8 +1,8 @@
 
 // import './_alert.scss';
 import alertTemplate from './alert.twig';
-import AlertDocs from '!!raw-loader!./alert.docs.mdx';
-import AlertSource from '!!raw-loader!./alert.twig';
+import AlertDocs from './alert.docs.md?raw';
+import AlertSource from './alert.twig?raw';
 import {constants} from '../_constants';
 
 
@@ -15,8 +15,9 @@ export default {
         component: AlertDocs,
       },
     },
-    storySource: {
-      source: AlertSource,
+    componentSource: {
+      code: AlertSource,
+      language: 'twig',
     },
   },
   args: {

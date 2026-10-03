@@ -1,13 +1,14 @@
 import MapTemplate from './map.twig';
-import MapDocs from '!!raw-loader!./map.docs.mdx';
-import MapSource from '!!raw-loader!./map.twig';
+import MapDocs from './map.docs.md?raw';
+import MapSource from './map.twig?raw';
 
 export default {
   title: 'Components/Map',
   parameters: {
     componentSubtitle: '',
-    storySource: {
-      source: MapSource,
+    componentSource: {
+      code: MapSource,
+      language: 'twig',
     },
     docs: {
       description: {

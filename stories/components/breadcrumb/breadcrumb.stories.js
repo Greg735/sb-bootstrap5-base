@@ -1,6 +1,6 @@
 import BreadcrumbTemplate from './breadcrumb.twig';
-import BreadcrumbDocs from '!!raw-loader!./breadcrumb.docs.mdx';
-import BreadcrumbSource from '!!raw-loader!./breadcrumb.twig';
+import BreadcrumbDocs from './breadcrumb.docs.md?raw';
+import BreadcrumbSource from './breadcrumb.twig?raw';
 import {constants} from '../_constants';
 
 export default {
@@ -12,8 +12,9 @@ export default {
         component: BreadcrumbDocs,
       },
     },
-    storySource: {
-      source: BreadcrumbSource,
+    componentSource: {
+      code: BreadcrumbSource,
+      language: 'twig',
     }
   },
   args: {},

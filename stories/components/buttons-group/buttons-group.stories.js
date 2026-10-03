@@ -1,12 +1,13 @@
 import buttonGroupTemplate from './buttons-group.twig';
-import ButtonGroupSource from '!!raw-loader!./buttons-group.twig';
+import ButtonGroupSource from './buttons-group.twig?raw';
 
 
 export default {
   title: 'Components/Button/Group',
   parameters: {
-    storySource: {
-      source: ButtonGroupSource,
+    componentSource: {
+      code: ButtonGroupSource,
+      language: 'twig',
     },
     controls: {disable: true},
   },

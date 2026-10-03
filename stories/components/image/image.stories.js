@@ -1,6 +1,6 @@
 import ImageTemplate from './image.twig';
-import ImageDocs from '!!raw-loader!./image.docs.mdx';
-import ImageSource from '!!raw-loader!./image.twig';
+import ImageDocs from './image.docs.md?raw';
+import ImageSource from './image.twig?raw';
 
 
 export default {
@@ -8,8 +8,9 @@ export default {
   parameters: {
     componentSubtitle:
       '',
-    storySource: {
-      source: ImageSource,
+    componentSource: {
+      code: ImageSource,
+      language: 'twig',
     },
     docs: {
       description: {

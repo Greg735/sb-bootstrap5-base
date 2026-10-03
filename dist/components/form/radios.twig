@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Radios group — same contract as Drupal core radios.html.twig.
+ *
+ * Drupal wraps the group in fieldset.twig: add the "container-inline" class to
+ * the element #attributes (it lands on the fieldset) to display options inline.
+ *
+ * Drupal usage (templates/form/radios.html.twig):
+ *   {% include "@components/form/radios.twig" %}
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The rendered radios.
+ */
+#}
+<div{{ attributes.addClass('form-radios') }}>{{ children }}</div>

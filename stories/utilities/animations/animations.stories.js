@@ -1,4 +1,4 @@
-import animationsDocs from '!!raw-loader!./animations.docs.mdx';
+import animationsDocs from './animations.docs.md?raw';
 
 export default {
   title: 'Utilities/Animations',
@@ -7,9 +7,6 @@ export default {
       description: {
         component: animationsDocs,
       },
-    },
-    storySource: {
-      source: 'No source code available',
     },
   },
   tags: ['autodocs'],

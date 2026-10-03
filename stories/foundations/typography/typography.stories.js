@@ -1,5 +1,5 @@
 import TwigTypography from './typography.local.twig'
-import TypographyDocs from '!!raw-loader!./typography.docs.mdx'
+import TypographyDocs from './typography.docs.md?raw'
 
 
 export default {
@@ -10,9 +10,6 @@ export default {
       description: {
         component: TypographyDocs,
       },
-    },
-    storySource: {
-      source: 'No source code available',
     },
   },
 }

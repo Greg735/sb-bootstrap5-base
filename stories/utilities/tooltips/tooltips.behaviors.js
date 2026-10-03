@@ -1,6 +1,11 @@
-window.addEventListener("DOMContentLoaded", function(){
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    });
-});
+(function (Drupal, once) {
+    'use strict';
+
+    Drupal.behaviors.jbTooltips = {
+        attach: function (context) {
+            once('jb-tooltips', '[data-bs-toggle="tooltip"]', context).forEach(function (element) {
+                bootstrap.Tooltip.getOrCreateInstance(element);
+            });
+        }
+    };
+})(Drupal, once);

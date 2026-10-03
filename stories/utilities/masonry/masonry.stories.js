@@ -1,6 +1,4 @@
-import masonryDocs from '!!raw-loader!./masonry.docs.mdx';
-
-var Masonry = require('masonry-layout');
+import masonryDocs from './masonry.docs.md?raw';
 
 export default {
   title: 'Utilities/Masonry',
@@ -9,9 +7,6 @@ export default {
       description: {
         component: masonryDocs,
       },
-    },
-    storySource: {
-      source: 'No source code available',
     },
   },
   tags: ['autodocs'],

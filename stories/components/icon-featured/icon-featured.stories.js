@@ -1,8 +1,8 @@
 
 // import './_alert.scss';
 import IconFeaturedTemplate from './icon-featured.twig';
-import IconFeaturedDocs from '!!raw-loader!./icon-featured.docs.mdx';
-import IconFeaturedSource from '!!raw-loader!./icon-featured.twig';
+import IconFeaturedDocs from './icon-featured.docs.md?raw';
+import IconFeaturedSource from './icon-featured.twig?raw';
 import {constants} from '../_constants';
 
 
@@ -10,8 +10,9 @@ export default {
   title: 'Components/Icon Featured',
 	parameters: {
 		componentSubtitle: 'An element used to display an icon inside a div with background.',
-    storySource: {
-      source: IconFeaturedSource,
+    componentSource: {
+      code: IconFeaturedSource,
+      language: 'twig',
     },
     docs: {
       description: {

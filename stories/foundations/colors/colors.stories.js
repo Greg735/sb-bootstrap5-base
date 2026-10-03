@@ -1,6 +1,6 @@
 import TwigColors from './colors.local.twig'
 import TwigAlertsColors from './colors.alerts.local.twig'
-import ColorsDocs from '!!raw-loader!./colors.docs.mdx'
+import ColorsDocs from './colors.docs.md?raw'
 import AccordionSource from "../../components/accordion/accordion.twig";
 
 export default {
@@ -11,9 +11,6 @@ export default {
 			description: {
 				component: ColorsDocs,
 			},
-		},
-		storySource: {
-			source: 'No source code available',
 		},
 		controls: { disable: true },
 	},

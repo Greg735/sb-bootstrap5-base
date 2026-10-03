@@ -1,7 +1,7 @@
 // import './_alert.scss';
 import IconTemplate from './icon.twig';
-import IconDocs from '!!raw-loader!./icon.docs.mdx';
-import IconSource from '!!raw-loader!./icon.twig';
+import IconDocs from './icon.docs.md?raw';
+import IconSource from './icon.twig?raw';
 import {constants} from '../_constants';
 
 
@@ -9,8 +9,9 @@ export default {
   title: 'Components/Icon',
   parameters: {
     componentSubtitle: 'An element used to display an icon',
-    storySource: {
-      source: IconSource,
+    componentSource: {
+      code: IconSource,
+      language: 'twig',
     },
     docs: {
       description: {

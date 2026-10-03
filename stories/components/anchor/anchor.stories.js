@@ -1,6 +1,6 @@
 import anchorTemplate from './anchor.twig';
-import AnchorSource from '!!raw-loader!./anchor.twig';
-import AnchorDocs from '!!raw-loader!./anchor.docs.mdx';
+import AnchorSource from './anchor.twig?raw';
+import AnchorDocs from './anchor.docs.md?raw';
 
 export default {
   title: 'Components/Anchor',
@@ -11,8 +11,9 @@ export default {
         component: AnchorDocs,
       },
     },
-    storySource: {
-      source: AnchorSource,
+    componentSource: {
+      code: AnchorSource,
+      language: 'twig',
     },
   },
   argTypes: {

@@ -1,0 +1,124 @@
+<style>
+  .sb-intro { --intro-accent: var(--bs-primary); }
+  .sb-intro__hero {
+    background:
+      radial-gradient(circle at 85% 20%, rgba(var(--bs-primary-rgb), .18), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(var(--bs-info-rgb), .14), transparent 40%),
+      var(--bs-light);
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+  .sb-intro__eyebrow { letter-spacing: .12em; font-size: .75rem; }
+  .sb-intro__stat { font-variant-numeric: tabular-nums; }
+  .sb-intro__card {
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .sb-intro__card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .08);
+    border-color: var(--intro-accent) !important;
+  }
+  .sb-intro__icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.4rem;
+    background: rgba(var(--bs-primary-rgb), .1);
+    color: var(--intro-accent);
+  }
+  .sb-intro__step {
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    font-size: .9rem;
+  }
+  .sb-intro pre { margin-bottom: 0; }
+</style>
+
+<div class="sb-intro">
+  <header class="sb-intro__hero py-5">
+    <div class="container py-lg-4">
+      <p class="sb-intro__eyebrow text-uppercase fw-semibold text-primary mb-3">Design system · Bootstrap 5 · Twig</p>
+      <h1 class="display-4 fw-bold mb-3">Component library</h1>
+      <p class="lead text-body-secondary col-lg-8 mb-4">
+        Explore, test and document every UI building block of the project in isolation.
+        Each component is written in Twig, styled with Sass on top of Bootstrap 5,
+        and ready to be dropped into Drupal.
+      </p>
+      <div class="d-flex flex-wrap gap-2 mb-5">
+        <a class="btn btn-primary btn-lg" href="?path=/docs/components-button-button--docs" target="_top">
+          Browse components <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+        </a>
+        <a class="btn btn-outline-secondary btn-lg" href="?path=/docs/foundations-typography--docs" target="_top">
+          Foundations
+        </a>
+      </div>
+      <dl class="row g-4 mb-0">
+        {% for stat in stats %}
+          <div class="col-6 col-md-3">
+            <dt class="small text-body-secondary fw-normal">{{ stat.label }}</dt>
+            <dd class="sb-intro__stat display-6 fw-semibold mb-0">{{ stat.value }}</dd>
+          </div>
+        {% endfor %}
+      </dl>
+    </div>
+  </header>
+
+  <section class="container py-5">
+    <h2 class="h3 fw-bold mb-4">What's inside</h2>
+    <div class="row g-4">
+      {% for section in sections %}
+        <div class="col-md-6 col-xl-3">
+          <a class="sb-intro__card card h-100 text-decoration-none text-body border" href="?path=/docs/{{ section.id }}--docs" target="_top">
+            <div class="card-body p-4">
+              <span class="sb-intro__icon d-inline-flex align-items-center justify-content-center rounded-3 mb-3">
+                <i class="bi bi-{{ section.icon }}" aria-hidden="true"></i>
+              </span>
+              <h3 class="h5 fw-semibold">{{ section.title }}</h3>
+              <p class="text-body-secondary mb-0">{{ section.text }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="bg-body-tertiary border-top border-bottom">
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <h2 class="h3 fw-bold mb-4">Getting started</h2>
+          <ol class="list-unstyled mb-0">
+            {% for step in steps %}
+              <li class="d-flex gap-3 {{ not loop.last ? 'mb-4' }}">
+                <span class="sb-intro__step d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-semibold">{{ loop.index }}</span>
+                <div class="flex-grow-1 min-w-0">
+                  <p class="fw-semibold mb-2">{{ step.title }}</p>
+                  <pre class="bg-dark text-light rounded-3 px-3 py-2 small"><code>{{ step.command }}</code></pre>
+                </div>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+        <div class="col-lg-6">
+          <h2 class="h3 fw-bold mb-4">How it works</h2>
+          <ul class="list-unstyled mb-0">
+            {% for item in workflow %}
+              <li class="d-flex gap-3 {{ not loop.last ? 'mb-4' }}">
+                <i class="bi bi-{{ item.icon }} fs-4 text-primary" aria-hidden="true"></i>
+                <div>
+                  <p class="fw-semibold mb-1">{{ item.title }}</p>
+                  <p class="text-body-secondary mb-0">{{ item.text|raw }}</p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container py-4">
+    <p class="small text-body-secondary mb-0">
+      Built with Storybook, Bootstrap 5, Twig, Sass and Gulp.
+    </p>
+  </footer>
+</div>

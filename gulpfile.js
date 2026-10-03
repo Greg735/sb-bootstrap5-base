@@ -8,7 +8,7 @@ const postcss = require('gulp-postcss')
 const sass = require('gulp-sass')(require('sass'))
 const replace = require('gulp-replace')
 const rename = require('gulp-rename')
-const tildeImporter = require('node-sass-tilde-importer')
+const { pathToFileURL } = require('url')
 const sassGlob = require('gulp-sass-glob')
 
 
@@ -51,8 +51,7 @@ config.jsMain = {
 	scrollcue: 'node_modules/scrollcue/scrollCue.js',
 	gLightbox: 'node_modules/glightbox/dist/js/glightbox.js',
 //	bs5Lightbox: 'node_modules/bs5-lightbox/dist/index.js',
-	//masonry: 'node_modules/masonry-layout/dist/masonry.pkgd.js'
-	//masonry: 'node_modules/masonry-layout/masonry.js'
+	masonry: 'node_modules/masonry-layout/dist/masonry.pkgd.js',
 }
 
 // Bootstrap icons
@@ -73,8 +72,18 @@ const compileStyles = (done) => {
 	src([config.stylesMain])
 		.pipe(sassGlob())
 		.pipe(sass({
-            importer: tildeImporter
-          }).on("error", sass.logError))
+			// Allow "node_modules/…" imports relative to the project root.
+			loadPaths: ['.'],
+			// Resolve webpack-style "~package/…" imports to node_modules.
+			importers: [{
+				findFileUrl: (url) => url.startsWith('~')
+					? new URL(url.slice(1), pathToFileURL('node_modules/'))
+					: null,
+			}],
+			// Bootstrap 5.3 still uses deprecated Sass features: hide those warnings.
+			quietDeps: true,
+			silenceDeprecations: ['import', 'color-functions', 'global-builtin'],
+		}).on('error', sass.logError))
         .pipe(concat('style.css'))
 		.pipe(replace('url(images/marker-icon.png);', 'url(../img/leaflet/marker-icon.png);')) // Leaflet
 		.pipe(replace('url(images/layers.png);', 'url(../img/leaflet/layers.png);')) // Leaflet
@@ -82,7 +91,8 @@ const compileStyles = (done) => {
 		.pipe(dest(config.public.css))
 		.pipe(postcss([autoprefixer()]))
 		.pipe(dest(config.dist.css))
-		.pipe(postcss([cssnano()]))
+		// svgo can't parse Bootstrap's URL-encoded SVG data URIs (%3csvg…).
+		.pipe(postcss([cssnano({ preset: ['default', { svgo: false }] })]))
 		.pipe(
 			rename({
 				extname: '.min.css',
@@ -111,7 +121,7 @@ const compileJs = (done) => {
 		config.jsMain.leaflet,
 		config.jsMain.scrollcue,
 		config.jsMain.gLightbox,
-		//config.jsMain.masonry,
+		config.jsMain.masonry,
 		config.foundations.js, 
 		config.utilities.js, 
 		config.components.js

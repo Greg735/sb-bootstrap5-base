@@ -1,5 +1,5 @@
 import TwigIcons from './icons.local.twig'
-import IconsDocs from '!!raw-loader!./icons.docs.mdx'
+import IconsDocs from './icons.docs.md?raw'
 
 export default {
   title: 'Utilities/Icons',
@@ -9,9 +9,6 @@ export default {
       description: {
         component: IconsDocs,
       },
-    },
-    storySource: {
-      source: 'No source code available',
     },
     controls: {disable: true},
   },

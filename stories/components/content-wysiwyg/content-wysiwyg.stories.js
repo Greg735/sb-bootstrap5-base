@@ -1,13 +1,14 @@
 import TwigContentWysiwyg from './content-wysiwyg.twig'
-import ContentWysiwygDocs from '!!raw-loader!./content-wysiwyg.docs.mdx'
-import ContentWysiwygSource from '!!raw-loader!./content-wysiwyg.twig';
+import ContentWysiwygDocs from './content-wysiwyg.docs.md?raw'
+import ContentWysiwygSource from './content-wysiwyg.twig?raw';
 
 
 export default {
   title: 'Components/Content WYSIWYG',
   parameters: {
-    storySource: {
-      source: ContentWysiwygSource,
+    componentSource: {
+      code: ContentWysiwygSource,
+      language: 'twig',
     },
     docs: {
       description: {

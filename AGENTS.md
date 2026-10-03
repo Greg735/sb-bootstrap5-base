@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This repository is a **Storybook 8** workspace for building and documenting UI components with:
+This repository is a **Storybook 10** workspace for building and documenting UI components with:
 
-- **Storybook HTML + Webpack 5**
+- **Storybook HTML + Vite**
 - **Twig** templates
 - **Bootstrap 5**
 - **Gulp** for asset generation
@@ -18,10 +18,10 @@ Agents working in this repository should preserve the current Storybook + Twig +
 
 ### Core tools
 
-- Storybook framework: `@storybook/html-webpack5`
+- Storybook framework: `@storybook/html-vite`
 - Stories: `*.stories.js`
 - Template engine: `twig`
-- Twig webpack integration: `twig-loader`
+- Twig Vite integration: `vite-plugin-twig-drupal`
 - Drupal Twig helpers: `drupal-twig-extensions`
 - CSS pipeline: `gulp-sass` + `autoprefixer` + `cssnano`
 - JS pipeline: `gulp-concat` + `gulp-terser`
@@ -33,6 +33,7 @@ Agents working in this repository should preserve the current Storybook + Twig +
 - `gulpfile.js`
 - `.storybook/main.js`
 - `.storybook/preview.js`
+- `.storybook/preview-head.html`
 - `.storybook/manager.js`
 - `.storybook/MyTheme.js`
 
@@ -113,11 +114,12 @@ npm run build-storybook
 ### Current behavior
 
 - Stories are loaded from `stories/**/*.stories.js`
-- `.twig` files are processed by `twig-loader`
-- `.scss` files are handled by Storybook through `style-loader`, `css-loader`, and `sass-loader`
-- Global assets are imported in `.storybook/preview.js` from:
-  - `public/js/sb-main.js`
-  - `public/css/style.css`
+- `.twig` files are processed by `vite-plugin-twig-drupal` (Drupal Twig extensions included)
+- Raw sources (Twig, docs) are imported with Vite's `?raw` suffix, e.g. `import Docs from './x.docs.md?raw'`
+- Global assets are loaded in `.storybook/preview-head.html` from `public/` (served as static dir):
+  - `/css/style.css`
+  - `/js/sb-main.js`
+- `preview-head.html` also provides a minimal `Drupal.behaviors` / `once()` shim, so `*.behaviors.js` run as in Drupal
 
 ### Consequence
 
@@ -129,14 +131,11 @@ Storybook depends on Gulp-generated assets existing in `public/`. If Storybook s
 
 ### Current integration
 
-Twig is configured in `.storybook/preview.js` using:
-
-- `import Twig from 'twig'`
-- `addDrupalExtensions(Twig)` from `drupal-twig-extensions/twig`
+Twig is compiled by `vite-plugin-twig-drupal`, configured in `.storybook/main.js` (`viteFinal`).
 
 ### Guidance
 
-- Preserve compatibility between `twig`, `twig-loader`, and `drupal-twig-extensions`
+- Preserve compatibility between `twig`, `vite-plugin-twig-drupal`, and `drupal-twig-extensions`
 - Do not upgrade Twig in isolation without checking loader and helper compatibility
 - Keep Twig story patterns consistent with existing files under `stories/components/` and `stories/foundations/`
 
@@ -186,7 +185,7 @@ A component folder under `stories/components/<name>/` commonly contains:
 <name>.twig
 _<name>.scss
 <name>.stories.js
-<name>.docs.mdx
+<name>.docs.md
 <name>.behaviors.js
 ```
 
@@ -197,7 +196,7 @@ Only add the files that are needed.
 Most stories follow this structure:
 
 1. import the Twig template
-2. optionally import raw source with `raw-loader`
+2. optionally import raw source with `?raw` (shown via `parameters.componentSource`)
 3. export Storybook metadata
 4. define a `Template` function returning `template(args)`
 5. export variants with `.bind({})`
@@ -247,7 +246,7 @@ Do not change branding or manager theme settings unless the task is specifically
 - do not replace Gulp, Twig, or Storybook framework choices unless explicitly requested
 - do not assume `dist/` is disposable without checking git state
 - do not upgrade Twig alone without validating the rest of the Twig toolchain
-- do not introduce unrelated frameworks or tooling (React, Vite, TypeScript, etc.) unless requested
+- do not introduce unrelated frameworks or tooling (React, TypeScript, etc.) unless requested
 
 ---
 
@@ -259,6 +258,7 @@ After a meaningful change, validate the relevant flow:
 npm run gulp
 npm run storybook
 npm run build-storybook
+npm test
 ```
 
 Or with DDEV:
@@ -267,6 +267,7 @@ Or with DDEV:
 ddev npm run gulp
 ddev npm run storybook
 ddev npm run build-storybook
+ddev npm test
 ```
 
 Also verify:
@@ -285,7 +286,7 @@ Also verify:
 
 - **change a component’s markup** → edit its `.twig`
 - **change component styling** → edit its `_*.scss` or shared SCSS source
-- **change component behavior** → edit `*.behaviors.js`
+- **change component behavior** → edit `*.behaviors.js` (use `Drupal.behaviors` + `once()`, never `DOMContentLoaded`)
 - **change Storybook presentation/docs** → edit `*.stories.js`, docs files, or `.storybook/`
 - **change build behavior** → edit `gulpfile.js` or Storybook config
 - **change distributed Twig output** → verify both source Twig and Gulp `collectTwig` behavior

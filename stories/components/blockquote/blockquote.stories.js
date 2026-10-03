@@ -1,13 +1,14 @@
 import TwigBlockquote from './blockquote.twig'
-import BlockquoteDocs from '!!raw-loader!./blockquote.docs.mdx'
-import BlockquoteSource from '!!raw-loader!./blockquote.twig';
+import BlockquoteDocs from './blockquote.docs.md?raw'
+import BlockquoteSource from './blockquote.twig?raw';
 
 
 export default {
 	title: 'Components/Blockquote',
 	parameters: {
-		storySource: {
-			source: BlockquoteSource,
+		componentSource: {
+		  code: BlockquoteSource,
+		  language: 'twig',
 		},
 		docs: {
 			description: {

@@ -1,13 +1,14 @@
 import YoutubeTemplate from './youtube.twig';
-import YoutubeDocs from '!!raw-loader!./youtube.docs.mdx';
-import YoutubeSource from '!!raw-loader!./youtube.twig';
+import YoutubeDocs from './youtube.docs.md?raw';
+import YoutubeSource from './youtube.twig?raw';
 
 export default {
   title: 'Components/Youtube',
   parameters: {
     componentSubtitle: '',
-    storySource: {
-      source: YoutubeSource,
+    componentSource: {
+      code: YoutubeSource,
+      language: 'twig',
     },
     docs: {
       description: {

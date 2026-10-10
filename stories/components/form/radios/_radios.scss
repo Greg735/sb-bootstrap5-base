@@ -1,0 +1,11 @@
+// Options sit closer together than standalone form items.
+.form-radios > .form-check {
+  margin-bottom: $spacer * .25;
+}
+
+// Inline options: add "container-inline" to the element #attributes
+// (Drupal puts them on the wrapping fieldset).
+.container-inline > .fieldset-wrapper > .form-radios > .form-check {
+  display: inline-block;
+  margin-right: $form-check-inline-margin-end;
+}

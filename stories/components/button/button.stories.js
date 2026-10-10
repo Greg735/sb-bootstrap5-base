@@ -1,7 +1,6 @@
 import buttonTemplate from './button.twig';
 import ButtonSource from './button.twig?raw';
 import {constants} from '../_constants';
-import {control} from 'leaflet';
 
 
 export default {

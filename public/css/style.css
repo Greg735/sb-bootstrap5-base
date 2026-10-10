@@ -25354,25 +25354,13 @@ a[id] {
   margin-bottom: 0;
 }
 
-.form-item {
-  margin-bottom: 1rem;
-}
-
-.form-radios > .form-check,
 .form-checkboxes > .form-check {
   margin-bottom: 0.25rem;
 }
 
-.container-inline > .fieldset-wrapper > .form-radios > .form-check,
 .container-inline > .fieldset-wrapper > .form-checkboxes > .form-check {
   display: inline-block;
   margin-right: 1rem;
-}
-
-.form-required::after {
-  content: "*";
-  margin-left: 0.25rem;
-  color: #dc3545;
 }
 
 fieldset.form-wrapper > legend {
@@ -25396,6 +25384,30 @@ fieldset.form-wrapper:not(.form-composite) > legend {
   font-size: 1.25rem;
 }
 
+.form-item {
+  margin-bottom: 1rem;
+}
+
+.form-check .field-prefix,
+.form-check .field-suffix {
+  color: var(--bs-secondary-color);
+}
+
+.form-required::after {
+  content: "*";
+  margin-left: 0.25rem;
+  color: #dc3545;
+}
+
+.form-radios > .form-check {
+  margin-bottom: 0.25rem;
+}
+
+.container-inline > .fieldset-wrapper > .form-radios > .form-check {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
 .resize-none {
   resize: none;
 }
@@ -25410,11 +25422,6 @@ fieldset.form-wrapper:not(.form-composite) > legend {
 
 .resize-both {
   resize: both;
-}
-
-.form-check .field-prefix,
-.form-check .field-suffix {
-  color: var(--bs-secondary-color);
 }
 
 .icon.icon--small {

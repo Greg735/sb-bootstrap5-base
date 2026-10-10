@@ -18,16 +18,41 @@ classes are derived from the classes Drupal core already puts on each element
 (`form-text`, `form-checkbox`, `form-select`, `button--primary`, `error`…), so
 **no preprocess function is needed** in the theme.
 
-| Template                  | Drupal template                  | Bootstrap output                                       |
-|---------------------------|----------------------------------|--------------------------------------------------------|
-| `form-element.twig`       | `form-element.html.twig`         | `.form-item`, `.form-check`, `.input-group`, `.form-text` |
-| `form-element-label.twig` | `form-element-label.html.twig`   | `.form-label`, `.form-check-label`, required marker    |
-| `input.twig`              | `input.html.twig`                | `.form-control`, `.form-check-input`, `.form-range`, `.btn` |
-| `textarea.twig`           | `textarea.html.twig`             | `.form-control`                                        |
-| `select.twig`             | `select.html.twig`               | `.form-select`                                         |
-| `fieldset.twig`           | `fieldset.html.twig`             | framed fieldset, or label-like legend for radios/checkboxes |
-| `radios.twig`             | `radios.html.twig`               | `.form-radios`                                         |
-| `checkboxes.twig`         | `checkboxes.html.twig`           | `.form-checkboxes`                                     |
+## Components
+
+All form components live in `stories/components/form/`, with one sub-folder per
+Drupal template:
+
+| Folder                 | Drupal template                  | Bootstrap output                                            |
+|------------------------|----------------------------------|-------------------------------------------------------------|
+| `form-element/`        | `form-element.html.twig`         | `.form-item`, `.form-check`, `.input-group`, `.form-text`   |
+| `form-element-label/`  | `form-element-label.html.twig`   | `.form-label`, `.form-check-label`, required marker         |
+| `input/`               | `input.html.twig`                | `.form-control`, `.form-check-input`, `.form-range`, `.btn` |
+| `textarea/`            | `textarea.html.twig`             | `.form-control`                                             |
+| `select/`              | `select.html.twig`               | `.form-select`                                              |
+| `fieldset/`            | `fieldset.html.twig`             | framed fieldset, or label-like legend for radios/checkboxes |
+| `radios/`              | `radios.html.twig`               | `.form-radios`                                              |
+| `checkboxes/`          | `checkboxes.html.twig`           | `.form-checkboxes`                                          |
+| (root)                 | –                                | this page, the example form, `form.helpers.js`, `_form.scss` |
+
+Each sub-folder holds the template (`<name>.twig`, copied to
+`dist/components/form/<name>/`), its styles (`_<name>.scss`, imported by
+`_form.scss`), stories and documentation.
+
+### How a field is rendered
+
+Drupal renders a field in several passes, and the stories reproduce them with
+`form.helpers.js` (Storybook only, not distributed):
+
+1. the element itself: **Input**, **Textarea** or **Select**;
+2. its label: **Form element label**;
+3. both wrapped by **Form element** (with description, prefix / suffix, errors);
+4. for radios and checkboxes, the options are grouped by **Radios** /
+   **Checkboxes** and wrapped by a composite **Fieldset**.
+
+The helpers build the same variables as Drupal core's `FormPreprocess`
+(ids, `aria-describedby`, `required`, `error` classes…), so the HTML shown in
+Storybook is the HTML Drupal outputs.
 
 ## Drupal integration
 
@@ -36,28 +61,28 @@ Drupal context to the component.
 
 ```
 {# templates/form/form-element.html.twig #}
-{% include '@components/form/form-element.twig' %}
+{% include '@components/form/form-element/form-element.twig' %}
 
 {# templates/form/form-element-label.html.twig #}
-{% include '@components/form/form-element-label.twig' %}
+{% include '@components/form/form-element-label/form-element-label.twig' %}
 
 {# templates/form/input.html.twig #}
-{% include '@components/form/input.twig' %}
+{% include '@components/form/input/input.twig' %}
 
 {# templates/form/textarea.html.twig #}
-{% include '@components/form/textarea.twig' %}
+{% include '@components/form/textarea/textarea.twig' %}
 
 {# templates/form/select.html.twig #}
-{% include '@components/form/select.twig' %}
+{% include '@components/form/select/select.twig' %}
 
 {# templates/form/fieldset.html.twig #}
-{% include '@components/form/fieldset.twig' %}
+{% include '@components/form/fieldset/fieldset.twig' %}
 
 {# templates/form/radios.html.twig #}
-{% include '@components/form/radios.twig' %}
+{% include '@components/form/radios/radios.twig' %}
 
 {# templates/form/checkboxes.html.twig #}
-{% include '@components/form/checkboxes.twig' %}
+{% include '@components/form/checkboxes/checkboxes.twig' %}
 ```
 
 Theme preprocess functions that add `form-control` / `form-check-input`

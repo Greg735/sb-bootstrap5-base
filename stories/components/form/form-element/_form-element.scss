@@ -1,0 +1,12 @@
+// Vertical rhythm between form items.
+.form-item {
+  margin-bottom: $spacer;
+}
+
+// Prefix / suffix outside an input-group (checkbox, radio).
+.form-check {
+  .field-prefix,
+  .field-suffix {
+    color: $text-muted;
+  }
+}

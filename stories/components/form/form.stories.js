@@ -1,5 +1,5 @@
 import FormDocs from './form.docs.md?raw';
-import FormElementSource from './form-element.twig?raw';
+import FormElementSource from './form-element/form-element.twig?raw';
 import { renderFieldset, renderFormElement, renderOptionsGroup } from './form.helpers';
 
 export default {

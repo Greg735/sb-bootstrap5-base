@@ -1,0 +1,27 @@
+fieldset.form-wrapper {
+  > legend {
+    float: none;
+    font-weight: $font-weight-bold;
+  }
+
+  // Radios / checkboxes groups: the legend is the field label.
+  &.form-composite > legend {
+    margin-bottom: $form-label-margin-bottom;
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+  }
+
+  // Grouping fieldsets are framed.
+  &:not(.form-composite) {
+    padding: $spacer;
+    border: $border-width solid $border-color;
+    @include border-radius($border-radius);
+
+    > legend {
+      width: auto;
+      padding: 0 $spacer * .5;
+      margin-bottom: 0;
+      font-size: $font-size-lg;
+    }
+  }
+}

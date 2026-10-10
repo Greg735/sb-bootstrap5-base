@@ -1,6 +1,8 @@
 /**
  * Storybook-only helpers that mimic Drupal's form render pipeline.
  *
+ * Shared by the stories of every form component (input, select, radios…).
+ *
  * Drupal renders a form element in several passes: the element template
  * (input, select, textarea…) is rendered first, then wrapped by
  * form-element.twig (or fieldset.twig for radios / checkboxes), with a
@@ -10,14 +12,14 @@
  */
 import DrupalAttribute from 'drupal-attribute';
 
-import formElementTemplate from './form-element.twig';
-import formElementLabelTemplate from './form-element-label.twig';
-import inputTemplate from './input.twig';
-import textareaTemplate from './textarea.twig';
-import selectTemplate from './select.twig';
-import fieldsetTemplate from './fieldset.twig';
-import radiosTemplate from './radios.twig';
-import checkboxesTemplate from './checkboxes.twig';
+import formElementTemplate from './form-element/form-element.twig';
+import formElementLabelTemplate from './form-element-label/form-element-label.twig';
+import inputTemplate from './input/input.twig';
+import textareaTemplate from './textarea/textarea.twig';
+import selectTemplate from './select/select.twig';
+import fieldsetTemplate from './fieldset/fieldset.twig';
+import radiosTemplate from './radios/radios.twig';
+import checkboxesTemplate from './checkboxes/checkboxes.twig';
 
 // Drupal #type => HTML type and class set by core on the element.
 const INPUT_TYPES = {

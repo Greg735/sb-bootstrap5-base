@@ -7,10 +7,10 @@ This repository is a **Storybook 10** workspace for building and documenting UI 
 - **Storybook HTML + Vite**
 - **Twig** templates
 - **Bootstrap 5**
-- **Gulp** for asset generation
+- **Vite** for asset generation (`vite.assets.config.mjs`, replaces the former Gulp setup)
 - **Sass** for styling
 
-Agents working in this repository should preserve the current Storybook + Twig + Gulp workflow and avoid introducing alternative build systems unless explicitly requested.
+Agents working in this repository should preserve the current Storybook + Twig + Vite assets workflow and avoid introducing alternative build systems unless explicitly requested.
 
 ---
 
@@ -23,14 +23,14 @@ Agents working in this repository should preserve the current Storybook + Twig +
 - Template engine: `twig`
 - Twig Vite integration: `vite-plugin-twig-drupal`
 - Drupal Twig helpers: local package `packages/drupal-twig-extensions` (replaces the npm package, see Twig Rules)
-- CSS pipeline: `gulp-sass` + `autoprefixer` + `cssnano`
-- JS pipeline: `gulp-concat` + `gulp-terser`
+- CSS pipeline: `sass` + `postcss` (`autoprefixer`, `cssnano`)
+- JS pipeline: plain concatenation + `terser`
 - UI framework: `bootstrap`
 
 ### Important config files
 
 - `package.json`
-- `gulpfile.js`
+- `vite.assets.config.mjs`
 - `.storybook/main.js`
 - `.storybook/preview.js`
 - `.storybook/preview-head.html`
@@ -50,7 +50,7 @@ Agents working in this repository should preserve the current Storybook + Twig +
 - `stories/main.scss`
 - `stories/ck5editor.scss`
 - `.storybook/`
-- `gulpfile.js`
+- `vite.assets.config.mjs`
 
 ### Generated output — do not edit manually
 
@@ -75,7 +75,7 @@ If the containers are not running, start them with `ddev start`.
 ddev npm install
 ```
 
-### Start Storybook + Gulp
+### Start Storybook + assets watch
 
 ```bash
 ddev npm run develop
@@ -87,10 +87,11 @@ ddev npm run develop
 ddev npm run storybook
 ```
 
-### Start only Gulp
+### Build assets only
 
 ```bash
-ddev npm run gulp
+ddev npm run assets        # one-off build
+ddev npm run assets:watch  # build, then rebuild on changes
 ```
 
 ### Build static Storybook
@@ -127,7 +128,7 @@ ddev npm audit
 
 ### Consequence
 
-Storybook depends on Gulp-generated assets existing in `public/`. If Storybook starts but styling or JS behavior is missing, run Gulp or use the combined development command.
+Storybook depends on the generated assets existing in `public/`. If Storybook starts but styling or JS behavior is missing, run `ddev npm run assets` or use the combined development command.
 
 ---
 
@@ -147,7 +148,7 @@ Twig is compiled by `vite-plugin-twig-drupal`, configured in `.storybook/main.js
 
 ### Dist collection caveat
 
-In `gulpfile.js`, Twig files copied to `dist/components` exclude `*.local.twig`.
+In `vite.assets.config.mjs`, Twig files copied to `dist/components` exclude `*.local.twig`.
 
 That means:
 
@@ -158,28 +159,28 @@ Do not move a distributable template to `*.local.twig` unless that is intentiona
 
 ---
 
-## Gulp Notes
+## Assets Build Notes
 
-### Gulp is responsible for
+Assets are built by `vite.assets.config.mjs` (`npm run assets` / `assets:watch`). It runs through Vite but does not bundle: a small plugin compiles, concatenates and copies files so the output stays identical to the former Gulp build. It is kept out of `vite.config.*` on purpose, so Storybook's Vite does not load it.
 
-- compiling `stories/main.scss`
-- compiling `stories/ck5editor.scss`
-- generating JS bundle(s) from `*.behaviors.js`
+### The assets build is responsible for
+
+- compiling `stories/main.scss` → `public/css/style.css`, `dist/css/style.css` (autoprefixed) and `style.min.css`
+- concatenating vendor JS (Bootstrap, Leaflet, scrollCue, GLightbox, Masonry) and `*.behaviors.js` → `sb-main.js` + `sb-main.min.js` in `public/js/` and `dist/js/`
 - copying Twig templates for distribution
 - copying images and fonts into `dist/`
 
-### Watched patterns in the current implementation
+### JS bundle
 
-- `stories/foundations/**/_*.scss`
-- `stories/components/**/_*.scss`
-- `stories/foundations/**/*.behaviors.js`
-- `stories/utilities/**/*.behaviors.js`
-- `stories/components/**/*.behaviors.js`
-- `stories/components/**/*.twig`
+Vendors are concatenated as is, not imported as ES modules: the behaviors and the Drupal theme rely on their globals (`bootstrap`, `L`, `GLightbox`, `Masonry`, `scrollCue`). Keep `sb-main.js` a classic script.
+
+### Watch mode
+
+`assets:watch` watches `stories/` and only re-runs the affected task: `*.scss` → styles, `*.behaviors.js` → JS, `*.twig` (not `*.local.twig`) → Twig copy. Images and fonts are only copied on the first build.
 
 ### Caution
 
-The default Gulp workflow performs cleanup in `dist/` before regeneration. Avoid interrupting a build mid-process if you want to preserve a clean generated tree.
+The assets build removes the sub-directories of `dist/` before regeneration. Avoid interrupting a build mid-process if you want to preserve a clean generated tree.
 
 ---
 
@@ -251,15 +252,15 @@ Do not change branding or manager theme settings unless the task is specifically
 ### Do
 
 - modify source files, not generated outputs
-- follow the existing Storybook/Twig/Gulp architecture
+- follow the existing Storybook/Twig/Vite assets architecture
 - keep changes small and consistent with nearby files
-- verify build impact when touching `gulpfile.js`, `.storybook/`, or dependency versions
+- verify build impact when touching `vite.assets.config.mjs`, `.storybook/`, or dependency versions
 - check repository status before and after running build steps
 
 ### Do not
 
 - do not manually edit `public/`, `dist/`, or `storybook-static/`
-- do not replace Gulp, Twig, or Storybook framework choices unless explicitly requested
+- do not replace the Vite assets build, Twig, or Storybook framework choices unless explicitly requested
 - do not assume `dist/` is disposable without checking git state
 - do not upgrade Twig alone without validating the rest of the Twig toolchain
 - do not introduce unrelated frameworks or tooling (React, TypeScript, etc.) unless requested
@@ -271,7 +272,7 @@ Do not change branding or manager theme settings unless the task is specifically
 After a meaningful change, validate the relevant flow:
 
 ```bash
-ddev npm run gulp
+ddev npm run assets
 ddev npm run storybook
 ddev npm run build-storybook
 ddev npm test
@@ -295,8 +296,8 @@ Also verify:
 - **change component styling** → edit its `_*.scss` or shared SCSS source
 - **change component behavior** → edit `*.behaviors.js` (use `Drupal.behaviors` + `once()`, never `DOMContentLoaded`)
 - **change Storybook presentation/docs** → edit `*.stories.js`, docs files, or `.storybook/`
-- **change build behavior** → edit `gulpfile.js` or Storybook config
-- **change distributed Twig output** → verify both source Twig and Gulp `collectTwig` behavior
+- **change build behavior** → edit `vite.assets.config.mjs` or Storybook config
+- **change distributed Twig output** → verify both source Twig and the `collectTwig` rewrites in `vite.assets.config.mjs`
 
 ---
 

@@ -33,7 +33,7 @@ const config = {
           pattern: /\.twig$/,
         }),
         {
-          name: 'storybook:gulp-css-reload',
+          name: 'storybook:assets-css-reload',
           configureServer(server) {
             server.watcher.add('./public/css/style.css');
             server.watcher.on('change', (file) => {

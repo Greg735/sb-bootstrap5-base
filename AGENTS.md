@@ -191,6 +191,15 @@ _<name>.scss
 
 Only add the files that are needed.
 
+### Drupal form components
+
+Form components (`form-element`, `form-element-label`, `input`, `textarea`, `select`, `fieldset`, `radios`, `checkboxes`) have one folder per Drupal core template and keep **exactly the variables of that core template**, so a Drupal override is a single `{% include "@components/<name>/<name>.twig" %}`.
+
+- Derive Bootstrap classes from the classes Drupal core sets (`attributes.hasClass('form-text')`…), not from preprocess-only variables
+- Stories render fields through `stories/components/form/form.helpers.js`, which mimics Drupal's `FormPreprocess` (ids, label, description, error/required states)
+- twig.js does not support a ternary without `else` inside an array literal: write `cond ? 'class' : ''`
+- `collectTwig` rewrites `.twig'` to `.twig"`: use double quotes for template paths, even in comments
+
 ### Existing story pattern
 
 Most stories follow this structure:

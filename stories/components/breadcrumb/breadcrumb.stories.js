@@ -36,6 +36,14 @@ export default {
         },
       },
     },
+    breadcrumb_title: {
+      control: 'text',
+      description: 'Visually hidden heading of the breadcrumb (pass a translated string from Drupal)',
+      table: {
+        type: {summary: 'string'},
+        defaultValue: {summary: 'Breadcrumb'},
+      },
+    },
     breadcrumb: {
       control: 'object',
       description: 'Array of breadcrumb items with text and optional URL',

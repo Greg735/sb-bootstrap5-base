@@ -15,11 +15,14 @@ The `Breadcrumb` component is used to indicate the current page's location withi
 
 The `Breadcrumb` component takes an array of breadcrumb items, each with a `text` and an optional `url`.
 
+The visually hidden heading defaults to `Breadcrumb`; pass a translated `breadcrumb_title` to override it (e.g. `'Breadcrumb'|t` on the Drupal side).
+
 
 
 ## Implementation example
 ```
 {% include '@namespace/breadcrumb/breadcrumb.twig' with {
-	breadcrumb: breadcrumb
+	breadcrumb: breadcrumb,
+	breadcrumb_title: 'Breadcrumb'|t
 } %}
 ```

@@ -1,6 +1,6 @@
 {% if breadcrumb %}
   <nav aria-label="breadcrumb"{% for attribute, value in breadcrumb_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-    <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+    <h2 id="system-breadcrumb" class="visually-hidden">{{ breadcrumb_title|default('Breadcrumb') }}</h2>
     <ol class="breadcrumb">
     {% for item in breadcrumb %}
       <li class="breadcrumb-item">

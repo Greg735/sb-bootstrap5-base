@@ -75,7 +75,7 @@
       <li class="page-item pager__item--next">
         <a href="{{ items.next.href }}" title="{{ next_title }}" rel="next" class="page-link">
           <span class="visually-hidden">{{ next_page_long_title }}</span>
-          <span aria-hidden="true">{{ items.next.text|default('Next ›'|t) }}</span>
+          <span aria-hidden="true">{{ items.next.text|default(next_page_short_title) }}</span>
         </a>
       </li>
     {% endif %}

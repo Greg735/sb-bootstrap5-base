@@ -1,0 +1,11 @@
+{
+  "name": "drupal-twig-extensions",
+  "version": "1.0.0-local",
+  "description": "Local replacement for drupal-twig-extensions: only the Drupal Twig extensions used by this Storybook (no locutus dependency).",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./twig.js",
+    "./twig": "./twig.js"
+  }
+}

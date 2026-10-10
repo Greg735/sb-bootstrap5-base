@@ -33,6 +33,19 @@ const config = {
           pattern: /\.twig$/,
         }),
         {
+          // twig.js only uses "path" in its Node file loader, never reached in the
+          // browser (templates are precompiled). Resolve it to an empty module, as
+          // twig already does for "fs" via its "browser" field.
+          name: 'storybook:twig-browser-path',
+          enforce: 'pre',
+          resolveId(id, importer) {
+            return id === 'path' && importer?.includes('/node_modules/twig/') ? '\0twig-browser-path' : null;
+          },
+          load(id) {
+            return id === '\0twig-browser-path' ? 'export default {};' : null;
+          },
+        },
+        {
           name: 'storybook:assets-css-reload',
           configureServer(server) {
             server.watcher.add('./public/css/style.css');

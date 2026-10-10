@@ -22,7 +22,7 @@ Agents working in this repository should preserve the current Storybook + Twig +
 - Stories: `*.stories.js`
 - Template engine: `twig`
 - Twig Vite integration: `vite-plugin-twig-drupal`
-- Drupal Twig helpers: `drupal-twig-extensions`
+- Drupal Twig helpers: local package `packages/drupal-twig-extensions` (replaces the npm package, see Twig Rules)
 - CSS pipeline: `gulp-sass` + `autoprefixer` + `cssnano`
 - JS pipeline: `gulp-concat` + `gulp-terser`
 - UI framework: `bootstrap`
@@ -65,7 +65,9 @@ If you need to change runtime output, modify the source under `stories/` or the 
 
 ## Development Commands
 
-Prefer the DDEV workflow if the project is being run inside its expected environment.
+**Always run Node/npm commands through DDEV** (`ddev npm …`, `ddev npx …`). The DDEV web container provides the expected Node version (`nodejs_version: "22"` in `.ddev/config.yaml`) and the Playwright/Chromium dependencies used by the Vitest browser tests. The host's `node`/`npm` is not reliable (it may point to an old nvm version, e.g. Node 11, on which `npm audit` and the toolchain fail).
+
+If the containers are not running, start them with `ddev start`.
 
 ### Install
 
@@ -97,14 +99,16 @@ ddev npm run gulp
 ddev npm run build-storybook
 ```
 
-### Direct npm equivalents
+### Run tests
 
 ```bash
-npm install
-npm run develop
-npm run storybook
-npm run gulp
-npm run build-storybook
+ddev npm test
+```
+
+### Security audit
+
+```bash
+ddev npm audit
 ```
 
 ---
@@ -114,7 +118,7 @@ npm run build-storybook
 ### Current behavior
 
 - Stories are loaded from `stories/**/*.stories.js`
-- `.twig` files are processed by `vite-plugin-twig-drupal` (Drupal Twig extensions included)
+- `.twig` files are processed by `vite-plugin-twig-drupal` (Drupal Twig extensions from `packages/drupal-twig-extensions`)
 - Raw sources (Twig, docs) are imported with Vite's `?raw` suffix, e.g. `import Docs from './x.docs.md?raw'`
 - Global assets are loaded in `.storybook/preview-head.html` from `public/` (served as static dir):
   - `/css/style.css`
@@ -135,7 +139,9 @@ Twig is compiled by `vite-plugin-twig-drupal`, configured in `.storybook/main.js
 
 ### Guidance
 
-- Preserve compatibility between `twig`, `vite-plugin-twig-drupal`, and `drupal-twig-extensions`
+- Preserve compatibility between `twig` and `vite-plugin-twig-drupal`
+- `drupal-twig-extensions` is a **local package** (`packages/drupal-twig-extensions/twig.js`), wired through an npm `overrides` entry: `vite-plugin-twig-drupal` imports `drupal-twig-extensions/twig`, but the npm package pulls in a vulnerable `locutus@2`. It only implements the extensions used by the templates (currently `|clean_class`). If a template needs another Drupal filter/function, add it there instead of reinstalling the npm package
+- Do not use `|t` in components: expose a variable with an English default (e.g. `breadcrumb_title|default('Breadcrumb')`) and let Drupal pass the translated string
 - Do not upgrade Twig in isolation without checking loader and helper compatibility
 - Keep Twig story patterns consistent with existing files under `stories/components/` and `stories/foundations/`
 
@@ -193,9 +199,10 @@ Only add the files that are needed.
 
 ### Drupal form components
 
-Form components (`form-element`, `form-element-label`, `input`, `textarea`, `select`, `fieldset`, `radios`, `checkboxes`) have one folder per Drupal core template and keep **exactly the variables of that core template**, so a Drupal override is a single `{% include "@components/<name>/<name>.twig" %}`.
+Form components live in `stories/components/form/`, with one sub-folder per Drupal core template (`form-element`, `form-element-label`, `input`, `textarea`, `select`, `fieldset`, `radios`, `checkboxes`). Each keeps **exactly the variables of that core template**, so a Drupal override is a single `{% include "@components/form/<name>/<name>.twig" %}`.
 
 - Derive Bootstrap classes from the classes Drupal core sets (`attributes.hasClass('form-text')`…), not from preprocess-only variables
+- Sub-folder styles (`_<name>.scss`) are imported by `form/_form.scss`, not by `components/_index.scss`
 - Stories render fields through `stories/components/form/form.helpers.js`, which mimics Drupal's `FormPreprocess` (ids, label, description, error/required states)
 - twig.js does not support a ternary without `else` inside an array literal: write `cond ? 'class' : ''`
 - `collectTwig` rewrites `.twig'` to `.twig"`: use double quotes for template paths, even in comments
@@ -262,15 +269,6 @@ Do not change branding or manager theme settings unless the task is specifically
 ## Validation Checklist
 
 After a meaningful change, validate the relevant flow:
-
-```bash
-npm run gulp
-npm run storybook
-npm run build-storybook
-npm test
-```
-
-Or with DDEV:
 
 ```bash
 ddev npm run gulp

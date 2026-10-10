@@ -202,6 +202,14 @@ const themeAssets = () => {
       }
     },
 
+    // Nothing to emit: the assets are written by the tasks above. Vite writes
+    // the bundle in watch mode even with build.write disabled.
+    generateBundle(options, bundle) {
+      for (const fileName of Object.keys(bundle)) {
+        delete bundle[fileName];
+      }
+    },
+
     async buildStart() {
       this.addWatchFile(path.resolve(config.watch));
 
@@ -232,6 +240,8 @@ export default defineConfig({
   build: {
     // The plugin writes the assets itself; the bundle is an empty entry.
     write: false,
+    // Never the default dist/, which is the theme output.
+    outDir: 'node_modules/.cache/vite-assets',
     emptyOutDir: false,
     rollupOptions: {
       input: 'virtual:theme-assets',

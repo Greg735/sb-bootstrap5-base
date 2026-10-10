@@ -26,8 +26,8 @@
     "@storybook/addon-themes": "^10.6.1",
     "@storybook/addon-vitest": "^10.6.1",
     "@storybook/html-vite": "^10.6.1",
-    "@vitest/browser-playwright": "^4.1.10",
-    "@vitest/coverage-v8": "^4.1.10",
+    "@vitest/browser-playwright": "^4.1.11",
+    "@vitest/coverage-v8": "^4.1.11",
     "autoprefixer": "^10.4.19",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
@@ -56,6 +56,11 @@
     "twig": "^1.17.1",
     "vite": "^6.0.0",
     "vite-plugin-twig-drupal": "^1.7.0",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "twig": {
+      "minimatch": "^3.1.5"
+    }
   }
 }

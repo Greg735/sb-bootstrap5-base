@@ -45,6 +45,26 @@ export const attributes = (values = {}) => new DrupalAttribute(
     .map(([key, value]) => [key, key === 'class' ? [].concat(value) : value]),
 );
 
+// Twig |clean_class filter (Html::getClass()): form-element.twig expects type
+// and name already cleaned, as the Drupal theme passes them.
+export const cleanClass = (value) => {
+  if (value === undefined || value === null) {
+    return '';
+  }
+  const hasDoubleUnderscore = String(value).includes('__');
+  let identifier = String(value).toLowerCase()
+    .replace(/__/g, '##')
+    .replace(/[ _/[]/g, '-')
+    .replace(/]/g, '');
+  if (hasDoubleUnderscore) {
+    identifier = identifier.replace(/##/g, '__');
+  }
+  // Keep '-', 0-9, A-Z, '_', a-z and ISO 10646 characters U+00A1 and higher.
+  identifier = identifier.replace(/(?:[\0-,./:-@[-^`{- ]|[\uD800-\uDBFF][\uDC00-\uDFFF])/g, '');
+  // Identifiers cannot start with a digit, two hyphens, or a hyphen + digit.
+  return identifier.replace(/^\d/g, '_').replace(/^(-\d)|^(--)/g, '__');
+};
+
 const toId = (name) => `edit-${String(name).replace(/[^a-z0-9]+/gi, '-').replace(/-+$/, '').toLowerCase()}`;
 
 // RenderElementBase::setAttributes(): required, disabled and error states.
@@ -140,8 +160,8 @@ export const renderFormElement = (element) => {
 
   return formElementTemplate({
     attributes: attributes(element.wrapper_attributes),
-    type,
-    name,
+    type: cleanClass(type),
+    name: cleanClass(name),
     disabled: element.disabled ? 'disabled' : null,
     errors,
     title_display: titleDisplay,

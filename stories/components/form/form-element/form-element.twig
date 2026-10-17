@@ -4,7 +4,10 @@
  * Form element wrapper — same contract as Drupal core form-element.html.twig.
  *
  * Drupal usage (templates/form/form-element.html.twig):
- *   {% include "@components/form/form-element/form-element.twig" %}
+ *   {% include "@components/form/form-element/form-element.twig" with {
+ *     type: type|clean_class,
+ *     name: name|clean_class,
+ *   } %}
  *
  * Available variables:
  * - attributes: HTML attributes for the containing element.
@@ -12,8 +15,10 @@
  * - prefix: (optional) The form element prefix (rendered as an input-group).
  * - suffix: (optional) The form element suffix (rendered as an input-group).
  * - required: The required marker, or empty if not required.
- * - type: The type of the element (textfield, checkbox, radio, select…).
- * - name: The name of the element.
+ * - type: The type of the element (textfield, checkbox, radio, select…),
+ *   already cleaned with |clean_class by the caller.
+ * - name: The name of the element, already cleaned with |clean_class by the
+ *   caller.
  * - label: A rendered label element (see form-element-label.twig).
  * - label_display: before | after | invisible | attribute.
  * - description: (optional) Object with content and attributes.
@@ -29,10 +34,10 @@
   set classes = [
     'js-form-item',
     'form-item',
-    'js-form-type-' ~ type|clean_class,
-    'form-type-' ~ type|clean_class,
-    'js-form-item-' ~ name|clean_class,
-    'form-item-' ~ name|clean_class,
+    'js-form-type-' ~ type,
+    'form-type-' ~ type,
+    'js-form-item-' ~ name,
+    'form-item-' ~ name,
     title_display not in ['after', 'before'] ? 'form-no-label' : '',
     disabled == 'disabled' ? 'form-disabled' : '',
     errors ? 'form-item--error' : '',

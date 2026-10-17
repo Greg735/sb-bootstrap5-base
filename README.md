@@ -3,7 +3,7 @@
 A **Storybook 10** workspace for building and documenting UI components with **Twig** templates and **Bootstrap 5**, designed to be reused in a Drupal theme.
 
 - **Storybook** `@storybook/html-vite` (HTML + Vite)
-- **Twig** compiled by `vite-plugin-twig-drupal` (Drupal Twig extensions provided locally by `packages/drupal-twig-extensions`)
+- **Twig** compiled by `vite-plugin-twig-drupal` (its `drupal-twig-extensions` import is satisfied by an empty local module, `packages/drupal-twig-extensions`: components use no Drupal-specific Twig filter)
 - **Bootstrap 5** + **Bootstrap Icons**
 - **Vite** for assets (`vite.assets.config.mjs`): Sass + PostCSS (`autoprefixer`, `cssnano`) and JS (concatenation + `terser`)
 - **Vitest** + Playwright for story tests (`@storybook/addon-vitest`)

@@ -141,7 +141,7 @@ Twig is compiled by `vite-plugin-twig-drupal`, configured in `.storybook/main.js
 ### Guidance
 
 - Preserve compatibility between `twig` and `vite-plugin-twig-drupal`
-- `drupal-twig-extensions` is a **local package** (`packages/drupal-twig-extensions/twig.js`), wired through an npm `overrides` entry: `vite-plugin-twig-drupal` imports `drupal-twig-extensions/twig`, but the npm package pulls in a vulnerable `locutus@2`. It only implements the extensions used by the templates (currently `|clean_class`). If a template needs another Drupal filter/function, add it there instead of reinstalling the npm package
+- `drupal-twig-extensions` is a **local package** (`packages/drupal-twig-extensions/twig.js`), wired through an npm `overrides` entry: `vite-plugin-twig-drupal` imports `drupal-twig-extensions/twig`, but the npm package pulls in a vulnerable `locutus@2`. It is an **empty module** (`addDrupalExtensions()` is a no-op), kept only because the plugin imports it. Do not use Drupal-specific Twig filters/functions (`|clean_class`, `|without`, `attach_library()`…) in components: apply them in the Drupal theme and pass the result to the include (e.g. `with { type: type|clean_class }`), and reproduce them in the story helpers if needed. Do not reinstall the npm package
 - Do not use `|t` in components: expose a variable with an English default (e.g. `breadcrumb_title|default('Breadcrumb')`) and let Drupal pass the translated string
 - Do not upgrade Twig in isolation without checking loader and helper compatibility
 - Keep Twig story patterns consistent with existing files under `stories/components/` and `stories/foundations/`
@@ -200,7 +200,7 @@ Only add the files that are needed.
 
 ### Drupal form components
 
-Form components live in `stories/components/form/`, with one sub-folder per Drupal core template (`form-element`, `form-element-label`, `input`, `textarea`, `select`, `fieldset`, `radios`, `checkboxes`). Each keeps **exactly the variables of that core template**, so a Drupal override is a single `{% include "@components/form/<name>/<name>.twig" %}`.
+Form components live in `stories/components/form/`, with one sub-folder per Drupal core template (`form-element`, `form-element-label`, `input`, `textarea`, `select`, `fieldset`, `radios`, `checkboxes`). Each keeps **exactly the variables of that core template**, so a Drupal override is a single `{% include "@components/form/<name>/<name>.twig" %}`. Exception: `form-element` expects `type` and `name` already cleaned (`with { type: type|clean_class, name: name|clean_class }`); `form.helpers.js` cleans them with `cleanClass()` in the stories.
 
 - Derive Bootstrap classes from the classes Drupal core sets (`attributes.hasClass('form-text')`…), not from preprocess-only variables
 - Sub-folder styles (`_<name>.scss`) are imported by `form/_form.scss`, not by `components/_index.scss`

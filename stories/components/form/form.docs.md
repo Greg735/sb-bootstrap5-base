@@ -56,12 +56,17 @@ Storybook is the HTML Drupal outputs.
 
 ## Drupal integration
 
-In the theme, each override is a one-line include: `include` passes the whole
-Drupal context to the component.
+In the theme, each override is an include: `include` passes the whole Drupal
+context to the component. Form element is the only one that adds variables: it
+expects `type` and `name` already cleaned with `|clean_class` (Drupal Twig
+filter, not available in Storybook), as core does in its template.
 
 ```
 {# templates/form/form-element.html.twig #}
-{% include '@components/form/form-element/form-element.twig' %}
+{% include '@components/form/form-element/form-element.twig' with {
+  type: type|clean_class,
+  name: name|clean_class,
+} %}
 
 {# templates/form/form-element-label.html.twig #}
 {% include '@components/form/form-element-label/form-element-label.twig' %}

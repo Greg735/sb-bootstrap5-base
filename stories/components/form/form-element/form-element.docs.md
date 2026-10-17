@@ -23,12 +23,17 @@ Wrapper of every form element: label, prefix / suffix, the element itself, error
 
 ## Drupal integration
 
-Same variables as Drupal core `form-element.html.twig`: the override is a
-one-line include.
+Same variables as Drupal core `form-element.html.twig`. The core template
+cleans `type` and `name` with `|clean_class` before building its classes: the
+component expects them **already cleaned**, so the override passes them with
+`with`.
 
 ```
 {# templates/form/form-element.html.twig #}
-{% include '@components/form/form-element/form-element.twig' %}
+{% include '@components/form/form-element/form-element.twig' with {
+  type: type|clean_class,
+  name: name|clean_class,
+} %}
 ```
 
 ## Variables
@@ -36,8 +41,8 @@ one-line include.
 | Variable | Description |
 |----------|-------------|
 | `attributes` | Wrapper attributes (`#wrapper_attributes`). |
-| `type` | Element `#type` (textfield, checkbox, radio, select…). |
-| `name` | Element `#name`. |
+| `type` | Element `#type` (textfield, checkbox, radio, select…), cleaned with `\|clean_class`. |
+| `name` | Element `#name`, cleaned with `\|clean_class`. |
 | `label` | Rendered label (see Form element label). |
 | `label_display` | `before`, `after`, `invisible` or `attribute`. |
 | `title_display` | Title display setting. |

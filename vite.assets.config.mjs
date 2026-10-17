@@ -71,18 +71,22 @@ const write = async (file, contents) => {
 // their path relative to `base`.
 const copyFiles = async (base, patterns, destinations, transform) => {
   const files = await glob(patterns, { cwd: base });
-  await Promise.all(files.map(async (file) => {
-    const source = path.join(base, file);
-    if (transform) {
-      const contents = transform(await readFile(source, 'utf8'));
-      await Promise.all(destinations.map((dest) => write(path.join(dest, file), contents)));
-    } else {
-      await Promise.all(destinations.map(async (dest) => {
-        await mkdir(path.dirname(path.join(dest, file)), { recursive: true });
-        await cp(source, path.join(dest, file));
-      }));
-    }
-  }));
+  await Promise.all(
+    files.map(async (file) => {
+      const source = path.join(base, file);
+      if (transform) {
+        const contents = transform(await readFile(source, 'utf8'));
+        await Promise.all(destinations.map((dest) => write(path.join(dest, file), contents)));
+      } else {
+        await Promise.all(
+          destinations.map(async (dest) => {
+            await mkdir(path.dirname(path.join(dest, file)), { recursive: true });
+            await cp(source, path.join(dest, file));
+          }),
+        );
+      }
+    }),
+  );
 };
 
 // Removes the sub-directories of dist/ (files at its root are kept).
@@ -91,23 +95,29 @@ const cleanDist = async () => {
     return;
   }
   const entries = await readdir(config.dist.root, { withFileTypes: true });
-  await Promise.all(entries
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => rm(path.join(config.dist.root, entry.name), { recursive: true, force: true })));
+  await Promise.all(
+    entries
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => rm(path.join(config.dist.root, entry.name), { recursive: true, force: true })),
+  );
 };
 
 const collectBsIcons = () => copyFiles(config.bsIcons, ['*'], [config.public.fonts, config.dist.fonts]);
 
 const collectFonts = () => copyFiles(config.public.fonts, ['*/*'], [config.dist.fonts]);
 
-const collectImages = () => copyFiles(config.public.img, ['**/*'], [config.dist.img]);
+// public/img/stories/ only holds the stories' demo images: not shipped to the theme.
+const collectImages = () => copyFiles(config.public.img, ['**/*', '!stories/**'], [config.dist.img]);
 
-const collectTwig = () => copyFiles(config.twig.base, config.twig.patterns, [config.dist.twig], (contents) => contents
-  .replaceAll('"../../', '"@components/')
-  .replaceAll('\'../../', '"@components/')
-  .replaceAll('"../', '"@components/')
-  .replaceAll('\'../', '"@components/')
-  .replaceAll('.twig\'', '.twig"'));
+const collectTwig = () =>
+  copyFiles(config.twig.base, config.twig.patterns, [config.dist.twig], (contents) =>
+    contents
+      .replaceAll('"../../', '"@components/')
+      .replaceAll("'../../", '"@components/')
+      .replaceAll('"../', '"@components/')
+      .replaceAll("'../", '"@components/')
+      .replaceAll(".twig'", '.twig"'),
+  );
 
 // Compiles stories/main.scss to style.css, then autoprefixes and minifies it.
 const compileStyles = async () => {
@@ -115,11 +125,11 @@ const compileStyles = async () => {
     // Allow relative imports, and "node_modules/…" imports from the project root.
     loadPaths: [path.dirname(config.stylesMain), '.'],
     // Resolve webpack-style "~package/…" imports to node_modules.
-    importers: [{
-      findFileUrl: (url) => url.startsWith('~')
-        ? new URL(url.slice(1), pathToFileURL('node_modules/'))
-        : null,
-    }],
+    importers: [
+      {
+        findFileUrl: (url) => (url.startsWith('~') ? new URL(url.slice(1), pathToFileURL('node_modules/')) : null),
+      },
+    ],
     // Bootstrap 5.3 still uses deprecated Sass features: hide those warnings.
     quietDeps: true,
     silenceDeprecations: ['import', 'color-functions', 'global-builtin'],
@@ -133,9 +143,7 @@ const compileStyles = async () => {
   const from = path.join(config.dist.css, 'style.css');
 
   const prefixed = await postcss([autoprefixer()]).process(css, { from, to: from, map: false });
-  // svgo can't parse Bootstrap's URL-encoded SVG data URIs (%3csvg…).
-  const minified = await postcss([cssnano({ preset: ['default', { svgo: false }] })])
-    .process(prefixed.css, { from, to: from, map: false });
+  const minified = await postcss([cssnano()]).process(prefixed.css, { from, to: from, map: false });
 
   await Promise.all([
     write(path.join(config.public.css, 'style.css'), css),
@@ -153,10 +161,12 @@ const compileJs = async () => {
   const js = (await Promise.all(files.map((file) => readFile(file, 'utf8')))).join('\n');
   const { code } = await minify(js);
 
-  await Promise.all([config.public.js, config.dist.js].flatMap((dir) => [
-    write(path.join(dir, 'sb-main.js'), js),
-    write(path.join(dir, 'sb-main.min.js'), code),
-  ]));
+  await Promise.all(
+    [config.public.js, config.dist.js].flatMap((dir) => [
+      write(path.join(dir, 'sb-main.js'), js),
+      write(path.join(dir, 'sb-main.min.js'), code),
+    ]),
+  );
 };
 
 const tasks = {

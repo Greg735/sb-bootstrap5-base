@@ -1,16 +1,15 @@
-import TwigIcons from './icons.local.twig'
-import IconsDocs from './icons.docs.md?raw'
+import TwigIcons from './icons.local.twig';
+import IconsDocs from './icons.docs.md?raw';
 
 export default {
   title: 'Utilities/Icons',
   parameters: {
-    componentSubtitle: '',
     docs: {
       description: {
         component: IconsDocs,
       },
     },
-    controls: {disable: true},
+    controls: { disable: true },
   },
   argTypes: {
     name: {
@@ -20,20 +19,15 @@ export default {
     },
   },
   args: {
-    name: [
-      'text-paragraph',
-    ],
+    name: ['text-paragraph'],
   },
-}
+};
 
-const Template = ({name}) => TwigIcons({name})
+const Template = ({ name }) => TwigIcons({ name });
 
-export const ParagraphIcon = Template.bind({})
+export const ParagraphIcon = Template.bind({});
 
-export const BootstrapIcon = Template.bind({})
+export const BootstrapIcon = Template.bind({});
 BootstrapIcon.args = {
-  name: [
-    'bootstrap'
-  ],
-}
-
+  name: ['bootstrap'],
+};

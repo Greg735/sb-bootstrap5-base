@@ -1,53 +1,52 @@
 .icon-featured {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	height: 2rem;
-	width: 2rem;
-	font-size: 1em; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  font-size: 1em;
 
-	&-hover {
-		transition: transform 0.3s ease;
+  &-hover {
+    transition: transform 0.3s ease;
 
-		&:hover{
-			transform: scale(1.1);
-		}
-	}
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
-	// hover transition only font-size: TODO
+  // hover transition only font-size: TODO
 
-	&--sm {
-		height: 1.5rem;
-		width: 1.5rem;
-		font-size: 0.75em;
-	}
+  &--sm {
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: 0.75em;
+  }
 
-	&--lg {
-		height: 3rem;
-		width: 3rem;
-		font-size: 1.5em;
-	}
+  &--lg {
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5em;
+  }
 
-	
-	&.icon-featured-icon {
-		&#{&}--small {
-			font-size: 1rem;
-		}	
-	}
+  &.icon-featured-icon {
+    &#{&}--small {
+      font-size: 1rem;
+    }
+  }
 
-    // &#{&}--small {
-    //     font-size: 1rem;
-	// }
+  // &#{&}--small {
+  //     font-size: 1rem;
+  // }
 
-	// &#{&}--large {
-	// 	width: 2rem;
-	// 	height: 2rem;
-    //     font-size: 2rem;
-	// }
+  // &#{&}--large {
+  // 	width: 2rem;
+  // 	height: 2rem;
+  //     font-size: 2rem;
+  // }
 
-	// &#{&}--x-large {
-	// 	width: 3rem;
-	// 	height: 3rem;
-    //     font-size: 3rem;
-	// }
+  // &#{&}--x-large {
+  // 	width: 3rem;
+  // 	height: 3rem;
+  //     font-size: 3rem;
+  // }
 }

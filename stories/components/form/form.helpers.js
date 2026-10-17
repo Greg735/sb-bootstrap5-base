@@ -39,11 +39,12 @@ const INPUT_TYPES = {
 };
 
 // Builds a Drupal Attribute object, skipping empty values.
-export const attributes = (values = {}) => new DrupalAttribute(
-  Object.entries(values)
-    .filter(([, value]) => value !== undefined && value !== null && value !== false && value !== '')
-    .map(([key, value]) => [key, key === 'class' ? [].concat(value) : value]),
-);
+export const attributes = (values = {}) =>
+  new DrupalAttribute(
+    Object.entries(values)
+      .filter(([, value]) => value !== undefined && value !== null && value !== false && value !== '')
+      .map(([key, value]) => [key, key === 'class' ? [].concat(value) : value]),
+  );
 
 // Twig |clean_class filter (Html::getClass()): form-element.twig expects type
 // and name already cleaned, as the Drupal theme passes them.
@@ -52,7 +53,8 @@ export const cleanClass = (value) => {
     return '';
   }
   const hasDoubleUnderscore = String(value).includes('__');
-  let identifier = String(value).toLowerCase()
+  let identifier = String(value)
+    .toLowerCase()
     .replace(/__/g, '##')
     .replace(/[ _/[]/g, '-')
     .replace(/]/g, '');
@@ -60,12 +62,16 @@ export const cleanClass = (value) => {
     identifier = identifier.replace(/##/g, '__');
   }
   // Keep '-', 0-9, A-Z, '_', a-z and ISO 10646 characters U+00A1 and higher.
-  identifier = identifier.replace(/(?:[\0-,./:-@[-^`{- ]|[\uD800-\uDBFF][\uDC00-\uDFFF])/g, '');
+  identifier = identifier.replace(/(?:[\0-,./:-@[-^`{-\u00A0]|[\uD800-\uDBFF][\uDC00-\uDFFF])/g, '');
   // Identifiers cannot start with a digit, two hyphens, or a hyphen + digit.
   return identifier.replace(/^\d/g, '_').replace(/^(-\d)|^(--)/g, '__');
 };
 
-const toId = (name) => `edit-${String(name).replace(/[^a-z0-9]+/gi, '-').replace(/-+$/, '').toLowerCase()}`;
+const toId = (name) =>
+  `edit-${String(name)
+    .replace(/[^a-z0-9]+/gi, '-')
+    .replace(/-+$/, '')
+    .toLowerCase()}`;
 
 // RenderElementBase::setAttributes(): required, disabled and error states.
 // "invalid" flags an option of a radios / checkboxes group in error: the
@@ -76,12 +82,23 @@ const stateAttributes = ({ required, disabled, errors, invalid }) => ({
   'aria-invalid': errors || invalid ? 'true' : null,
 });
 
-const stateClasses = ({ required, errors, invalid }) => [required && 'required', (errors || invalid) && 'error'].filter(Boolean);
+const stateClasses = ({ required, errors, invalid }) =>
+  [required && 'required', (errors || invalid) && 'error'].filter(Boolean);
 
 const renderControl = (element, id) => {
   const {
-    type = 'textfield', name, value, placeholder, options = {}, multiple, checked,
-    return_value = 1, rows = 5, resizable = 'vertical', button_type, attributes: extra = {},
+    type = 'textfield',
+    name,
+    value,
+    placeholder,
+    options = {},
+    multiple,
+    checked,
+    return_value = 1,
+    rows = 5,
+    resizable = 'vertical',
+    button_type,
+    attributes: extra = {},
   } = element;
   const describedby = element.description ? `${id}--description` : null;
   const common = {
@@ -104,12 +121,15 @@ const renderControl = (element, id) => {
 
   if (type === 'select') {
     const selected = [].concat(value ?? []).map(String);
-    const toOption = ([key, label]) => (typeof label === 'object'
-      ? { type: 'optgroup', label: key, options: Object.entries(label).map(toOption) }
-      : { type: 'option', value: key, label, selected: selected.includes(String(key)) });
+    const toOption = ([key, label]) =>
+      typeof label === 'object'
+        ? { type: 'optgroup', label: key, options: Object.entries(label).map(toOption) }
+        : { type: 'option', value: key, label, selected: selected.includes(String(key)) };
     return selectTemplate({
       attributes: attributes({
-        ...common, name: multiple ? `${name}[]` : name, multiple: multiple ? 'multiple' : null,
+        ...common,
+        name: multiple ? `${name}[]` : name,
+        multiple: multiple ? 'multiple' : null,
         class: ['form-select', ...stateClasses(element)],
       }),
       options: Object.entries(options).map(toOption),
@@ -119,7 +139,10 @@ const renderControl = (element, id) => {
   if (type === 'submit') {
     return inputTemplate({
       attributes: attributes({
-        ...common, type: 'submit', name: name ?? 'op', value,
+        ...common,
+        type: 'submit',
+        name: name ?? 'op',
+        value,
         class: ['button', button_type && `button--${button_type}`, 'js-form-submit', 'form-submit'].filter(Boolean),
       }),
     });
@@ -174,10 +197,12 @@ export const renderFormElement = (element) => {
     }),
     prefix: element.field_prefix,
     suffix: element.field_suffix,
-    description: description ? {
-      content: description,
-      attributes: attributes({ id: `${id}--description` }),
-    } : null,
+    description: description
+      ? {
+          content: description,
+          attributes: attributes({ id: `${id}--description` }),
+        }
+      : null,
     description_display: element.description_display ?? 'after',
     children,
   });
@@ -194,16 +219,20 @@ export const renderOptionsGroup = (element) => {
   const isRadios = type === 'radios';
   const selected = [].concat(element.value ?? []).map(String);
 
-  const children = Object.entries(options).map(([key, label]) => renderFormElement({
-    type: isRadios ? 'radio' : 'checkbox',
-    id: `${id}-${toId(key).replace(/^edit-/, '')}`,
-    name: isRadios ? name : `${name}[${key}]`,
-    title: label,
-    return_value: key,
-    checked: selected.includes(String(key)),
-    disabled: element.disabled,
-    invalid: Boolean(errors),
-  })).join('');
+  const children = Object.entries(options)
+    .map(([key, label]) =>
+      renderFormElement({
+        type: isRadios ? 'radio' : 'checkbox',
+        id: `${id}-${toId(key).replace(/^edit-/, '')}`,
+        name: isRadios ? name : `${name}[${key}]`,
+        title: label,
+        return_value: key,
+        checked: selected.includes(String(key)),
+        disabled: element.disabled,
+        invalid: Boolean(errors),
+      }),
+    )
+    .join('');
 
   const group = (isRadios ? radiosTemplate : checkboxesTemplate)({
     attributes: attributes({ id }),
@@ -216,16 +245,25 @@ export const renderOptionsGroup = (element) => {
       'data-drupal-selector': `${id}-wrapper`,
       id: wrapperId,
       'aria-describedby': description ? `${wrapperId}--description` : null,
-      class: ['fieldgroup', 'form-composite', required && 'required', ...[].concat(element.attributes?.class ?? [])].filter(Boolean),
+      class: [
+        'fieldgroup',
+        'form-composite',
+        required && 'required',
+        ...[].concat(element.attributes?.class ?? []),
+      ].filter(Boolean),
     }),
     required,
     errors,
     legend: { title, attributes: attributes() },
-    legend_span: { attributes: attributes({ class: element.title_display === 'invisible' ? ['visually-hidden'] : [] }) },
-    description: description ? {
-      content: description,
-      attributes: attributes({ id: `${wrapperId}--description`, 'data-drupal-field-elements': 'description' }),
-    } : null,
+    legend_span: {
+      attributes: attributes({ class: element.title_display === 'invisible' ? ['visually-hidden'] : [] }),
+    },
+    description: description
+      ? {
+          content: description,
+          attributes: attributes({ id: `${wrapperId}--description`, 'data-drupal-field-elements': 'description' }),
+        }
+      : null,
     children: group,
   });
 };
@@ -233,14 +271,15 @@ export const renderOptionsGroup = (element) => {
 /**
  * Renders a grouping fieldset (#type fieldset) around rendered children.
  */
-export const renderFieldset = ({ title, description, required, children = '', attributes: extra = {} }) => fieldsetTemplate({
-  attributes: attributes(extra),
-  required,
-  legend: { title, attributes: attributes() },
-  legend_span: { attributes: attributes() },
-  description: description ? { content: description, attributes: attributes() } : null,
-  children,
-});
+export const renderFieldset = ({ title, description, required, children = '', attributes: extra = {} }) =>
+  fieldsetTemplate({
+    attributes: attributes(extra),
+    required,
+    legend: { title, attributes: attributes() },
+    legend_span: { attributes: attributes() },
+    description: description ? { content: description, attributes: attributes() } : null,
+    children,
+  });
 
 // Shared Storybook controls, named after the Drupal form API properties.
 export const elementArgTypes = {

@@ -27,7 +27,15 @@ const Template = ({ errors }) => `
       `<div class="col-md-6">${renderFormElement({ name: 'first_name', title: 'First name', required: true, errors: errors && 'First name field is required.' })}</div>`,
       `<div class="col-md-6">${renderFormElement({ name: 'last_name', title: 'Last name', required: true })}</div>`,
       '</div>',
-      renderFormElement({ type: 'email', name: 'mail', title: 'Email address', required: true, value: errors ? 'jane.doe@' : '', errors: errors && 'The email address <em>jane.doe@</em> is not valid.', description: 'We will only use it to answer you.' }),
+      renderFormElement({
+        type: 'email',
+        name: 'mail',
+        title: 'Email address',
+        required: true,
+        value: errors ? 'jane.doe@' : '',
+        errors: errors && 'The email address <em>jane.doe@</em> is not valid.',
+        description: 'We will only use it to answer you.',
+      }),
       renderFormElement({ type: 'tel', name: 'phone', title: 'Phone', placeholder: '+41 21 000 00 00' }),
     ].join(''),
   })}

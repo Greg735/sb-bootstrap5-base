@@ -1,14 +1,11 @@
 import PaginationTemplate from './pagination.twig';
 import PaginationDocs from './pagination.docs.md?raw';
 import PaginationSource from './pagination.twig?raw';
-import {constants} from '../_constants';
-
+import { constants } from '../_constants';
 
 export default {
   title: 'Components/Pagination',
   parameters: {
-    componentSubtitle:
-      '',
     componentSource: {
       code: PaginationSource,
       language: 'twig',
@@ -25,23 +22,23 @@ export default {
       control: 'text',
       type: {
         required: true,
-      }
+      },
     },
     size: {
       description: '**options**',
-      control: {type: 'radio'},
+      control: { type: 'radio' },
       options: constants.sizes.options,
       table: {
         type: {
-          summary: constants.sizes.options.map(option => `'${option}'`).join('|')
-        }
+          summary: constants.sizes.options.map((option) => `'${option}'`).join('|'),
+        },
       },
     },
     pagination_classes: {
       control: 'array',
       description: 'Array of classes',
       table: {
-        type: {summary: 'array'},
+        type: { summary: 'array' },
       },
     },
   },
@@ -56,17 +53,17 @@ Simple.args = {
   current: 2,
   items: {
     previous: {
-      'href': '#',
-      'text': '‹ Previous'
+      href: '#',
+      text: '‹ Previous',
     },
     pages: {
-      1: {'href': '#'},
-      2: {'href': '#'},
-      3: {'href': '#'},
+      1: { href: '#' },
+      2: { href: '#' },
+      3: { href: '#' },
     },
     next: {
-      'href': '#',
-      'text': 'Next ›'
+      href: '#',
+      text: 'Next ›',
     },
   },
   pagination_classes: ['justify-content-center', 'mt-5'],
@@ -79,28 +76,28 @@ Full.args = {
   current: 3,
   items: {
     first: {
-      'href': '#',
-      'text': '« First'
+      href: '#',
+      text: '« First',
     },
     previous: {
-      'href': '#',
-      'text': '‹ Previous'
+      href: '#',
+      text: '‹ Previous',
     },
     pages: {
-      1: {'href': '#'},
-      2: {'href': '#'},
-      3: {'href': '#'},
-      4: {'href': '#'},
-      5: {'href': '#'},
+      1: { href: '#' },
+      2: { href: '#' },
+      3: { href: '#' },
+      4: { href: '#' },
+      5: { href: '#' },
     },
     next: {
-      'href': '#',
-      'text': 'Next ›'
+      href: '#',
+      text: 'Next ›',
     },
     last: {
-      'href': '#',
-      'text': 'Last »'
+      href: '#',
+      text: 'Last »',
     },
   },
   pagination_classes: ['justify-content-center', 'mt-5'],
-}
+};

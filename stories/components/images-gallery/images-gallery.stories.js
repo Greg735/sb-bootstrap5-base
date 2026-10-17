@@ -1,4 +1,3 @@
-
 // import './_alert.scss';
 import ImagesGalleryTemplate from './images-gallery.twig';
 import ImagesGalleryDocs from './images-gallery.docs.md?raw';
@@ -7,7 +6,7 @@ import { expect, userEvent, waitFor } from 'storybook/test';
 
 export default {
   title: 'Components/Images Gallery',
-	parameters: {
+  parameters: {
     componentSource: {
       code: ImagesGallerySource,
       language: 'twig',
@@ -17,18 +16,17 @@ export default {
         component: ImagesGalleryDocs,
       },
     },
-	},
-  tags: ['autodocs'],
-  args: {
   },
+  tags: ['autodocs'],
+  args: {},
   argTypes: {
     gallery_classes: {
-			control: 'array',
-			description: 'Array of classes',
-			table: {
-				type: { summary: 'array' },
-			},
-		},
+      control: 'array',
+      description: 'Array of classes',
+      table: {
+        type: { summary: 'array' },
+      },
+    },
     use_lightbox: {
       control: 'boolean',
       description: 'Use lightbox',
@@ -37,21 +35,21 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    gallery_spacing: { 
-      control: 'number', 
+    gallery_spacing: {
+      control: 'number',
       type: {
         required: false,
       },
       table: {
         type: { summary: 'number' },
         defaultValue: { summary: 1 },
-      }
+      },
     },
-    gallery_grid: { 
-      control: 'text', 
+    gallery_grid: {
+      control: 'text',
       type: {
         required: true,
-      }
+      },
     },
     items: {
       control: 'object',
@@ -72,84 +70,82 @@ Default.args = {
   gallery_spacing: 2,
   gallery_grid: 'col-6 col-sm-4 col-md-3',
   gallery_attributes: {
-     'data-masonry': '{"percentPosition": true }' 
+    'data-masonry': '{"percentPosition": true }',
   },
   items: [
-    {   
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/1/800/600',
+      src: '/img/stories/picsum/1-800x600.jpg',
       width: 800,
       height: 600,
-      lightbox_dest_image_src: 'https://picsum.photos/id/1/1920/1080',
-      lightbox_caption: 'Title: Image title',
-      lightbox_gallery: '',
-
-    },
-    { 
-      alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/2/800/600',
-      width: 800,
-      height: 600,
-      lightbox_dest_image_src: 'https://picsum.photos/id/2/1920/1080',
-      lightbox_caption: 'Title: Image title',
-      lightbox_gallery: '', 
-    },
-    { 
-      alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/3/800/600',
-      width: 800,
-      height: 600,
-      lightbox_dest_image_src: 'https://picsum.photos/id/3/1920/1080',
+      lightbox_dest_image_src: '/img/stories/picsum/1-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/4/800/600',
+      src: '/img/stories/picsum/2-800x600.jpg',
       width: 800,
       height: 600,
-      lightbox_dest_image_src: 'https://picsum.photos/id/4/1920/1080',
+      lightbox_dest_image_src: '/img/stories/picsum/2-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/5/800/600',
+      src: '/img/stories/picsum/3-800x600.jpg',
       width: 800,
       height: 600,
-      lightbox_dest_image_src: 'https://picsum.photos/id/5/1920/1080',
+      lightbox_dest_image_src: '/img/stories/picsum/3-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/6/800/600',
+      src: '/img/stories/picsum/4-800x600.jpg',
       width: 800,
       height: 600,
-      lightbox_dest_image_src: 'https://picsum.photos/id/6/1920/1080',
+      lightbox_dest_image_src: '/img/stories/picsum/4-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/7/800/600',
+      src: '/img/stories/picsum/5-800x600.jpg',
       width: 800,
       height: 600,
-      lightbox_dest_image_src: 'https://picsum.photos/id/7/1920/1080',
+      lightbox_dest_image_src: '/img/stories/picsum/5-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/8/800/600',
+      src: '/img/stories/picsum/6-800x600.jpg',
       width: 800,
       height: 600,
-      lightbox_dest_image_src: 'https://picsum.photos/id/8/1920/1080',
+      lightbox_dest_image_src: '/img/stories/picsum/6-1920x1080.jpg',
+      lightbox_caption: 'Title: Image title',
+      lightbox_gallery: '',
+    },
+    {
+      alt: 'Image alternative text',
+      src: '/img/stories/picsum/7-800x600.jpg',
+      width: 800,
+      height: 600,
+      lightbox_dest_image_src: '/img/stories/picsum/7-1920x1080.jpg',
+      lightbox_caption: 'Title: Image title',
+      lightbox_gallery: '',
+    },
+    {
+      alt: 'Image alternative text',
+      src: '/img/stories/picsum/8-800x600.jpg',
+      width: 800,
+      height: 600,
+      lightbox_dest_image_src: '/img/stories/picsum/8-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
   ],
-
 };
 
 // Masonry positions the items absolutely once the behavior has run.
@@ -181,84 +177,83 @@ WithAnimations.args = {
   ...Default.args,
   use_lightbox: true,
   items: [
-    {   
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/1/800/600',
+      src: '/img/stories/picsum/1-800x600.jpg',
       width: 800,
       height: 600,
-      image_attributes: { 'data-cue': "fadeIn", 'data-duration': "1200"},
-      lightbox_dest_image_src: 'https://picsum.photos/id/1/1920/1080',
-      lightbox_caption: 'Title: Image title',
-      lightbox_gallery: '',
-
-    },
-    { 
-      alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/2/800/600',
-      width: 800,
-      height: 600,
-      image_attributes: { 'data-cue': "fadeIn", 'data-duration': "1200"},
-      lightbox_dest_image_src: 'https://picsum.photos/id/2/1920/1080',
-      lightbox_caption: 'Title: Image title',
-      lightbox_gallery: '', 
-    },
-    { 
-      alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/3/800/600',
-      width: 800,
-      height: 600,
-      image_attributes: { 'data-cue': "fadeIn", 'data-duration': "1200"},
-      lightbox_dest_image_src: 'https://picsum.photos/id/3/1920/1080',
+      image_attributes: { 'data-cue': 'fadeIn', 'data-duration': '1200' },
+      lightbox_dest_image_src: '/img/stories/picsum/1-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/4/800/600',
+      src: '/img/stories/picsum/2-800x600.jpg',
       width: 800,
       height: 600,
-      image_attributes: { 'data-cue': "fadeIn", 'data-duration': "1200"},
-      lightbox_dest_image_src: 'https://picsum.photos/id/4/1920/1080',
+      image_attributes: { 'data-cue': 'fadeIn', 'data-duration': '1200' },
+      lightbox_dest_image_src: '/img/stories/picsum/2-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/5/800/600',
+      src: '/img/stories/picsum/3-800x600.jpg',
       width: 800,
       height: 600,
-      image_attributes: { 'data-cue': "fadeIn", 'data-duration': "1200"},
-      lightbox_dest_image_src: 'https://picsum.photos/id/5/1920/1080',
+      image_attributes: { 'data-cue': 'fadeIn', 'data-duration': '1200' },
+      lightbox_dest_image_src: '/img/stories/picsum/3-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/6/800/600',
+      src: '/img/stories/picsum/4-800x600.jpg',
       width: 800,
       height: 600,
-      image_attributes: { 'data-cue': "fadeIn", 'data-duration': "1200"},
-      lightbox_dest_image_src: 'https://picsum.photos/id/6/1920/1080',
+      image_attributes: { 'data-cue': 'fadeIn', 'data-duration': '1200' },
+      lightbox_dest_image_src: '/img/stories/picsum/4-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/7/800/600',
+      src: '/img/stories/picsum/5-800x600.jpg',
       width: 800,
       height: 600,
-      image_attributes: { 'data-cue': "fadeIn", 'data-duration': "1200"},
-      lightbox_dest_image_src: 'https://picsum.photos/id/7/1920/1080',
+      image_attributes: { 'data-cue': 'fadeIn', 'data-duration': '1200' },
+      lightbox_dest_image_src: '/img/stories/picsum/5-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },
-    { 
+    {
       alt: 'Image alternative text',
-      src: 'https://picsum.photos/id/8/800/600',
+      src: '/img/stories/picsum/6-800x600.jpg',
       width: 800,
       height: 600,
-      image_attributes: { 'data-cue': "fadeIn", 'data-duration': "1200"},
-      lightbox_dest_image_src: 'https://picsum.photos/id/8/1920/1080',
+      image_attributes: { 'data-cue': 'fadeIn', 'data-duration': '1200' },
+      lightbox_dest_image_src: '/img/stories/picsum/6-1920x1080.jpg',
+      lightbox_caption: 'Title: Image title',
+      lightbox_gallery: '',
+    },
+    {
+      alt: 'Image alternative text',
+      src: '/img/stories/picsum/7-800x600.jpg',
+      width: 800,
+      height: 600,
+      image_attributes: { 'data-cue': 'fadeIn', 'data-duration': '1200' },
+      lightbox_dest_image_src: '/img/stories/picsum/7-1920x1080.jpg',
+      lightbox_caption: 'Title: Image title',
+      lightbox_gallery: '',
+    },
+    {
+      alt: 'Image alternative text',
+      src: '/img/stories/picsum/8-800x600.jpg',
+      width: 800,
+      height: 600,
+      image_attributes: { 'data-cue': 'fadeIn', 'data-duration': '1200' },
+      lightbox_dest_image_src: '/img/stories/picsum/8-1920x1080.jpg',
       lightbox_caption: 'Title: Image title',
       lightbox_gallery: '',
     },

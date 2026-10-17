@@ -5,7 +5,6 @@ import YoutubeSource from './youtube.twig?raw';
 export default {
   title: 'Components/Youtube',
   parameters: {
-    componentSubtitle: '',
     componentSource: {
       code: YoutubeSource,
       language: 'twig',
@@ -36,7 +35,7 @@ export default {
       control: 'array',
       description: 'Array of classes',
       table: {
-        type: {summary: 'array'},
+        type: { summary: 'array' },
       },
     },
   },
@@ -49,9 +48,8 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Youtube video example',
   video_id: 'CLwX9EWlWJM',
-  classes: ['']
+  classes: [''],
 };
-
 
 export const Example1 = Template.bind({});
 Example1.args = {
@@ -63,6 +61,6 @@ Example1.parameters = {
   docs: {
     description: {
       story: 'Example of a rounded (4) youtube video with big shadow.',
-    }
+    },
   },
-}
+};

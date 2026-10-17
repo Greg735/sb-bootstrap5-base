@@ -2,13 +2,17 @@ import separatorTemplate from './separator.twig';
 import SeparatorDocs from './separator.docs.md?raw';
 import SeparatorSource from './separator.twig?raw';
 
-
 export default {
   title: 'Components/Separator',
   parameters: {
     componentSource: {
       code: SeparatorSource,
       language: 'twig',
+    },
+    docs: {
+      description: {
+        component: SeparatorDocs,
+      },
     },
   },
   argTypes: {
@@ -17,8 +21,8 @@ export default {
       description: 'CSS classes to apply to the separator.',
       defaultValue: null,
       table: {
-        type: {summary: 'array'},
-        defaultValue: {summary: 'null'},
+        type: { summary: 'array' },
+        defaultValue: { summary: 'null' },
       },
     },
   },

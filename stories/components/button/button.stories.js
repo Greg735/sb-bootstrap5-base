@@ -1,7 +1,6 @@
 import buttonTemplate from './button.twig';
 import ButtonSource from './button.twig?raw';
-import {constants} from '../_constants';
-
+import { constants } from '../_constants';
 
 export default {
   title: 'Components/Button/Button',
@@ -9,63 +8,62 @@ export default {
     componentSource: {
       code: ButtonSource,
       language: 'twig',
-    }
+    },
   },
   argTypes: {
     label: {
       control: 'text',
       type: {
         required: true,
-      }
+      },
     },
     type_attr: {
-      control: {type: 'radio'},
+      control: { type: 'radio' },
       options: constants.button.type,
       description: '**options**',
       table: {
         required: true,
         type: {
-          summary: constants.button.type.map(option => `'${option}'`).join('|')
+          summary: constants.button.type.map((option) => `'${option}'`).join('|'),
         },
-        defaultValue: {summary: "button"},
+        defaultValue: { summary: 'button' },
       },
     },
     type: {
-      control: {type: 'select'},
+      control: { type: 'select' },
       options: constants.button.theme.options,
       description: '**options**',
       table: {
         type: {
-          summary: constants.button.theme.options.map(option => `'${option}'`).join('|')
+          summary: constants.button.theme.options.map((option) => `'${option}'`).join('|'),
         },
-        defaultValue: {summary: "primary"},
+        defaultValue: { summary: 'primary' },
       },
     },
     size: {
       description: '**options**',
-      control: {type: 'radio'},
+      control: { type: 'radio' },
       options: constants.sizes.options,
       table: {
         type: {
-          summary: constants.sizes.options.map(option => `'${option}'`).join('|')
-        }
+          summary: constants.sizes.options.map((option) => `'${option}'`).join('|'),
+        },
       },
     },
     with_icon: {
-      control: {type: 'boolean'}
+      control: { type: 'boolean' },
     },
     disabled: {
-      control: {type: 'boolean'}
+      control: { type: 'boolean' },
     },
     full_width: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     rounded_pill: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
   },
 };
-
 
 const Template = (args) => buttonTemplate(args);
 
@@ -130,7 +128,6 @@ Cyan.args = {
   label: 'Cyan button',
   type: 'cyan',
 };
-
 
 export const Light = Template.bind({});
 Light.args = {

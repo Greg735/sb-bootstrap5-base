@@ -18,76 +18,98 @@ $custom-widths: (
 );
 
 $utilities: map-merge(
-    $utilities,
-    (
-      "width": (
-        property: width,
-        class: w,
-        values: map-merge(map-get($utilities, "width", "values"), $custom-widths)
-      ),
-    )
+  $utilities,
+  (
+    'width': (
+      property: width,
+      class: w,
+      values: map-merge(map-get($utilities, 'width', 'values'), $custom-widths),
+    ),
+  )
 );
 
 $utilities: map-merge(
-    $utilities,
-    (
-      "rounded": map-merge(
-          map-get($utilities, "rounded"),
-          (responsive: true),
+  $utilities,
+  (
+    'rounded': map-merge(
+        map-get($utilities, 'rounded'),
+        (
+          responsive: true,
+        )
       ),
-      "rounded-top": map-merge(
-          map-get($utilities, "rounded-top"),
-          (responsive: true),
+    'rounded-top': map-merge(
+        map-get($utilities, 'rounded-top'),
+        (
+          responsive: true,
+        )
       ),
-      "rounded-bottom": map-merge(
-          map-get($utilities, "rounded-bottom"),
-          (responsive: true),
+    'rounded-bottom': map-merge(
+        map-get($utilities, 'rounded-bottom'),
+        (
+          responsive: true,
+        )
       ),
-      "rounded-start": map-merge(
-          map-get($utilities, "rounded-start"),
-          (responsive: true),
+    'rounded-start': map-merge(
+        map-get($utilities, 'rounded-start'),
+        (
+          responsive: true,
+        )
       ),
-      "rounded-end": map-merge(
-          map-get($utilities, "rounded-end"),
-          (responsive: true),
+    'rounded-end': map-merge(
+        map-get($utilities, 'rounded-end'),
+        (
+          responsive: true,
+        )
       ),
-    )
+  )
 );
 
 $utilities: map-merge(
-    $utilities,
-    (
-      "position": map-merge(
-          map-get($utilities, "position"),
-          (responsive: true),
+  $utilities,
+  (
+    'position': map-merge(
+        map-get($utilities, 'position'),
+        (
+          responsive: true,
+        )
       ),
-    )
+  )
 );
 
 $utilities: map-merge(
-    $utilities,
-    (
-      "rounded": map-merge(
-          map-get($utilities, "rounded"),
-          (responsive: true),
+  $utilities,
+  (
+    'rounded': map-merge(
+        map-get($utilities, 'rounded'),
+        (
+          responsive: true,
+        )
       ),
-      "rounded-top": map-merge(
-          map-get($utilities, "rounded-top"),
-          (responsive: true),
+    'rounded-top': map-merge(
+        map-get($utilities, 'rounded-top'),
+        (
+          responsive: true,
+        )
       ),
-      "rounded-bottom": map-merge(
-          map-get($utilities, "rounded-bottom"),
-          (responsive: true),
+    'rounded-bottom': map-merge(
+        map-get($utilities, 'rounded-bottom'),
+        (
+          responsive: true,
+        )
       ),
-      "rounded-start": map-merge(
-          map-get($utilities, "rounded-start"),
-          (responsive: true),
+    'rounded-start': map-merge(
+        map-get($utilities, 'rounded-start'),
+        (
+          responsive: true,
+        )
       ),
-      "rounded-end": map-merge(
-          map-get($utilities, "rounded-end"),
-          (responsive: true),
+    'rounded-end': map-merge(
+        map-get($utilities, 'rounded-end'),
+        (
+          responsive: true,
+        )
       ),
-    )
+  )
 );
 
 // Todo check if used.
@@ -103,4 +125,3 @@ $utilities: map-merge(
     margin-bottom: 0 !important;
   }
 }
-

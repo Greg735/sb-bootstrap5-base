@@ -1,13 +1,10 @@
-
 import carouselTwig from './carousel.twig';
 import CarouselDocs from './carousel.docs.md?raw';
 import CarouselSource from './carousel.twig?raw';
 
-
 export default {
   title: 'Components/Carousel',
   parameters: {
-    componentSubtitle: '',
     componentSource: {
       code: CarouselSource,
       language: 'twig',
@@ -19,15 +16,15 @@ export default {
     },
   },
   tags: ['autodocs'],
-  args: {
-  },
+  args: {},
   argTypes: {
     indicators: { control: 'boolean', defaultValue: true },
     controls: { control: 'boolean', defaultValue: true },
     autoplay: { control: 'boolean', defaultValue: true },
     carousel_height: { control: 'number', defaultValue: null },
     carousel_id: { control: 'text', defaultValue: 'carouselExample' },
-    carousel_classes: { control: 'array',
+    carousel_classes: {
+      control: 'array',
       description: 'Array of classes',
       table: {
         type: { summary: 'array' },
@@ -37,24 +34,24 @@ export default {
       control: 'object',
       defaultValue: [
         {
-          src: 'https://picsum.photos/id/555/800/600',
+          src: '/img/stories/picsum/555-800x600.jpg',
           alt: 'First slide',
-          html_content: '<h1 class="mt-5">First Slide</h1>'
+          html_content: '<h1 class="mt-5">First Slide</h1>',
         },
         {
-          src: 'https://picsum.photos/id/554/800/600',
+          src: '/img/stories/picsum/554-800x600.jpg',
           alt: 'Second slide',
           caption: 'Second Slide Label',
-          subcaption: 'Some representative placeholder content for the second slide.'
+          subcaption: 'Some representative placeholder content for the second slide.',
         },
         {
-          src: 'https://picsum.photos/id/553/800/600',
+          src: '/img/stories/picsum/553-800x600.jpg',
           alt: 'Third slide',
           caption: 'Third Slide Label',
-          subcaption: 'Some representative placeholder content for the third slide.'
-        }
-      ]
-    }
+          subcaption: 'Some representative placeholder content for the third slide.',
+        },
+      ],
+    },
   },
 };
 
@@ -69,21 +66,21 @@ Default.args = {
   carousel_classes: '',
   items: [
     {
-      src: 'https://picsum.photos/id/555/800/600',
+      src: '/img/stories/picsum/555-800x600.jpg',
       alt: 'First slide',
-      html_content: '<h1 class="mt-5">First Slide</h1>'
+      html_content: '<h1 class="mt-5">First Slide</h1>',
     },
     {
-      src: 'https://picsum.photos/id/554/800/600',
+      src: '/img/stories/picsum/554-800x600.jpg',
       alt: 'Second slide',
       caption: 'Second Slide Label',
-      subcaption: 'Some representative placeholder content for the second slide.'
+      subcaption: 'Some representative placeholder content for the second slide.',
     },
     {
-      src: 'https://picsum.photos/id/553/800/600',
+      src: '/img/stories/picsum/553-800x600.jpg',
       alt: 'Third slide',
-    }
-  ]
+    },
+  ],
 };
 
 export const FixedHeight = Template.bind({});
@@ -101,19 +98,19 @@ WithLightbox.args = {
   carousel_id: 'carouselExample3',
   items: [
     {
-      src: 'https://picsum.photos/id/555/800/600',
-      lightbox_img: 'https://picsum.photos/id/555/3440/1440',
+      src: '/img/stories/picsum/555-800x600.jpg',
+      lightbox_img: '/img/stories/picsum/555-3440x1440.jpg',
       alt: 'First slide',
     },
     {
-      src: 'https://picsum.photos/id/554/800/600',
-      lightbox_img: 'https://picsum.photos/id/554/3440/1440',
+      src: '/img/stories/picsum/554-800x600.jpg',
+      lightbox_img: '/img/stories/picsum/554-3440x1440.jpg',
       alt: 'Second slide',
     },
     {
-      src: 'https://picsum.photos/id/553/800/600',
-      lightbox_img: 'https://picsum.photos/id/553/3440/1440',
+      src: '/img/stories/picsum/553-800x600.jpg',
+      lightbox_img: '/img/stories/picsum/553-3440x1440.jpg',
       alt: 'Third slide',
-    }
-  ]
+    },
+  ],
 };

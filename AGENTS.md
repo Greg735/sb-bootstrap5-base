@@ -61,6 +61,8 @@ Agents working in this repository should preserve the current Storybook + Twig +
 
 If you need to change runtime output, modify the source under `stories/` or the relevant build config, then rebuild.
 
+Demo images used by stories live in `public/img/stories/` (local copies, no external URLs such as picsum.photos) and are not copied to `dist/`.
+
 ---
 
 ## Development Commands
@@ -105,6 +107,15 @@ ddev npm run build-storybook
 ```bash
 ddev npm test
 ```
+
+### Lint and format
+
+```bash
+ddev npm run lint     # ESLint + Prettier check (run in CI)
+ddev npm run format   # Prettier --write
+```
+
+Prettier ignores `*.twig` and `*.md`. Use `parameters.docs.subtitle` in stories (not the removed `componentSubtitle`), and PascalCase story exports.
 
 ### Security audit
 

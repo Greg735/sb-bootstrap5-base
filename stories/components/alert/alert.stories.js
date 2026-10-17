@@ -1,15 +1,12 @@
-
 // import './_alert.scss';
 import alertTemplate from './alert.twig';
 import AlertDocs from './alert.docs.md?raw';
 import AlertSource from './alert.twig?raw';
-import {constants} from '../_constants';
-
+import { constants } from '../_constants';
 
 export default {
   title: 'Components/Alert/Alert',
   parameters: {
-    componentSubtitle: '',
     docs: {
       description: {
         component: AlertDocs,
@@ -20,52 +17,50 @@ export default {
       language: 'twig',
     },
   },
-  args: {
-  },
+  args: {},
   argTypes: {
-    text: { 
-      control: 'text', 
+    text: {
+      control: 'text',
       description: 'Can contains html tags.',
       type: {
         required: true,
-      }
+      },
     },
     type: {
-      control: { 
-        type: 'select'
+      control: {
+        type: 'select',
       },
-      defaultValue: "primary", 
+      defaultValue: 'primary',
       options: constants.colors.actions.options,
       description: '**Options**',
       table: {
-        require: "false",
-        type: { 
-          summary: constants.colors.actions.options.map(option => `'${option}'`).join('|')
+        require: 'false',
+        type: {
+          summary: constants.colors.actions.options.map((option) => `'${option}'`).join('|'),
         },
-        defaultValue: { 
-          summary: "info" 
+        defaultValue: {
+          summary: 'info',
         },
       },
     },
-    dismissible: { 
+    dismissible: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
-      }
+      },
     },
-    hide_icon: { 
+    hide_icon: {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
-      }
-    }
+      },
+    },
   },
 };
 
 const Template = (args) => alertTemplate(args);
-
 
 export const Info = Template.bind({});
 Info.args = {
@@ -74,7 +69,6 @@ Info.args = {
   dismissible: false,
   hide_icon: false,
 };
-
 
 export const Success = Template.bind({});
 Success.args = {
@@ -108,16 +102,16 @@ SuccessBigMessage.args = {
   hide_icon: false,
 };
 SuccessBigMessage.parameters = {
-	// backgrounds: { default: 'dark' },
+  // backgrounds: { default: 'dark' },
   backgrounds: {
     values: [
       { name: 'light', value: '#fff' },
       { name: 'dark', value: '#333' },
     ],
   },
-	docs: {
-		description: {
-      story : 'Example with full html tags in text and no icon.',
-    }
-	},
+  docs: {
+    description: {
+      story: 'Example with full html tags in text and no icon.',
+    },
+  },
 };

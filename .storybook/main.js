@@ -9,7 +9,7 @@ const config = {
     // '@storybook/addon-themes',
     // '@chromatic-com/storybook'
     '@storybook/addon-a11y',
-    '@storybook/addon-vitest'
+    '@storybook/addon-vitest',
   ],
   docs: {
     // set to change the name of generated docs entries

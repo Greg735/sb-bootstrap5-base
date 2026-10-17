@@ -12,28 +12,44 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     offset: {
-      control: {type: 'number'},
+      control: { type: 'number' },
       description: 'Offset to trigger animation (default: 100)',
       table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 100},
+        type: { summary: 'number' },
+        defaultValue: { summary: 100 },
       },
     },
     duration: {
-      control: {type: 'number'},
+      control: { type: 'number' },
       description: 'Duration of the animation in milliseconds (default: 400)',
       table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 800},
+        type: { summary: 'number' },
+        defaultValue: { summary: 800 },
       },
     },
     animation: {
-      control: {type: 'select'},
-      options: ['fadeIn', 'slideInLeft', 'slideInRight', 'slideInDown', 'slideInUp', 'zoomIn', 'zoomOut', 'rotateIn', 'bounceIn', 'bounceInLeft', 'bounceInRight', 'bounceInDown', 'bounceInUp', 'flipInX', 'flipInY'],
+      control: { type: 'select' },
+      options: [
+        'fadeIn',
+        'slideInLeft',
+        'slideInRight',
+        'slideInDown',
+        'slideInUp',
+        'zoomIn',
+        'zoomOut',
+        'rotateIn',
+        'bounceIn',
+        'bounceInLeft',
+        'bounceInRight',
+        'bounceInDown',
+        'bounceInUp',
+        'flipInX',
+        'flipInY',
+      ],
       description: 'The type of animation',
       table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'fadeIn'},
+        type: { summary: 'string' },
+        defaultValue: { summary: 'fadeIn' },
       },
     },
   },
@@ -144,7 +160,6 @@ FlipInX.args = {
   duration: 1000,
   animation: 'flipInX',
 };
-
 
 export const FlipInY = Template.bind({});
 FlipInY.args = {

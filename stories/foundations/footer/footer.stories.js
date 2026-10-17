@@ -1,20 +1,19 @@
-import TwigFooter from './footer.local.twig'
-import TwigFooter2 from './footer2.local.twig'
-import TwigFooter3 from './footer3.local.twig'
-import FooterDocs from './footer.docs.md?raw'
-
+import TwigFooter from './footer.local.twig';
+import TwigFooter2 from './footer2.local.twig';
+import TwigFooter3 from './footer3.local.twig';
+import FooterDocs from './footer.docs.md?raw';
 
 export default {
   title: 'Foundations/Footer',
   parameters: {
-    componentSubtitle: 'HTML footer',
     docs: {
+      subtitle: 'HTML footer',
       description: {
         component: FooterDocs,
       },
     },
   },
-}
+};
 
 export const Example = (args) => TwigFooter(args);
 export const Example2 = (args) => TwigFooter2(args);

@@ -1,66 +1,66 @@
 .section {
-    &--fade-photo {
-        position: relative;
-        width: 100%;
-        height: auto;
-        // background-position-x: center;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        overflow: hidden; 
-        
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
-            animation: fadeBackground 1s infinite alternate;
-        }
+  &--fade-photo {
+    position: relative;
+    width: 100%;
+    height: auto;
+    // background-position-x: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
 
-        .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes fadeBackground {
-            0% { background: rgba(0, 0, 0, 0.9); }
-            100% { background: rgba(0, 0, 0, 0.6); }
-        }
-    }
-    
-    
-    &--linear-primary {
-        background: linear-gradient(-45deg, var(--bs-orange), var(--bs-purple), var(--bs-blue), var(--bs-green));
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-    }
-    
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+      animation: fadeBackground 1s infinite alternate;
     }
 
-    &--photo {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        &__fixed {
-            @extend .section--photo;
-            background-attachment: fixed;
-        }
+    .container {
+      position: relative;
+      z-index: 1;
     }
 
+    @keyframes fadeBackground {
+      0% {
+        background: rgba(0, 0, 0, 0.9);
+      }
+      100% {
+        background: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+
+  &--linear-primary {
+    background: linear-gradient(-45deg, var(--bs-orange), var(--bs-purple), var(--bs-blue), var(--bs-green));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  &--photo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__fixed {
+      @extend .section--photo;
+      background-attachment: fixed;
+    }
+  }
 }
-
-

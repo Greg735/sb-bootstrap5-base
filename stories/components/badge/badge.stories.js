@@ -1,12 +1,11 @@
 import badgeTemplate from './badge.twig';
 import BadgeSource from './badge.twig?raw';
 import BadgeDocs from './badge.docs.md?raw';
-import {constants} from '../_constants';
+import { constants } from '../_constants';
 
 export default {
   title: 'Components/Badge',
   parameters: {
-    componentSubtitle: '',
     docs: {
       description: {
         component: BadgeDocs,
@@ -15,32 +14,32 @@ export default {
     componentSource: {
       code: BadgeSource,
       language: 'twig',
-    }
+    },
   },
   argTypes: {
-    label: {control: 'text'},
+    label: { control: 'text' },
     type: {
-      control: {type: 'select'},
+      control: { type: 'select' },
       options: constants.colors.theme.options,
       description: '**options**',
       table: {
-        require: "false",
+        require: 'false',
         type: {
-          summary: constants.colors.theme.options.map(option => `'${option}'`).join('|')
+          summary: constants.colors.theme.options.map((option) => `'${option}'`).join('|'),
         },
         defaultValue: {
-          summary: "primary"
+          summary: 'primary',
         },
       },
     },
     pill: {
-      control: 'boolean'
+      control: 'boolean',
     },
     badge_classes: {
       control: 'array',
       description: 'Array of classes',
       table: {
-        type: {summary: 'array'},
+        type: { summary: 'array' },
       },
     },
   },

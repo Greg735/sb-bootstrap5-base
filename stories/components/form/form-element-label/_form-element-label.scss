@@ -1,6 +1,6 @@
 // Required marker on labels and legends.
 .form-required::after {
-  content: "*";
-  margin-left: .25rem;
+  content: '*';
+  margin-left: 0.25rem;
   color: $danger;
 }

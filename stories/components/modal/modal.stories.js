@@ -11,12 +11,12 @@ export default {
   },
   tags: ['autodocs'],
   argTypes: {
-    label: {control: 'text'},
+    label: { control: 'text' },
     modal_classes: {
       control: 'array',
       description: 'Array of classes',
       table: {
-        type: {summary: 'array'},
+        type: { summary: 'array' },
       },
     },
   },
@@ -28,5 +28,5 @@ export const Modal = Template.bind({});
 Modal.args = {
   modal_id: 'exempleModal',
   content: 'Modal',
-  modal_classes: ['']
+  modal_classes: [''],
 };

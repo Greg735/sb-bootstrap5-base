@@ -2,12 +2,9 @@ import ImageTemplate from './image.twig';
 import ImageDocs from './image.docs.md?raw';
 import ImageSource from './image.twig?raw';
 
-
 export default {
   title: 'Components/Image',
   parameters: {
-    componentSubtitle:
-      '',
     componentSource: {
       code: ImageSource,
       language: 'twig',
@@ -25,13 +22,13 @@ export default {
       control: 'text',
       type: {
         required: true,
-      }
+      },
     },
     src: {
       control: 'text',
       type: {
         required: true,
-      }
+      },
     },
     width: {
       control: 'number',
@@ -39,9 +36,9 @@ export default {
         required: false,
       },
       table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 640},
-      }
+        type: { summary: 'number' },
+        defaultValue: { summary: 640 },
+      },
     },
     height: {
       control: 'number',
@@ -49,36 +46,36 @@ export default {
         required: false,
       },
       table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 480},
-      }
+        type: { summary: 'number' },
+        defaultValue: { summary: 480 },
+      },
     },
     shadow: {
       control: 'boolean',
       table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: false},
-      }
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
     },
     thumbnail: {
       control: 'boolean',
       table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: false},
-      }
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
     },
     rounded: {
       control: 'boolean',
       table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: false},
-      }
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
     },
     image_classes: {
       control: 'array',
       description: 'Array of classes',
       table: {
-        type: {summary: 'array'},
+        type: { summary: 'array' },
       },
     },
   },
@@ -86,11 +83,10 @@ export default {
 
 const Template = (args) => ImageTemplate(args);
 
-
 export const Default = Template.bind({});
 Default.args = {
   alt: 'Image alternative text',
-  src: 'https://picsum.photos/id/32/640/480',
+  src: '/img/stories/picsum/32-640x480.jpg',
   shadow: false,
   thumbnail: false,
   rounded: false,

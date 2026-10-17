@@ -5,7 +5,6 @@ import AnchorDocs from './anchor.docs.md?raw';
 export default {
   title: 'Components/Anchor',
   parameters: {
-    componentSubtitle: '',
     docs: {
       description: {
         component: AnchorDocs,
@@ -17,7 +16,7 @@ export default {
     },
   },
   argTypes: {
-    id: {control: 'text'},
+    id: { control: 'text' },
   },
 };
 

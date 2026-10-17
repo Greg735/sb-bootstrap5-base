@@ -1,17 +1,16 @@
-import TwigTypography from './typography.local.twig'
-import TypographyDocs from './typography.docs.md?raw'
-
+import TwigTypography from './typography.local.twig';
+import TypographyDocs from './typography.docs.md?raw';
 
 export default {
   title: 'Foundations/Typography',
   parameters: {
-    componentSubtitle: 'Typography used in website.',
     docs: {
+      subtitle: 'Typography used in website.',
       description: {
         component: TypographyDocs,
       },
     },
   },
-}
+};
 
 export const Example = (args) => TwigTypography(args);

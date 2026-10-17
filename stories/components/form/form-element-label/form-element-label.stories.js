@@ -28,10 +28,11 @@ export default {
   },
 };
 
-const Template = ({ for: forId, ...args }) => formElementLabelTemplate({
-  ...args,
-  attributes: attributes({ for: forId }),
-});
+const Template = ({ for: forId, ...args }) =>
+  formElementLabelTemplate({
+    ...args,
+    attributes: attributes({ for: forId }),
+  });
 
 export const Default = Template.bind({});
 Default.args = {

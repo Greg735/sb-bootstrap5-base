@@ -1,5 +1,5 @@
-import TwigForms from './forms.local.twig'
-import FormsDocs from './forms.docs.md?raw'
+import TwigForms from './forms.local.twig';
+import FormsDocs from './forms.docs.md?raw';
 
 export default {
   title: 'Foundations/Forms',
@@ -9,13 +9,13 @@ export default {
         component: FormsDocs,
       },
     },
-    controls: {disable: true},
+    controls: { disable: true },
   },
   argTypes: {
     columns: {
       table: {
         disable: true,
-      }
+      },
     },
     colors: {
       table: {
@@ -24,6 +24,6 @@ export default {
     },
   },
   args: {},
-}
+};
 
 export const FormsExample = (args) => TwigForms(args);

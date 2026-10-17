@@ -35,6 +35,12 @@ DDEV installs the Playwright Chromium browser on start (needed for `npm test`).
 | `ddev npm run build-storybook` | Static build into `storybook-static/` |
 | `ddev npm test` | Run story tests with Vitest (headless Chromium) |
 | `ddev npm run test:watch` | Vitest in watch mode |
+| `ddev npm run lint` | ESLint, then Prettier check |
+| `ddev npm run format` | Format the sources with Prettier |
+
+After a Playwright upgrade, run `ddev restart` (or `ddev npx playwright install chromium`) to download the matching browser.
+
+CI (`.github/workflows/ci.yml`) runs `lint`, `assets` (and fails if `dist/` or `public/` differ from a fresh build), `test` and `build-storybook`. Dependabot keeps npm packages and GitHub Actions up to date.
 
 Without DDEV, drop the `ddev` prefix (`npm run develop`, …).
 

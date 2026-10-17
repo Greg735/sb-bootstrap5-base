@@ -1,17 +1,16 @@
-import TwigDisplayHeading from './display-heading.twig'
-import DisplayHeadingDocs from './display-heading.docs.md?raw'
+import TwigDisplayHeading from './display-heading.twig';
+import DisplayHeadingDocs from './display-heading.docs.md?raw';
 import DisplayHeadingSource from './display-heading.twig?raw';
-
 
 export default {
   title: 'Components/Headings/Display',
   parameters: {
-    componentSubtitle: 'Display headings 1-6',
     componentSource: {
       code: DisplayHeadingSource,
       language: 'twig',
     },
     docs: {
+      subtitle: 'Display headings 1-6',
       description: {
         component: DisplayHeadingDocs,
       },
@@ -39,16 +38,16 @@ export default {
       control: 'array',
       description: 'Array of classes',
       table: {
-        type: {summary: 'array'},
+        type: { summary: 'array' },
       },
     },
   },
-  args: {display_heading_level: 1, text: 'Sample display text', heading_classes: ['text-center', 'text-uppercase']},
-}
+  args: { display_heading_level: 1, text: 'Sample display text', heading_classes: ['text-center', 'text-uppercase'] },
+};
 
 const Template = (args) => TwigDisplayHeading(args);
 
 export const Default = Template.bind({});
 Default.args = {
-  display_heading_level: 2
-}
+  display_heading_level: 2,
+};

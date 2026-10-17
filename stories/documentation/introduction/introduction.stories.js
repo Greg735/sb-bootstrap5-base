@@ -1,4 +1,4 @@
-import IntroTemplate from './introduction.local.twig'
+import IntroTemplate from './introduction.local.twig';
 
 const count = (modules) => Object.keys(modules).length;
 
@@ -12,10 +12,9 @@ export default {
     controls: { disable: true },
     actions: { disable: true },
   },
-}
+};
 
 export const Introduction = {
-  name: 'Introduction',
   render: (args) => IntroTemplate(args),
   args: {
     stats: [
@@ -73,4 +72,4 @@ export const Introduction = {
       },
     ],
   },
-}
+};

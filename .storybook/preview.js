@@ -35,7 +35,7 @@ const preview = {
     backgrounds: {
       options: {
         light: { name: 'light', value: '#fff' },
-        dark: { name: 'dark', value: '#000' }
+        dark: { name: 'dark', value: '#000' },
       },
     },
 
@@ -52,8 +52,8 @@ const preview = {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
-      test: 'todo'
-    }
+      test: 'todo',
+    },
   },
   initialGlobals: {
     backgrounds: { value: 'light' },

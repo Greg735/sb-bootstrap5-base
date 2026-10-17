@@ -1,5 +1,5 @@
 <blockquote class="blockquote{% if blockquote_classes|length > 0 %} {{ blockquote_classes|join(' ') }}{% endif %}"
-{% for attribute, value in blockquote_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+{% for attribute, value in blockquote_attributes %} {{ attribute }}="{{ value|e }}"{% endfor %}>
     {% if 'blockquote--quotted' in blockquote_classes %}
     <i class="bi bi-quote"></i>
     {% endif %}

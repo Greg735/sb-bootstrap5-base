@@ -4,4 +4,4 @@
   {% set classes = 'rounded-4 border border-' ~ type ~ subtle ~ ' p-4 bg-' ~ type ~ subtle ~ ' text-bg-' ~ type ~ emphasis ~ ' ' ~ classes %}
 {% endif %}
 
-<p {% if classes %} class="{{ classes }}"{% endif %}{% for attribute, value in paragraph_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>{{ content }}</p>
+<p {% if classes %} class="{{ classes }}"{% endif %}{% for attribute, value in paragraph_attributes %} {{ attribute }}="{{ value|e }}"{% endfor %}>{{ content }}</p>

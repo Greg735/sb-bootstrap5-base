@@ -78,6 +78,13 @@ export default {
         type: { summary: 'array' },
       },
     },
+    picture_srcsets: {
+      control: 'object',
+      description: 'Array of objects with srcset and media for the <picture> tag',
+      table: {
+        type: { summary: 'array' },
+      },
+    },
   },
 };
 
@@ -93,4 +100,17 @@ Default.args = {
   width: 640,
   height: 480,
   image_classes: [''],
+};
+
+export const WithPictureSrcSets = Template.bind({});
+WithPictureSrcSets.args = {
+  ...Default.args,
+  image_classes: ['w-100'],
+  picture_srcsets: [
+    { media: '(max-width: 575px)', srcset: '/img/stories/picsum/32-575x288.jpg' },
+    { media: '(max-width: 767px)', srcset: '/img/stories/picsum/32-767x384.jpg' },
+    { media: '(max-width: 991px)', srcset: '/img/stories/picsum/32-991x496.jpg' },
+    { media: '(max-width: 1199px)', srcset: '/img/stories/picsum/32-936x468.jpg' },
+    { media: '(max-width: 1399px)', srcset: '/img/stories/picsum/32-1116x558.jpg' },
+  ],
 };

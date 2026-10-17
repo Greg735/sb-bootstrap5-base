@@ -5,15 +5,25 @@
 {% set width = width|default('1920') %}
 {% set height = height|default('1080') %}
 
-<img 
+{% set has_picture = picture_srcsets is defined and picture_srcsets|length > 0 %}
+
+{% if has_picture %}
+<picture>
+  {% for source in picture_srcsets %}
+    <source srcset="{{ source.srcset|e }}" media="{{ source.media|e }}">
+  {% endfor %}
+{% endif %}
+<img
   loading="lazy"
-  src="{{ src }}"
-  alt="{{ alt }}"
+  src="{{ src|e }}"
+  alt="{{ alt|e }}"
   width="{{ width }}"
   height="{{ height }}"
-  class="img-fluid{% if image_classes|length > 0 %} {{ image_classes|join(' ') }}{% endif %} {{ thumbnail }} {{ rounded }} {{ shadow }}
-  "
+  class="img-fluid{% if image_classes|length > 0 %} {{ image_classes|join(' ') }}{% endif %} {{ thumbnail }} {{ rounded }} {{ shadow }}"
   {% for attribute, value in image_attributes %}
     {{ attribute }}="{{ value|e }}"
   {% endfor %}
   >
+{% if has_picture %}
+</picture>
+{% endif %}

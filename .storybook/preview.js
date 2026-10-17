@@ -1,6 +1,6 @@
 /** @type { import('@storybook/html-vite').Preview } */
 
-// Styles and the Gulp JS bundle are loaded via preview-head.html to avoid
+// Styles and the JS bundle (sb-main.js) are loaded via preview-head.html to avoid
 // MIME-type conflicts with Vite's module system.
 import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from 'storybook/viewport';
 

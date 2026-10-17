@@ -2,7 +2,7 @@
 
 {% set background_image = background_image ? ' style="background-image:url(\'' ~ background_image ~'\')" ' : null %}
 
-<section class="{% if classes|length > 0 %} {{ classes|join(' ') }}{% endif %}" {{ background_image }}{% for attribute, value in section_attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+<section class="{% if classes|length > 0 %} {{ classes|join(' ') }}{% endif %}" {{ background_image }}{% for attribute, value in section_attributes %} {{ attribute }}="{{ value|e }}"{% endfor %}>
 
   <div class="container">
   {% if heading %}

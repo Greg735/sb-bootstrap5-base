@@ -50,8 +50,10 @@ export const Introduction = {
       },
     ],
     steps: [
+      { title: 'Start the DDEV environment', command: 'ddev start' },
       { title: 'Install dependencies', command: 'ddev npm install' },
-      { title: 'Start Storybook and Gulp', command: 'ddev npm run develop' },
+      { title: 'Start Storybook and the assets build', command: 'ddev npm run develop' },
+      { title: 'Run the tests', command: 'ddev npm test' },
       { title: 'Build the static Storybook', command: 'ddev npm run build-storybook' },
     ],
     workflow: [
@@ -62,13 +64,23 @@ export const Introduction = {
       },
       {
         icon: 'filetype-scss',
-        title: 'Sass + Gulp',
-        text: 'Gulp compiles Sass and JavaScript into <code>public/</code> and <code>dist/</code>; Storybook reloads automatically.',
+        title: 'Sass + Vite',
+        text: 'The Vite assets build compiles Sass and <code>*.behaviors.js</code> files into <code>public/</code> and <code>dist/</code>; Storybook reloads automatically.',
+      },
+      {
+        icon: 'lightning-charge',
+        title: 'Drupal behaviors',
+        text: 'JavaScript is written as <code>Drupal.behaviors</code> with <code>once()</code>, so lightbox, masonry, map, animations and tooltips never initialise twice.',
+      },
+      {
+        icon: 'check2-circle',
+        title: 'Tests',
+        text: 'Vitest runs every story in Playwright, with <code>play</code> interaction tests and accessibility checks (<code>addon-a11y</code>).',
       },
       {
         icon: 'box-seam',
         title: 'Drupal ready',
-        text: 'Templates from <code>dist/components/</code> can be used directly in the Drupal theme.',
+        text: 'Templates from <code>dist/components/</code>, with the CSS and JS from <code>dist/</code>, are used directly in the Drupal theme.',
       },
     ],
   },

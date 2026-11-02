@@ -52,7 +52,7 @@
     "playwright": "^1.64.1",
     "postcss": "^8.5.30",
     "prettier": "^3.9.10",
-    "sass": "^1.105.2",
+    "sass": "^1.107.0",
     "scrollcue": "^2.0.0",
     "storybook": "^10.6.2",
     "terser": "^5.51.2",

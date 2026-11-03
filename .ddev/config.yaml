@@ -11,8 +11,11 @@ database:
     version: "10.11"
 use_dns_when_possible: true
 composer_version: "2"
-web_environment: []
-nodejs_version: "22"
+# Keep Playwright browsers in DDEV's persistent global cache volume,
+# so Chromium is not re-downloaded on every container rebuild.
+web_environment:
+    - PLAYWRIGHT_BROWSERS_PATH=/mnt/ddev-global-cache/ms-playwright
+nodejs_version: "24"
 corepack_enable: false
 omit_containers: [db]
 web_extra_exposed_ports:

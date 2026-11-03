@@ -67,7 +67,7 @@ Demo images used by stories live in `public/img/stories/` (local copies, no exte
 
 ## Development Commands
 
-**Always run Node/npm commands through DDEV** (`ddev npm …`, `ddev npx …`). The DDEV web container provides the expected Node version (`nodejs_version: "22"` in `.ddev/config.yaml`) and the Playwright/Chromium dependencies used by the Vitest browser tests. The host's `node`/`npm` is not reliable (it may point to an old nvm version, e.g. Node 11, on which `npm audit` and the toolchain fail).
+**Always run Node/npm commands through DDEV** (`ddev npm …`, `ddev npx …`). The DDEV web container provides the expected Node version (`nodejs_version: "24"` in `.ddev/config.yaml`) and the Playwright/Chromium dependencies used by the Vitest browser tests. The host's `node`/`npm` is not reliable (it may point to an old nvm version, e.g. Node 11, on which `npm audit` and the toolchain fail).
 
 If the containers are not running, start them with `ddev start`.
 

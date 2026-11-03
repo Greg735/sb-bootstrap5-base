@@ -27,6 +27,11 @@ const config = {
     const { default: twigDrupal } = await import('vite-plugin-twig-drupal');
 
     return mergeConfig(config, {
+      // twig is CommonJS and only imported by the compiled templates, which
+      // Vite's dependency scan does not see: pre-bundle it explicitly.
+      optimizeDeps: {
+        include: ['twig'],
+      },
       plugins: [
         twigDrupal({
           // Exclude ?raw imports so Vite's built-in raw handling takes over
